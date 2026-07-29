@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+quartz/node_modules/
+.npm/
+
+# Build and environments
+build/
+dist/
+public/
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# IDE and OS
+.DS_Store
+.vscode/
+.idea/
+
+# Quartz specific
+quartz/public/
+quartz/.quartz-cache
+quartz/
+quartz/
+node_modules/
+quartz/node_modules/

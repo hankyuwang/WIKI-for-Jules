@@ -1,0 +1,16 @@
+name: Jules
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  jules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Jules
+        uses: google-labs-code/jules-action@v0.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
