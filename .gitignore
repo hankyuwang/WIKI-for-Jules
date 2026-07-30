@@ -21,3 +21,7 @@ venv/
 # Quartz specific
 quartz/public/
 quartz/.quartz-cache
+
+# outputs directory
+outputs/*
+!outputs/.gitkeep
