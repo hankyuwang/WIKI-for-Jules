@@ -1,7 +1,7 @@
 name: Jules
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited]
   issues:
     types: [opened]
   pull_request_review_comment:
@@ -16,6 +16,6 @@ jobs:
 
       - name: Run Jules
         if: ${{ contains(fromJSON('["hankyuwang"]'), github.event.issue.user.login) }}
-        uses: google-labs-code/jules-action@v0.1.2
+        uses: google-labs-code/jules-invoke@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
