@@ -20,11 +20,9 @@ jobs:
 
       - name: Run Jules
         if: ${{ contains(fromJSON('["hankyuwang"]'), github.event.issue.user.login) }}
-        #關鍵修正 1：儲存庫名稱請用官方的 jules-action@v1
-        uses: google-labs-code/jules-action@v1
+        uses: google-labs-code/jules-invoke@v1
         with:
-          #關鍵修正 2：帶入 Jules 的工作任務目標（通常是 Issue 內容）
-          task: ${{ github.event.issue.body }}
+          prompt: |
+            ${{ github.event.issue.body }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          #關鍵修正 3：Jules 需要一組專屬的 API Key 才能連回 Google 雲端
           jules_api_key: ${{ secrets.JULES_API_KEY }}
