@@ -12,6 +12,7 @@ tags:
 
 ## 核心領域
 - [[NPU架構探索]] : NPU 硬體設計、SW/HW 協同與最新進展。
+- [[主要商用AI加速晶片架構分析]] : 主要商用 AI 加速晶片（NVIDIA B200/H100、AMD MI300X、Google TPU v5p、AWS Trainium2）架構分析與比較。
 - [[模型量化技術]] : 探索如何有效縮減模型大小，提升推理效能。
 - [[AI Agent 框架]] : 例如 CrewAI, AutoGen 等自動化框架實務。
 
