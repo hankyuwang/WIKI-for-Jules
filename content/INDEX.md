@@ -14,6 +14,12 @@ tags:
 - [[NPU架構探索]] : NPU 硬體設計、SW/HW 協同與最新進展。
 - [[模型量化技術]] : 探索如何有效縮減模型大小，提升推理效能。
 - [[AI Agent 框架]] : 例如 CrewAI, AutoGen 等自動化框架實務。
+- [[GPU]] : 圖形處理器與 AI 加速。
+- [[TPU]] : 張量處理器與 AI 加速。
+- [[HBM]] : 高頻寬記憶體架構分析。
+- [[CXL]] : Compute Express Link 協定與記憶體擴展。
+- [[Chiplet]] : 芯粒架構與先進封裝。
+- [[Processing-in-Memory]] : 記憶體內運算架構。
 
 ## 虛擬團隊
 此知識庫由多 Agent 協作維護，包含接待員、知識架構師、研究員、驗證員、教育員與實驗員。請參考 `.jules/instructions.md` 獲取更多細節。
