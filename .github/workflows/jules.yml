@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Jules
         if: ${{ contains(fromJSON('["hankyuwang"]'), github.event.issue.user.login) }}
-        uses: google-labs-code/jules-invoke@v1
+        uses: google-labs-code/jules-invoke@v1.0.0
         with:
           prompt: |
             ${{ github.event.issue.body }}
