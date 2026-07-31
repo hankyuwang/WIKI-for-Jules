@@ -14,6 +14,12 @@ tags:
 - [[NPU架構探索]] : NPU 硬體設計、SW/HW 協同與最新進展。
 - [[模型量化技術]] : 探索如何有效縮減模型大小，提升推理效能。
 - [[AI Agent 框架]] : 例如 CrewAI, AutoGen 等自動化框架實務。
+- [[HBM]] : 高頻寬記憶體技術。
+- [[PIM]] : 記憶體內運算技術。
+- [[Neuromorphic]] : 神經形態運算。
+- [[SiliconPhotonics]] : 矽光子技術。
+- [[Chiplet]] : 小晶片架構。
+- [[AdvancedPackaging]] : 先進封裝技術。
 
 ## 虛擬團隊
 此知識庫由多 Agent 協作維護，包含接待員、知識架構師、研究員、驗證員、教育員與實驗員。請參考 `.jules/instructions.md` 獲取更多細節。
