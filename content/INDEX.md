@@ -12,6 +12,7 @@ tags:
 
 ## 核心領域
 - [[NPU架構探索]] : NPU 硬體設計、SW/HW 協同與最新進展。
+- [[商業AI加速器比較]] : 三大商業 AI 加速器比較 (NVIDIA GPUs, AMD Instinct, Google TPUs)。
 - [[模型量化技術]] : 探索如何有效縮減模型大小，提升推理效能。
 - [[AI Agent 框架]] : 例如 CrewAI, AutoGen 等自動化框架實務。
 
