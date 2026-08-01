@@ -1,8 +1,6 @@
 ---
 title: Chiplet 小晶片架構
 level: intermediate
-title: Chiplet 小晶片技術與先進封裝分析
-level: research
 tags:
   - hardware
   - chiplet

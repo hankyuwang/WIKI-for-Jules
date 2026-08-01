@@ -1,7 +1,6 @@
 ---
 title: 商用AI加速晶片
 level: research
-level: intermediate
 tags:
   - hardware
   - ai-accelerator

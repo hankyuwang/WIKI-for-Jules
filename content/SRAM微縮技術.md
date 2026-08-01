@@ -1,6 +1,5 @@
 ---
 title: SRAM (Static Random Access Memory) 微縮技術
-title: SRAM微縮技術探索
 level: advanced
 tags:
   - hardware

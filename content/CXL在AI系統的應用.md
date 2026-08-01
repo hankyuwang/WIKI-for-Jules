@@ -6,7 +6,6 @@ tags:
   - memory
   - cxl
   - ai-systems
-level: advanced
   - system-architecture
 ---
 

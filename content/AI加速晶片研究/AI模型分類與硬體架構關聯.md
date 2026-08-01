@@ -1,6 +1,5 @@
 ---
 title: AI模型分類與硬體架構關聯
-title: AI 模型分類與硬體架構關聯
 level: intermediate
 tags:
   - ai-model

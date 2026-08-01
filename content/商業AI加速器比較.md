@@ -4,7 +4,6 @@ level: beginner
 tags:
   - AI-accelerators
   - research
-level: research
   - hardware
   - ai-accelerator
   - gpu

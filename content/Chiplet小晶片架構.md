@@ -1,6 +1,5 @@
 ---
 title: Chiplet (小晶片) 架構
-title: Chiplet 小晶片架構
 level: intermediate
 tags:
   - hardware
