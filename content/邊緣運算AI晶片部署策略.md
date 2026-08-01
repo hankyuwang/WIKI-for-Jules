@@ -1,6 +1,5 @@
 ---
 title: 邊緣運算AI晶片部署策略
-title: 邊緣運算 AI 晶片部署策略 (CPU/GPU, FPGA, ASIC/NPU)
 level: intermediate
 tags:
   - edge-computing
