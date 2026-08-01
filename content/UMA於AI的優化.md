@@ -6,7 +6,6 @@ tags:
   - memory
   - uma
   - ai-systems
-level: advanced
   - system-architecture
 ---
 

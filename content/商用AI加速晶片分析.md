@@ -5,7 +5,6 @@ tags:
   - ai-accelerator
   - hardware
   - gpu
-level: advanced
   - ai-accelerators
   - architecture
   - npu
