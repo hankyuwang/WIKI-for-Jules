@@ -1,11 +1,6 @@
 ---
 title: HBM 高頻寬記憶體技術
-level: advanced
-title: HBM 高頻寬記憶體技術分析
 level: research
-title: 高頻寬記憶體 (HBM) 架構分析
-title: HBM記憶體架構
-level: intermediate
 tags:
   - hardware
   - memory

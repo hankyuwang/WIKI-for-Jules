@@ -1,5 +1,4 @@
 ---
-title: ASIC與TPU架構分析
 title: ASIC 與 TPU 架構分析
 level: intermediate
 tags:

@@ -1,12 +1,11 @@
 ---
 title: UMA 於 AI 的優化
-level: beginner
+level: advanced
 tags:
   - hardware
   - memory
   - uma
   - ai-systems
-level: advanced
   - system-architecture
 ---
 

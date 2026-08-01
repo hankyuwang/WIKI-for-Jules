@@ -1,12 +1,11 @@
 ---
 title: CXL 在 AI 系統的應用
-level: intermediate
+level: advanced
 tags:
   - hardware
   - memory
   - cxl
   - ai-systems
-level: advanced
   - system-architecture
 ---
 

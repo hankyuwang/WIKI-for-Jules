@@ -1,11 +1,10 @@
 ---
 title: 商用 AI 加速晶片分析
-level: intermediate
+level: advanced
 tags:
   - ai-accelerator
   - hardware
   - gpu
-level: advanced
   - ai-accelerators
   - architecture
   - npu

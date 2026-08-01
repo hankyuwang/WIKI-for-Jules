@@ -1,10 +1,9 @@
 ---
 title: 商業 AI 加速器比較
-level: beginner
+level: research
 tags:
   - AI-accelerators
   - research
-level: research
   - hardware
   - ai-accelerator
   - gpu
