@@ -6,6 +6,21 @@ tags:
   - npu
   - hardware
   - architecture
+  - acceleration
+  - infrastructure
+  - tpu
+  - lpu
+  - strategy
+  - ai-accelerator
+title: AI加速晶片全景探索
+  - research
+  - h100
+  - ane
+  - groq
+title: AI 加速晶片全景探索：從雲端到邊緣的架構解析
+  - ai-chip
+  - accelerator
+  - ai
 ---
 
 # AI 加速晶片全景探索
