@@ -31,7 +31,7 @@ TPU 使用單一複雜指令（如 `MatrixMultiply`）即可觸發成千上萬�
 - 然而，Google 等巨頭在內部訓練超大模型（如 Gemini）時會大規模使用 TPU 叢集，因其 ICI 互連網路與成本效益在大規模部署下極具優勢。
 
 ## 6. TPUv8 與 CAE 潛在分析
-雖然 Google 官方尚未完全公開 TPUv8，但可預期其在網路互連上將有重大突破。集合通訊加速引擎 (Collective Acceleration Engine, CAE) 是解決 MoE 模型中 All-to-All 網路瓶頸的關鍵。CAE 將網路通訊從 CPU 卸載到硬體，透過光交換網路大幅降低叢集通訊延遲。
+Google 已經正式公開演進至 TPUv8，其在網路互連上展現了重大突破。集合通訊加速引擎 (Collective Acceleration Engine, CAE) 是解決 MoE 模型中 All-to-All 網路瓶頸的關鍵。CAE 將網路通訊從 CPU 卸載到硬體，透過光交換網路大幅降低叢集通訊延遲。
 
 ## 架構演進方案探討
 
