@@ -7,7 +7,7 @@ tags:
   - Systolic Array
 ---
 
-摘要：本文件針對使用者提出的六個核心問題進行深度分析，涵蓋 NPU 算力與 SRAM 容量關係、TPU 與 CISC/RISC 架構差異、脈動陣列 (Systolic Array) 解析、TPU 與 NVIDIA GPU 架構對比、現代 AI 模型訓練硬體選擇，以及 TPUv8 的集合通訊加速引擎 (CAE) 分析。
+摘要：本文件針對使用者提出的六個核心問題進行深度分析，涵蓋 NPU 算力與 SRAM 容量關係、TPU 與 CISC/RISC 架構差異、脈動陣列 (Systolic Array) 解析、TPU 與 NVIDIA GPU 架構對比、現代 AI 模型訓練硬體選擇，以及 TPUv8 (規格尚未公開) 的集合通訊加速引擎 (CAE) 分析。
 
 ## 1. NPU 矩陣算力與 SRAM 的關係
 在 NPU 架構中，特別是以矩陣運算為核心的脈動陣列，算力（MAC 單元數量）與所需 SRAM 頻寬往往呈「開根號關係」。
@@ -30,8 +30,8 @@ TPU 使用單一複雜指令（如 `MatrixMultiply`）即可觸發成千上萬�
 - 科學家大多傾向使用 **NVIDIA GPU**，主要因為 CUDA 建立的無敵軟體生態（如 PyTorch, Triton 等對 GPU 的完美支援）。
 - 然而，Google 等巨頭在內部訓練超大模型（如 Gemini）時會大規模使用 TPU 叢集，因其 ICI 互連網路與成本效益在大規模部署下極具優勢。
 
-## 6. TPUv8 與 CAE 潛在分析
-Google 已經正式公開演進至 TPUv8，其在網路互連上展現了重大突破。集合通訊加速引擎 (Collective Acceleration Engine, CAE) 是解決 MoE 模型中 All-to-All 網路瓶頸的關鍵。CAE 將網路通訊從 CPU 卸載到硬體，透過光交換網路大幅降低叢集通訊延遲。
+## 6. TPUv8 (規格尚未公開) 與 CAE 潛在分析
+Google 已經正式公開演進至 TPUv8 (規格尚未公開)，其在網路互連上展現了重大突破。集合通訊加速引擎 (Collective Acceleration Engine, CAE) 是解決 MoE 模型中 All-to-All 網路瓶頸的關鍵。CAE 將網路通訊從 CPU 卸載到硬體，透過光交換網路大幅降低叢集通訊延遲。
 
 ## 架構演進方案探討
 
