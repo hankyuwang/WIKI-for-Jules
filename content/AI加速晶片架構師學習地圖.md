@@ -17,55 +17,55 @@ tags:
 
 ## 2. 學習知識樹狀圖 (Top-Down 框架)
 
-```text
-AI加速晶片架構師核心知識體系
-├── 1. AI 演算法與模型行為 (Algorithm & Model Behavior)
-│   ├── 模型基礎知識
-│   │   ├── 訓練 (Training)：[[反向傳播]]、[[梯度下降]]、[[Optimizer]] 狀態
-│   │   └── 推論 (Inference)：[[Prefill]] vs. [[Decode]] (Memory-bound vs Compute-bound)
-│   ├── 關鍵神經網路架構
-│   │   ├── [[Transformer]] ([[FlashAttention3與極低精度量化硬體需求|Attention]] 機制、[[KV Cache]])
-│   │   ├── [[CNN]], [[RNN]] (歷史背景與邊緣應用)
-│   │   └── [[MoE]] (Mixture of Experts)、[[Mamba]]/[[SSM]] (最新演進)
-│   └── 模型演進對硬體的影響
-│       ├── 參數規模爆炸 ([[LLM推理擴展與效能瓶頸分析|LLM]]) -> 記憶體容量與頻寬需求急劇上升
-│       └── 長文本 ([[Long Context]]) -> [[KV Cache]] 瓶頸、分散式通訊需求
-│
-├── 2. 軟體堆疊與 SDK (Software Stack & SDK)
-│   ├── 主流生態系
-│   │   ├── NVIDIA [[CUDA]] / [[cuDNN]] / [[TensorRT]]
-│   │   └── AMD [[ROCm]], Intel [[OneAPI]]
-│   ├── 深度學習框架
-│   │   └── [[PyTorch]], [[TensorFlow]], [[JAX]]
-│   └── 分散式訓練框架
-│       └── [[Megatron]]-LM, [[DeepSpeed]] (資料平行、張量平行、管線平行)
-│
-├── 3. 編譯器與軟硬體協同優化 (Compiler & Co-design)
-│   ├── 圖級優化 (Graph-level Optimization)
-│   │   └── [[算子融合]] ([[Operator Fusion]])、記憶體配置優化
-│   ├── 核心編譯器與 IR (Intermediate Representation)
-│   │   └── [[MLIR]], [[XLA]], [[TVM]], [[Triton]]
-│   └── 低精度量化技術 ([[Quantization]])
-│       ├── [[FP16]], [[BF16]], [[INT8]], [[FP8]], [[INT4]]
-│       └── 量化感知訓練 ([[QAT]]) vs. 訓練後量化 ([[PTQ]])
-│
-└── 4. 硬體架構設計 (Hardware Architecture)
-    ├── 核心運算單元
-    │   ├── [[MAC]] (Multiply-Accumulate)
-    │   ├── [[TPU與脈動陣列|脈動陣列]] ([[Systolic Array]]) - Google [[TPU]] 經典設計
-    │   └── [[SIMD]] / [[SIMT]] - [[GPU]] 核心架構
-    ├── 記憶體階層 (Memory Hierarchy)
-    │   ├── On-chip [[SRAM]] (Global Buffer, Scratchpad)
-    │   └── Off-chip Memory ([[HBM]], [[GDDR]], [[LPDDR]])
-    ├── 晶片間互連與通訊 (Interconnect & Communication)
-    │   ├── 晶片內：[[NoC]] (Network on Chip)
-    │   ├── 晶片間：[[NVLink]], [[PCIe]], [[CXL]]
-    │   └── 網路層：[[InfiniBand]], [[RDMA]], [[RoCE]] v2
-    └── 先進封裝與異質整合
-        ├── 2.5D/3D 封裝 ([[CoWoS]])
-        ├── [[小晶片]] ([[Chiplet]])
-        └── [[矽光子]]/光電共封裝 ([[CPO]])
-```
+**AI加速晶片架構師核心知識體系**
+- 1. AI 演算法與模型行為 (Algorithm & Model Behavior)
+  - 模型基礎知識
+    - 訓練 (Training)：[[反向傳播]]、[[梯度下降]]、[[Optimizer]] 狀態
+    - 推論 (Inference)：[[Prefill]] vs. [[Decode]] (Memory-bound vs Compute-bound)
+  - 關鍵神經網路架構
+    - [[Transformer]] ([[FlashAttention3與極低精度量化硬體需求|Attention]] 機制、[[KV Cache]])
+    - [[CNN]], [[RNN]] (歷史背景與邊緣應用)
+    - [[MoE]] (Mixture of Experts)、[[Mamba]]/[[SSM]] (最新演進)
+  - 模型演進對硬體的影響
+    - 參數規模爆炸 ([[LLM推理擴展與效能瓶頸分析|LLM]]) -> 記憶體容量與頻寬需求急劇上升
+    - 長文本 ([[Long Context]]) -> [[KV Cache]] 瓶頸、分散式通訊需求
+
+- 2. 軟體堆疊與 SDK (Software Stack & SDK)
+  - 主流生態系
+    - NVIDIA [[CUDA]] / [[cuDNN]] / [[TensorRT]]
+    - AMD [[ROCm]], Intel [[OneAPI]]
+  - 深度學習框架
+    - [[PyTorch]], [[TensorFlow]], [[JAX]]
+  - 分散式訓練框架
+    - [[Megatron]]-LM, [[DeepSpeed]] (資料平行、張量平行、管線平行)
+
+- 3. 編譯器與軟硬體協同優化 (Compiler & Co-design)
+  - 圖級優化 (Graph-level Optimization)
+    - [[算子融合]] ([[Operator Fusion]])、記憶體配置優化
+  - 核心編譯器與 IR (Intermediate Representation)
+    - [[MLIR]], [[XLA]], [[TVM]], [[Triton]]
+  - 低精度量化技術 ([[Quantization]])
+    - [[FP16]], [[BF16]], [[INT8]], [[FP8]], [[INT4]]
+    - 量化感知訓練 ([[QAT]]) vs. 訓練後量化 ([[PTQ]])
+
+- 4. 硬體架構設計 (Hardware Architecture)
+  - 核心運算單元
+    - [[MAC]] (Multiply-Accumulate)
+    - [[TPU與脈動陣列|脈動陣列]] ([[Systolic Array]]) - Google [[TPU]] 經典設計
+    - [[SIMD]] / [[SIMT]] - [[GPU]] 核心架構
+  - 記憶體階層 (Memory Hierarchy)
+    - On-chip [[SRAM]] (Global Buffer, Scratchpad)
+    - Off-chip Memory ([[HBM]], [[GDDR]], [[LPDDR]])
+  - 晶片間互連與通訊 (Interconnect & Communication)
+    - 晶片內：[[NoC]] (Network on Chip)
+    - 晶片間：[[NVLink]], [[PCIe]], [[CXL]]
+    - 網路層：[[InfiniBand]], [[RDMA]], [[RoCE]] v2
+  - 先進封裝與異質整合
+    - 2.5D/3D 封裝 ([[CoWoS]])
+    - [[小晶片]] ([[Chiplet]])
+    - [[矽光子]]/光電共封裝 ([[CPO]])
+
+
 
 ## 3. 學習與職涯發展方案觀點分析
 
