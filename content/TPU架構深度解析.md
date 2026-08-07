@@ -8,7 +8,7 @@ tags:
 
 # 摘要
 
-張量處理單元 (Tensor Processing Unit, TPU) 是 Google 專為加速機器學習工作負載而開發的特定應用積體電路 (ASIC)。與通用型 GPU 不同，TPU 專為矩陣乘法運算高度優化，其核心架構為脈動陣列 (Systolic Array)，能在極低的功耗下提供巨大的運算吞吐量。從最初專注於推理的 TPU v1，到支援訓練並可透過高速環狀拓樸串接成 Pod 的 TPU v2/v3，再到最新的 TPU v4 與 v5 系列，TPU 在算力與網路頻寬上持續演進。本文將探討使用 TPU 進行 AI 任務的三種不同方案，並分析其優缺點、成本、維護性與風險。
+張量處理單元 (Tensor Processing Unit, TPU) 是 Google 專為加速機器學習工作負載而開發的特定應用積體電路 (ASIC)。與通用型 GPU 不同，TPU 專為矩陣乘法運算高度優化，其核心架構為脈動陣列 (Systolic Array)，能在極低的功耗下提供巨大的運算吞吐量。從最初專注於推理的 TPU v1，到支援訓練並可透過高速環狀拓樸串接成 Pod 的 TPU v2/v3，再到最新的 TPU v4、v5 與 v6 (Trillium) 系列，TPU 在算力與網路頻寬上持續演進。本文將探討使用 TPU 進行 AI 任務的三種不同方案，並分析其優缺點、成本、維護性與風險。
 
 ## 方案一：使用單一 Cloud TPU 節點
 
