@@ -1,22 +1,21 @@
-# 維護員巡檢報告 (Maintainer Inspection Report)
+# 維護員巡檢報告
 
-根據 `.jules/instructions.md`，維護員負責定期巡檢知識庫並產生報告以觸發虛擬團隊。
+**巡檢時間**: 2026-08-07 19:13:35
 
-## 1. 失效連結 (Dead Links)
-經自動化檢查所有 content/ 目錄下的 Markdown 檔案，目前沒有發現失效的內部連結。
+## 1. 失效連結 (Broken Links)
+- 經過腳本掃描，目前 `content/` 目錄下無發現失效的 `[[WikiLink]]` 連結。
 
-## 2. 過時版本 (Outdated Versions)
-- 檢查結果：在 `content/GPU架構與演進.md` 中，提及的 GPU 版本包含 NVIDIA 的 Tesla、Fermi、Kepler、Pascal、Volta、Ampere 到目前的 Hopper 及 Blackwell。內容提到了 Hopper 及 Blackwell，這符合 2024 年的最新產品線（NVIDIA H100, B200 已經在其他檔案如 `content/知名大廠AI加速晶片研究.md` 與 `content/主要商用AI加速晶片架構分析.md` 中充分涵蓋）。
-- 檢查結果：在 TPU 架構方面（如 `content/知名大廠AI加速晶片研究.md`），已經包含了最新的 Google TPU v5p 與 Trillium (TPU v6)，內容皆為最新。
+## 2. 過時版本 (Outdated Versions) & 4. 官方文件或是論文更新
+- 近期 DeepSeek (如 DeepSeek-R1) 和其他新模型引發了對推理擴展 (Inference Scaling) 和 MoE 架構的熱烈討論。雖然有提到 DeepSeek-R1，但可以考慮進一步擴充或確保版本是最新的。
+- TPU v6 已經正名為 Trillium，並且在知識庫中已經做了替換，但 TPU v8 仍然標記為 "規格尚未公開"。
+- Blackwell (B200) 和 MI300X/MI325X 已經是市場上的焦點，目前的知識庫已有涵蓋。
 
 ## 3. 已棄用架構 (Deprecated Architectures)
-- 檢查結果：經檢查，知識庫的重點已放在目前的現代架構（如 NVIDIA H100, B200, Google TPU v4/v5/v6, AMD MI300X）。過時的架構（如 Kepler, Pascal）僅在演進史中作為歷史脈絡被提及，沒有過度佔用篇幅或誤導使用者，無需將其標註為已棄用架構。
-
-## 4. 官方文件或是論文更新 (Official Docs/Papers Updates)
-- 檢查結果：目前的知識庫（如 `content/知名大廠AI加速晶片研究.md`）已經涵蓋了 NVIDIA Blackwell 架構 (B200) 以及 Google Trillium (TPU v6) 的關鍵硬體規格（如 HBM3e, NVLink 4, 光學互連）。這是近期官方發布會與論文的最新技術焦點，這部分的更新狀態良好。
+- 暫未發現明顯被標記為已棄用的架構，但隨著新一代晶片發布（如 Trillium、Blackwell），前幾代（如 TPU v4、A100）的討論可能需要標註為「前代架構」以作為對比參考。
 
 ## 5. 新最佳實務 (New Best Practices)
-- 建議行動：在 `content/AI加速晶片全景探索.md` 與 `content/知名大廠AI加速晶片研究.md` 等檔案中，已有提及 MoE (Mixture of Experts) 與 LLM 部署的關聯。然而，關於**量化技術 (Quantization)** (如 INT8, FP8 甚至 FP4 在 NPU/GPU 上的實踐) 以及 **小團隊自研策略中的開源軟體協同 (如 MLIR / XLA)** 的最佳實務，可以由虛擬團隊進一步統整為一篇新的獨立文章，以補足實作層面的指引。
+- 由於 DeepSeek-R1 和其他模型的開源，MoE 的部署實踐、低精度量化（FP8, FP4）、以及高效能推理框架 (如 vLLM, SGLang) 成為了新的最佳實務。可以考慮新增關於 **高效能 LLM 推理框架最佳實務** 的內容。
 
----
-**維護員建議**：本巡檢確認目前知識庫內容多數已與最新硬體規格 (B200, TPU v6) 同步。此報告將作為後續觸發虛擬團隊（接待員 -> 知識架構師 -> 研究員 -> 驗證員 -> 教育員）針對「新最佳實務（量化與編譯器協同）」更新知識庫的依據。請依照指示開始行動。
+## 建議行動方案 (交由虛擬團隊執行)
+1. **研究員任務**：撰寫一篇關於 **高效能LLM推理框架最佳實務.md** 的文章，內容涵蓋 vLLM、SGLang、TensorRT-LLM 等框架的比較，以及針對 MoE 模型 (如 DeepSeek) 的部署優化方案，並提出至少三種部署方案的優劣勢、成本、維護性與風險。
+2. **知識架構師任務**：將新文章加入 `content/INDEX.md`，並確保與現有文章（如 `LLM推理擴展與效能瓶頸分析.md`、`模型量化技術.md`）建立雙向連結。
