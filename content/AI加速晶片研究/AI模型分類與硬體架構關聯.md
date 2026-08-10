@@ -14,7 +14,7 @@ tags:
 不同的 AI 模型在運算 (Compute) 與記憶體存取 (Memory Access) 上的行為有著根本的差異。這決定了它們在不同硬體架構上運行時，會面臨不同的瓶頸。本篇分析目前主流 AI 模型分類，並探討它們與硬體架構間的關聯。
 
 ## 1. LLM Dense (大型語言模型 - 密集架構)
-**代表模型**: Llama 2, GPT-3, BERT
+**代表模型**: Llama-3.1, GPT-4, BERT
 
 *   **模型特徵**:
     *   **龐大的參數與矩陣**: 模型完全由巨大的 Dense Matrix (如 $W_Q, W_K, W_V$ 等 Attention 權重，以及 FFN 權重) 構成。

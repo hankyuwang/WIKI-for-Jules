@@ -32,7 +32,7 @@ GPU（Graphics Processing Unit，圖形處理器）最初專為處理圖形渲�
 
 ### 方案三：多 GPU 擴展架構 (Multi-GPU Scale-out)
 透過高速互連技術（如 NVLink、PCIe 拓樸）將多個 GPU 串聯，解決單一 GPU 記憶體與算力瓶頸。
-- **優點**：能夠訓練和部署超大規模模型（如 GPT-3, LLaMA），突破單點限制。
+- **優點**：能夠訓練和部署超大規模模型（如 GPT-4, Llama-3.1），突破單點限制。
 - **缺點**：通訊開銷（Communication Overhead）巨大，架構設計極為複雜。
 - **成本**：需要昂貴的網路設備（如 InfiniBand）與伺服器架構，整體建置與運行成本驚人。
 - **維護性**：分散式系統維護困難，需要專業的 SRE 與 ML 工程師團隊監控與除錯。

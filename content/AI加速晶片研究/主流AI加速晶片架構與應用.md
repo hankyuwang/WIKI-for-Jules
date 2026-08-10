@@ -75,7 +75,7 @@ Groq 採用了非常激進的架構設計，放棄了傳統的 Cache/HBM 架構�
     *   **DMA 架構**: 網路即 DMA。晶片間透過自有的 Real-time 網路互連，因為一切都是 deterministic 的，資料在預定的 cycle 就會送達隔壁晶片。
 *   **優勢/劣勢/目標市場**:
     *   **優勢**: **極低的延遲 (Ultra-low Latency)**。由於模型權重全部塞在 SRAM 裡，生成 Token 的速度極快 (可達數百 tokens/sec/user)。
-    *   **劣勢**: 為了放下大模型 (如 Llama 70B)，需要將模型切分到數十甚至數百張 Groq 卡的 SRAM 中。雖然單卡便宜，但系統層級的成本與機架空間 (Rack Space) 耗費驚人。不適合 Training。
+    *   **劣勢**: 為了放下大模型 (如 Llama-3.1-70B)，需要將模型切分到數十甚至數百張 Groq 卡的 SRAM 中。雖然單卡便宜，但系統層級的成本與機架空間 (Rack Space) 耗費驚人。不適合 Training。
     *   **市場**: 對即時對話、延遲極度敏感的 AI 應用。
 
 ## 5. Apple A-Series / M-Series (Apple Neural Engine, ANE)
