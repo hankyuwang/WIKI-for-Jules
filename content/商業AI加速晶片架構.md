@@ -47,7 +47,7 @@ AMD MI300X 是針對生成式 AI 訓練與推理推出的高效能加速器，�
 
 ---
 
-## 3. Google TPU 架構 (包含 TPU v5e / v5p / v6 Trillium)
+## 3. Google TPU 架構 (包含 TPU v5e / v5p / Trillium)
 
 TPU (Tensor Processing Unit) 是 Google 專為機器學習工作負載定制的 ASIC，主要透過 Google Cloud 提供服務。
 

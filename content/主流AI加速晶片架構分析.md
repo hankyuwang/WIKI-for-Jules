@@ -19,8 +19,8 @@ tags:
 ## 面向的應用情境
 
 大廠的 AI 晶片通常根據應用情境分為三大類：
-1. **Cloud Model Training (雲端模型訓練)**: 需要龐大的運算力與記憶體頻寬，以及強大的晶片互連能力 (Scale-out)。代表晶片：Nvidia H100 / B200, Google TPU v5p / v6 Trillium, AMD MI300X。
-2. **Cloud Model Inference (雲端模型推論)**: 追求高吞吐量、低延遲與高性價比。代表晶片：Groq LPU, AWS Inferentia, Nvidia L40S, Google TPU v5e / v6 Trillium。
+1. **Cloud Model Training (雲端模型訓練)**: 需要龐大的運算力與記憶體頻寬，以及強大的晶片互連能力 (Scale-out)。代表晶片：Nvidia H100 / B200, Google TPU v5p / Trillium, AMD MI300X。
+2. **Cloud Model Inference (雲端模型推論)**: 追求高吞吐量、低延遲與高性價比。代表晶片：Groq LPU, AWS Inferentia, Nvidia L40S, Google TPU v5e / Trillium。
 3. **Edge Inference (邊緣推論)**: 追求極致的功耗效能比 (TOPS/W)，通常用於手機、PC 或 IoT 裝置。代表晶片：Apple Neural Engine (ANE), Qualcomm Hexagon NPU, Intel NPU。
 
 ## 內部硬體架構分析
