@@ -30,7 +30,7 @@ SGLang 是一個專注於高效能結構化生成的推理框架，特別針對�
 
 ### 方案三：TensorRT-LLM (極致硬體優化方案)
 TensorRT-LLM 是 NVIDIA 官方推出的推理框架，專門針對 NVIDIA GPU 架構進行了深度的算子（Operator）級別優化。
-- **優點 (Pros)**：在 NVIDIA 硬體上能榨出極致的效能，延遲極低；支援各種先進的量化技術（如 FP8/INT4/FP4）與硬體加速（如 Hopper 架構的 Transformer Engine）。
+- **優點 (Pros)**：在 NVIDIA 硬體上能榨出極致的效能，延遲極低；支援各種先進的量化技術（如 FP8/INT4/FP4）與硬體加速（如 Hopper 與 Blackwell 架構的 Transformer Engine）。
 - **缺點 (Cons)**：編譯過程複雜且耗時；只能在 NVIDIA 硬體上運行，無法跨平台；對非標準架構的自定義模型支援較為繁瑣。
 - **成本 (Cost)**：軟體免費（需搭配 NVIDIA 硬體），但時間成本與工程師學習成本較高。
 - **維護性 (Maintainability)**：中低，模型權重轉換和編譯流程複雜，每次更新模型可能都需要重新編譯。
