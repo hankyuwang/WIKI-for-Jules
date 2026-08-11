@@ -19,4 +19,4 @@ TPU 的核心是龐大的矩陣乘法單元 (Matrix Multiply Unit, MXU)，這也
 
 ## TPU 世代演進
 - 第一代 TPU 主要針對推理 (Inference) 任務，專注於 8-bit 整數運算。
-- 隨後的 TPU 世代 (v2, v3, v4, v5, v6 Trillium 等) 加入了浮點運算能力，並支援大規模模型的分散式訓練。
+- 隨後的 TPU 世代 (v2, v3, v4, v5, Trillium 等) 加入了浮點運算能力，並支援大規模模型的分散式訓練。

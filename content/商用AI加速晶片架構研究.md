@@ -20,7 +20,7 @@ NVIDIA 在 AI 加速領域佔據主導地位，其架構不斷演進以適應日
 ## 2. Google TPU (Tensor Processing Unit) 架構
 Google TPU 是專為 TensorFlow 與 JAX 打造的客製化 ASIC。
 - TPU 的核心優勢在於其**脈動陣列 (Systolic Array)** 設計，這是一種高度優化的矩陣相乘單元，能有效減少資料搬移，提升吞吐量。
-- **TPU v4/v5/v6 Trillium**：透過強大的互連技術 (如 OCS - 光學電路交換)，允許在資料中心級別彈性配置拓撲結構，提供極高的擴展性。
+- **TPU v4/v5/Trillium**：透過強大的互連技術 (如 OCS - 光學電路交換)，允許在資料中心級別彈性配置拓撲結構，提供極高的擴展性。
 
 ## 3. AMD Instinct 系列架構
 AMD 透過其 CDNA 架構，在資料中心市場提供強大的運算能力。
