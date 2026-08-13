@@ -65,3 +65,5 @@ Transformer 架構是目前大語言模型 (LLM) 和許多視覺模型的基礎�
 ## 結論
 
 不同 AI 模型架構的演進推動了硬體架構的變革。從早期的 CNN 推動了針對卷積優化的硬體，到現在的 Transformer 和 MoE 對記憶體容量、頻寬以及高速互連技術提出了前所未有的挑戰。未來的 AI 晶片設計必須緊跟演算法的發展趨勢。
+## 新最佳實務：MoE 與網路互連
+隨著 MoE (Mixture of Experts) 模型 (如 DeepSeek, Mixtral) 的流行，**叢集網路互連 (Interconnect)** (如 NVLink, ICI) 變得比單晶片算力更重要。快速的專家路由與分發是避免延遲抖動的關鍵。
