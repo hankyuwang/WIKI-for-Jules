@@ -10,7 +10,7 @@ tags:
 
 # TPU 深度解析
 
-張量處理單元 (Tensor Processing Unit, TPU) 是 Google 為了加速機器學習工作負載（特別是基於 TensorFlow 框架）而客製化設計的 ASIC（特殊應用積體電路）。與追求通用性的 [[GPU架構與演進|GPU]] 不同，TPU 被設計來極致優化深度學習中佔據主導地位的矩陣運算。
+張量處理單元 (Tensor Processing Unit, TPU) 是 Google 為了加速機器學習工作負載（特別是基於 TensorFlow 框架）而客製化設計的 ASIC（特殊應用積體電路）。與追求通用性的 [[GPU架構與發展|GPU]] 不同，TPU 被設計來極致優化深度學習中佔據主導地位的矩陣運算。
 
 ## TPU 的核心架構：脈動陣列 (Systolic Array)
 
@@ -34,6 +34,6 @@ TPU 設計中最關鍵的特徵是採用了**脈動陣列 (Systolic Array)** 作
 
 ## 與其他加速器的比較
 
-相對於 [[GPU架構與演進|GPU]]，TPU 在處理大規模矩陣運算時擁有更高的效能功耗比，且在大規模叢集訓練 (TPU Pods) 的網路拓撲設計上有其獨到之處。但其靈活性不如 GPU，生態系統主要綁定 Google Cloud 和 JAX/TensorFlow。
+相對於 [[GPU架構與發展|GPU]]，TPU 在處理大規模矩陣運算時擁有更高的效能功耗比，且在大規模叢集訓練 (TPU Pods) 的網路拓撲設計上有其獨到之處。但其靈活性不如 GPU，生態系統主要綁定 Google Cloud 和 JAX/TensorFlow。
 
 欲了解整個 AI 晶片生態，請返回：[[AI加速晶片總覽]]。
