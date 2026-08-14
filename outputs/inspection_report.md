@@ -1,20 +1,12 @@
-# 知識庫巡檢報告
+# Wiki 定期巡檢報告
 
-## 巡檢發現 (Findings)
-1. **內容空泛與模板化問題 (Boilerplate Content)**：
-   經巡檢發現，知識庫中有超過 40 份文件（如 `Mamba.md`, `Megatron.md`, `KV Cache.md`, `反向傳播.md` 等）內容過少，僅包含模板化的文字（例如：「方案一：基於現有框架的軟體層優化」），缺乏對專有名詞的詳細解說。讀者無法從中獲得實質的專業知識。
-2. **孤島頁面 (Unlinked Pages)**：
-   檢查知識地圖 `content/AI加速晶片架構師學習地圖.md` 後發現，有約 150 份文件（如 `AI加速晶片全景探索.md`, `主流AI加速晶片架構分析.md`, `邊緣運算AI晶片.md` 等）並未被知識地圖及其分支節點所連結，形成知識孤島。
+## 1. 失效連結 (Broken Links)
+- 無失效連結。
 
-## 改善建議與虛擬團隊執行計畫 (Recommendations & Execution Plan)
-由於需修復的檔案數量龐大，本次執行將針對一個「可管理的子集（3-4份文件與地圖更新）」進行示範性修復，確保修復品質：
+## 2. 過時版本與更新建議 (Narrowed Scope for Execution)
+- [x] `content/主流AI加速晶片架構分析.md`: Mentions B200 but lacks Blackwell architecture details. Mentions HBM3 but lacks HBM3e updates.
+- [x] `content/HBM 高頻寬記憶體技術.md`: Mentions HBM3 but lacks HBM3e updates.
+- [x] `content/HBM.md`: Mentions B200 but lacks Blackwell architecture details.
 
-1. **更新知識地圖**：
-   在 `content/AI加速晶片架構師學習地圖.md` 中新增「5. 延伸閱讀與全景探索 (Extended Reading & Landscape Exploration)」章節，將重點孤島頁面（如 `[[AI加速晶片全景探索]]`, `[[主流AI加速晶片架構分析]]`, `[[自研AI晶片發展策略]]`, `[[邊緣運算AI晶片]]`, `[[AI效能分析相關議題與最新進展]]`, `[[AI晶片未來發展趨勢]]`）連結進來，延伸知識脈絡。
-2. **內容擴充與重寫 (Content Enrichment)**：
-   觸發虛擬團隊重寫以下三份關鍵文件，提供詳盡的原理說明與真實的三種解決方案/觀點分析，取代原有的模板文字：
-   - `content/Mamba.md`
-   - `content/Megatron.md`
-   - `content/KV Cache.md`
-
-（註：其餘模板化文件與孤島頁面將於後續巡檢中逐步修復。）
+## 3. 執行建議
+此報告將由虛擬團隊直接執行，修正上述過時版本。
