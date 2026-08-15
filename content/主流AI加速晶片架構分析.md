@@ -19,7 +19,7 @@ tags:
 ## 面向的應用情境
 
 大廠的 AI 晶片通常根據應用情境分為三大類：
-1. **Cloud Model Training (雲端模型訓練)**: 需要龐大的運算力與記憶體頻寬，以及強大的晶片互連能力 (Scale-out)。代表晶片：Nvidia H100 / B200, Google TPU v5p / Trillium, AMD MI300X。
+1. **Cloud Model Training (雲端模型訓練)**: 需要龐大的運算力與記憶體頻寬，以及強大的晶片互連能力 (Scale-out)。代表晶片：Nvidia H100 / B200 (Blackwell 架構), Google TPU v5p / Trillium, AMD MI300X。
 2. **Cloud Model Inference (雲端模型推論)**: 追求高吞吐量、低延遲與高性價比。代表晶片：Groq LPU, AWS Inferentia, Nvidia L40S, Google TPU v5e / Trillium。
 3. **Edge Inference (邊緣推論)**: 追求極致的功耗效能比 (TOPS/W)，通常用於手機、PC 或 IoT 裝置。代表晶片：Apple Neural Engine (ANE), Qualcomm Hexagon NPU, Intel NPU。
 
@@ -31,7 +31,7 @@ tags:
 - **Dataflow / Spatial (如 Groq LPU)**: 沒有傳統的指令提取，資料流動路徑由編譯器靜態排程，資料直接從 SRAM 流向 ALU，幾乎無額外指令控制負擔，達到極致的低延遲。
 
 ### 2. Memory 架構 & Size
-- **Training 晶片**: 普遍採用 HBM (High Bandwidth Memory)，如 H100 具備 80GB HBM3，頻寬達 3TB/s。AMD MI300X 甚至達到 192GB HBM3。大容量與高頻寬對於儲存巨大模型的權重 (Weights) 與活化值 (Activations) 至關重要。
+- **Training 晶片**: 普遍採用 HBM (High Bandwidth Memory)，如 H100 具備 80GB HBM3 (新一代如 H200/B200 採用更高速的 HBM3e)，頻寬達 3TB/s。AMD MI300X 甚至達到 192GB HBM3 (部分採用 HBM3e)。大容量與高頻寬對於儲存巨大模型的權重 (Weights) 與活化值 (Activations) 至關重要。
 - **Edge 晶片**: 通常與 CPU 共用 LPDDR (如 Apple Unified Memory 架構)，記憶體頻寬受限，因此需要依賴高效率的 SRAM 與壓縮技術。
 
 ### 3. Cache & SRAM 架構 & Size
