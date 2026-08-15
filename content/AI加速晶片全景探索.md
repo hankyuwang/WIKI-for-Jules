@@ -41,7 +41,7 @@ tags:
 | 晶片 | 主要情境 | 應用端點 | 硬體架構核心特徵 | 目標市場 |
 | --- | --- | --- | --- | --- |
 | **NVIDIA H100** | 訓練 & 推理 | 雲端 (Cloud) | GPU 架構，具備 Tensor Core (Hopper 架構) 與 HBM3。高通用性與絕對效能。 | 通用 AI 訓練與大型語言模型推理、HPC。 |
-| **Google TPU v5p / Trillium** | 訓練 & 推理 | 雲端 (Cloud) | ASIC 架構，高度依賴 Systolic Array 矩陣乘法單元與 HBM。 | 內部大模型訓練，GCP 客戶專用 AI 加速。 |
+| **Google TPU v5p / Trillium (v6)** | 訓練 & 推理 | 雲端 (Cloud) | ASIC 架構，高度依賴 Systolic Array 矩陣乘法單元與 HBM。 | 內部大模型訓練，GCP 客戶專用 AI 加速。 |
 | **Apple ANE (A17/M3)** | 推理 (Inference) | 邊緣端 (Edge) | NPU 架構，極高 TOPS/W，緊密整合 CPU/GPU 共享記憶體 (UMA)。 | 智慧型手機、筆電上的在地端小模型推理與影像處理。 |
 | **Groq LPU** | 推理 (Inference) | 雲端 (Cloud) | 無指令集管線開銷的確定性架構 (TSP)，全 SRAM 內建無 DRAM。 | 對延遲極度敏感的 LLM 推理服務 (Token 生成)。 |
 
@@ -57,14 +57,14 @@ tags:
 
 2. **記憶體 (Memory) 與 SRAM 架構**
    - **H100**: HBM3 記憶體大小可達 80GB，頻寬 3.35 TB/s。L2 Cache 高達 50MB。SRAM 作為 Shared Memory 與暫存器分散於各 SM (Streaming Multiprocessor) 中。
-   - **TPU v5p**: 具備 95GB HBM，頻寬 2.76 TB/s。SRAM 主要用作 Vector Memory 與 Systolic Array 的 Weight/Activation Buffer (約數十 MB 等級)。
+   - **TPU v5p / Trillium (v6)**: 具備 95GB HBM，頻寬 2.76 TB/s。SRAM 主要用作 Vector Memory 與 Systolic Array 的 Weight/Activation Buffer (約數十 MB 等級)。
    - **Groq LPU**: **無外部 DRAM**。單晶片內建 230MB SRAM，頻寬高達 80 TB/s。極端偏向解決 Memory Wall，代價是需要多晶片互連才能裝下大型模型。
    - **Apple ANE**: 依賴統一記憶體架構 (UMA)，共享 LPDDR5，並內建數 MB 專屬 SRAM 作為啟動緩衝區。
 
 3. **運算能力 (Compute Units) 與 DMA**
    - **運算單元**:
      - H100: 第四代 Tensor Cores，支援 FP8 運算，配備 Transformer Engine。FP8 算力約 3958 TFLOPS (帶稀疏性)。
-     - TPU v5p: 核心為 128x128 等尺寸的 Systolic Arrays (脈動陣列)，專精高密度矩陣相乘 (BF16/INT8)。
+     - TPU v5p / Trillium (v6): 核心為 128x128 等尺寸的 Systolic Arrays (脈動陣列)，專精高密度矩陣相乘 (BF16/INT8)。
    - **DMA 能力**: 皆具備強大的非同步 DMA 引擎。H100 新增 TMA (Tensor Memory Accelerator)，允許非同步、硬體級距陣塊傳輸，將位址計算與邊界檢查 offload 給硬體，隱藏記憶體延遲。
 
 ### 三、 AI 模型分類與硬體架構的關聯
@@ -72,7 +72,7 @@ tags:
 | 模型分類 | 運算特性 (Compute Bound vs Memory Bound) | 最適合的硬體架構 | 關聯性分析 |
 | --- | --- | --- | --- |
 | **LLM Dense (如 LLaMA-2/3)** | 訓練：Compute Bound<br>推理 (生成)：Memory Bound | H100, Groq LPU | 推理時的 Token generation 嚴重受限於記憶體頻寬。Groq 的全 SRAM 架構能提供極低延遲；H100 則透過 HBM3 勉強支撐龐大參數量。 |
-| **LLM MoE (如 Mixtral)** | 記憶體容量需求極大，但單次推理算力需求較低 | H100 (多卡), TPU v5p | MoE 需要載入全部專家權重，但只觸發部分。極度依賴龐大 Memory Size 與高頻寬互連 (NVLink/ICI) 以進行 Expert Routing。 |
+| **LLM MoE (如 Mixtral)** | 記憶體容量需求極大，但單次推理算力需求較低 | H100 (多卡), TPU v5p / Trillium (v6) | MoE 需要載入全部專家權重，但只觸發部分。極度依賴龐大 Memory Size 與高頻寬互連 (NVLink/ICI) 以進行 Expert Routing。 |
 | **YOLO / CNN** | Compute Bound，局部記憶體重用率高 | Apple ANE, 傳統 NPU | CNN 濾波器權重小，易於駐留 SRAM，極其適合 Systolic Array 進行高效能管線化卷積，對外部記憶體頻寬要求較低。 |
 
 ### 四、 SDK 設計哲學與優劣分析
