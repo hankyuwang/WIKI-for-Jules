@@ -28,7 +28,7 @@ tags:
 | 晶片/平台 | 主要定位 | 核心運算架構 | 記憶體架構 | SDK/軟體生態 (Design Philosophy) |
 | :--- | :--- | :--- | :--- | :--- |
 | **NVIDIA (Hopper/Blackwell)** | 雲端訓練/推論霸主 | Tensor Core (SIMT+Matrix), Transformer Engine | HBM3/3e, 巨大 L2 Cache | CUDA, TensorRT, Triton (極度靈活，硬體向軟體妥協) |
-| **Google TPU (v4/v5/Trillium)** | 雲端第一方訓練/推論 | Systolic Array (脈動陣列), VPU | HBM, 晶片間 OCS (光路交換) 互連 | XLA (Compiler-driven, 軟體依賴編譯器優化硬體排程) |
+| **Google TPU (v4/v5/TPU v6 (Trillium))** | 雲端第一方訓練/推論 | Systolic Array (脈動陣列), VPU | HBM, 晶片間 OCS (光路交換) 互連 | XLA (Compiler-driven, 軟體依賴編譯器優化硬體排程) |
 | **AMD (Instinct MI300)** | 雲端訓練/推論挑戰者 | CDNA (Matrix Core), Chiplet (CPU+GPU APU設計) | HBM3 (Unified Memory) | ROCm (開源、相容 CUDA 生態為目標) |
 | **AWS Trainium/Inferentia** | 雲端自研 (CP值) | NeuronCore (Systolic Array + Vector/Scalar) | HBM, 高速 NeuronLink | AWS Neuron (針對自研晶片的特化編譯，著重降低 TCO) |
 | **Intel Gaudi (2/3)** | 雲端訓練/推論 (開放生態) | MME (Matrix Math Engine) + TPC (Tensor Processing Core) | HBM2e/3, 整合乙太網路 (Ethernet) RoCE | SynapseAI (支援 PyTorch 且主打以標準乙太網路 Scale-out) |

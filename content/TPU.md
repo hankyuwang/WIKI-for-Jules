@@ -14,7 +14,7 @@ TPU（Tensor Processing Unit）是 Google 專為機器學習定制的特定應�
 
 ## 方案與觀點
 
-### 方案一：雲端 TPU 架構 (TPU v4/v5/Trillium)
+### 方案一：雲端 TPU 架構 (TPU v4 / v5 / TPU v6 (Trillium))
 此方案部署於 Google Cloud，透過大規模叢集提供極致的訓練算力。
 - **優點**：採用脈動陣列大幅減少記憶體存取次數，矩陣運算效能與功耗比極高。
 - **缺點**：通用性差，不擅長處理具有複雜分支（Branching）或非張量運算的邏輯。

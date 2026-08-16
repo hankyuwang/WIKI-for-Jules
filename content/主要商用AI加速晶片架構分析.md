@@ -10,7 +10,7 @@ tags:
 
 # 主要商用AI加速晶片架構分析
 
-本頁面探討目前市場上主流的商用 AI 加速晶片（Accelerator Chips）之硬體架構，包含 NVIDIA B200/H100、AMD MI300X、Google TPU v5p / Trillium 以及 AWS Trainium2。
+本頁面探討目前市場上主流的商用 AI 加速晶片（Accelerator Chips）之硬體架構，包含 NVIDIA B200/H100、AMD MI300X、Google TPU v5p / TPU v6 (Trillium) 以及 AWS Trainium2。
 
 ## Prerequisites
 - [[NPU架構探索]]
@@ -30,7 +30,7 @@ AMD MI300X 是針對生成式 AI 和高效能運算 (HPC) 設計的加速器。
   - 大幅提升了記憶體容量與頻寬，搭載了高達 192GB 的 HBM3，使其在運行極大型 LLM 時可以減少跨節點通訊的瓶頸。
 - **優勢**：在單一節點內可容納更大的模型，降低了整體系統建置的複雜度。
 
-## 3. Google TPU v5p / Trillium
+## 3. Google TPU v5p / TPU v6 (Trillium)
 Google 的 Tensor Processing Unit (TPU) 是專為 TensorFlow 和 JAX 等機器學習框架深度最佳化的 ASIC 晶片。
 - **架構特點**：
   - 採用了高度最佳化的脈動陣列 (Systolic Array) 來執行矩陣乘法。

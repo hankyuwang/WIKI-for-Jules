@@ -33,7 +33,7 @@ NVIDIA 無疑是目前 AI 晶片的霸主，其 GPU 架構針對通用性與高�
     *   **劣勢**: 價格昂貴，功耗極高 (700W+)，非專為單一模型設計，存在一定的矽面積浪費 (相對於純 ASIC)。
     *   **市場**: 資料中心、大型 AI 實驗室。
 
-## 2. Google TPU (v4 / v5e / v5p / Trillium)
+## 2. Google TPU (v4 / v5e / v5p / TPU v6 (Trillium))
 Google 的 TPU 是針對神經網路高度最佳化的 ASIC，特別強調整體叢集 (Cluster) 的效能。
 
 *   **應用情境**: 雲端運算 (Cloud)，主要為 Google 內部與 GCP 客戶的 Model Training & Inference。

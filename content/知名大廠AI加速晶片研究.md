@@ -12,7 +12,7 @@ tags:
 # 知名大廠 AI 加速晶片深度研究報告
 
 > **摘要**
-> 本報告由 AI 虛擬團隊協同完成，針對 NVIDIA (Hopper/Blackwell)、Google (TPU v4/v5p/Trillium/v8 (規格尚未公開))、AMD (Instinct MI300X/MI325X)、AWS (Trainium2/Inferentia2)、Apple (ANE)、Qualcomm (Hexagon) 及 Intel (Gaudi 3) 等主流 AI 加速晶片進行深度剖析。內容涵蓋：應用情境、ISA 介面、Memory/SRAM/Cache、運算與 DMA 架構、AI 模型（如 LLM Dense, MoE, YOLO）之硬體映射、SDK 設計哲學、前沿技術瓶頸（如 Memory Wall, Interconnect, Packaging良率），並為小團隊提供 3 套自研 AI 加速晶片之具體設計架構方案與市場戰略評估。
+> 本報告由 AI 虛擬團隊協同完成，針對 NVIDIA (Hopper/Blackwell)、Google (TPU v4 / v5p / TPU v6 (Trillium)/v8 (規格尚未公開))、AMD (Instinct MI300X/MI325X)、AWS (Trainium2/Inferentia2)、Apple (ANE)、Qualcomm (Hexagon) 及 Intel (Gaudi 3) 等主流 AI 加速晶片進行深度剖析。內容涵蓋：應用情境、ISA 介面、Memory/SRAM/Cache、運算與 DMA 架構、AI 模型（如 LLM Dense, MoE, YOLO）之硬體映射、SDK 設計哲學、前沿技術瓶頸（如 Memory Wall, Interconnect, Packaging良率），並為小團隊提供 3 套自研 AI 加速晶片之具體設計架構方案與市場戰略評估。
 
 ## Prerequisites
 - [[基礎計算機結構]]
@@ -38,7 +38,7 @@ tags:
 系統性梳理當前市面上最具代表性的 AI 加速晶片架構，釐清「硬體設計如何回應該世代 AI 演算法（特別是 LLM 與 MoE）的算力與頻寬需求」，並為自研 AI 晶片的小團隊提供兼具可行性與商業價值的策略指南。
 
 ### 2. 範圍 (Scope)
-- **雲端/資料中心級晶片**：NVIDIA Hopper (H100/H200) & Blackwell (B200)、Google TPU v4 & v5p & Trillium & TPU v8 (規格尚未公開)、AMD Instinct MI300X/MI325X、AWS Trainium2 & Inferentia2、Intel Gaudi 3。
+- **雲端/資料中心級晶片**：NVIDIA Hopper (H100/H200) & Blackwell (B200)、Google TPU v4 & v5p & TPU v6 (Trillium) & TPU v8 (規格尚未公開)、AMD Instinct MI300X/MI325X、AWS Trainium2 & Inferentia2、Intel Gaudi 3。
 - **邊緣/終端級晶片**：Apple Silicon ANE (Apple Neural Engine)、Qualcomm Hexagon NPU。
 - **架構剖析面向**：ISA、主記憶體 (DRAM/HBM)、內部 SRAM、快取 (Cache)、脈動陣列/矩陣引擎、DMA、網路互聯、編譯器與 SDK (CUDA, ROCm, OpenXLA/Triton, SNPE, CoreML)。
 
@@ -67,7 +67,7 @@ tags:
 | **NVIDIA Hopper (H100/H200)** | 雲端 Model Training & Large-scale Inference | **SASS/PTX**: 虛擬指令集 (PTX) 編譯至機器碼 (SASS)。精簡指令集與並行 SIMT。 | **H100**: 80GB HBM3 (3.35 TB/s)<br>**H200**: 141GB HBM3e (4.8 TB/s) | **Shared Memory (SRAM)**: 每 SM 達 227KB，可動態配置為 L1 Cache。 | **L2 Cache**: 50MB 共享 L2 快取。 | **Tensor Cores (Gen 4)**:<br>H100 達 1000+ TFLOPS FP16/BF16 (稀疏)。引進 Transformer Engine。 | **Tensor Memory Accelerator (TMA)**: 異步 DMA，自動在 HBM 與 SRAM 間搬運多維張量。<br>**NVLink 4**: 900 GB/s。 |
 | **NVIDIA Blackwell (B200)** | 雲端 LLM 萬億參數 Training & Inference | **SASS/PTX**: 支援最新第二代 Transformer Engine 及微縮 FP4 精度。 | **192GB HBM3e** (8.0 TB/s)。由雙 Die 封裝（CoWoS-L）而成。 | **Shared Memory**: 每 SM 進一步強化，大幅降低暫存器溢出。 | **L2 Cache**: 雙晶片互聯，具備超大分散式 L2 Cache（約數百MB）。 | **Tensor Cores (Gen 5)**:<br>單晶片達 20 PFLOPS FP4 (稀疏)。具備專屬動態 Scaling 引擎。 | **TMA Gen 2**: 支援多維異步定址與壓縮數據傳輸。<br>**NVLink 5**: 1.8 TB/s 雙向頻寬。 |
 | **Google TPU v5p** | 雲端大規模 Pod 叢集 Training & Inference | **VLIW/Tensor Instruction Set**: 由編譯器生成超長指令字，直接控制矩陣單元。 | **95GB HBM3** (4.8 TB/s)。 | **Scratchpad SRAM (Vector/Matrix)**: 約數十 MB，由軟體（編譯器）顯式定址與管理，非硬體自動快取。 | **L1/L2 Cache**: 極小或無硬體自動管理之 L2 Cache，主要依賴 Scratchpad 避免不確定延遲。 | **Matrix Multiply Units (MXU)**:<br>每個核心配備雙 128x128 MXU，提供 BF16/FP8 矩陣相乘。 | **ICI (Inter-Chip Interconnect)**: 3D Torus 拓撲，單晶片提供 4.8 Tbps 互聯。<br>專屬 2D/3D DMA。 |
-| **Google Trillium** | 雲端超大規模萬億參數 LLM / MoE 訓練 | **VLIW/Tensor Instruction Set**: 優化了稀疏矩陣與 MoE 路由指令。 | **HBM3e**: 頻寬與容量較 v5p 提升逾 2 倍。 | **Software-controlled SRAM**: 容量顯著增加（估計達 64MB+），用以儲存權重與激活值。 | **Cache**: 延續軟體顯式控制結構，最小化 Cache Miss 帶來的不確定抖動。 | **MXU Gen 6**: 矩陣乘法效率提升 4.7 倍，強化 FP8/FP4 運算。 | **ICI (Next-Gen)**: 高速光學與銅纜混合互聯，大幅度優化分布式訓練中的 All-to-All 算子（MoE 關鍵）。 |
+| **Google TPU v6 (Trillium)** | 雲端超大規模萬億參數 LLM / MoE 訓練 | **VLIW/Tensor Instruction Set**: 優化了稀疏矩陣與 MoE 路由指令。 | **HBM3e**: 頻寬與容量較 v5p 提升逾 2 倍。 | **Software-controlled SRAM**: 容量顯著增加（估計達 64MB+），用以儲存權重與激活值。 | **Cache**: 延續軟體顯式控制結構，最小化 Cache Miss 帶來的不確定抖動。 | **MXU Gen 6**: 矩陣乘法效率提升 4.7 倍，強化 FP8/FP4 運算。 | **ICI (Next-Gen)**: 高速光學與銅纜混合互聯，大幅度優化分布式訓練中的 All-to-All 算子（MoE 關鍵）。 |
 | **AMD Instinct MI300X / MI325X** | 雲端大容量 LLM 推理與中大規模訓練 | **CDNA 3 ISA**: 專為運算優化的指令集，揚棄圖形渲染管線。 | **192GB HBM3** (5.3 TB/s) 或 **256GB HBM3e** (MI325X, 6.0 TB/s)。超大頻寬與容量。 | **Local Data Share (LDS)**: 每運算單元（CU）具備超大 SRAM。 | **L2/L3 Cache**: 整合多個 Memory GCD，具備 256MB 共享 L3 快取。 | **Matrix Core (Gen 3)**:<br>支援 FP16/BF16/FP8/INT8，提供極高的 FP16 吞吐量。 | **Infinity Fabric 3**: 提供 816 GB/s 的互聯頻寬。<br>內置異步 DMA 引擎。 |
 | **AWS Trainium2 (Inferentia2 類似)** | 雲端極具性價比的自定義模型訓練與部署 | **Neuron Core ISA**: 自研精簡 VLIW + 專用 Tensor 指令集。 | **32GB HBM** (Trainium2 升級為更高速的 96GB HBM)。 | **SRAM Scratchpad**: 數十 MB 高頻寬 Scratchpad。 | **L2 Cache**: 每個 NeuronCore 具有專屬大容量緩存。 | **Tensor/Vector/Scalar Engines**: 提供專門的二維矩陣乘法器與一維向量算子。 | **NeuronLink-v2**: 晶片間環狀/全連接互聯，提供超高吞吐率。 |
 | **Apple Neural Engine (M4/M4 Max)** | Edge 端末端設備（Mac/iPad/iPhone）低功耗推理 | **Proprietary ANE ISA**: 封閉式指令集，由 Apple CoreML Compiler 編譯。 | **Unified Memory 架構 (LPDDR5/5x)**: 頻寬可達 150GB/s - 400GB/s+（與 CPU/GPU 共享）。 | **On-chip SRAM**: 約 4MB - 16MB 的專用快取 SRAM，避免存取 DRAM 以節省能耗。 | **System Level Cache (SLC)**: 共享晶片級大緩存（16MB - 96MB），供 ANE 與 CPU/GPU 共享。 | **Systolic Array / Matrix Engine**:<br>提供約 38 - 40 TOPS (INT8/FP16) 運算能力。 | **Smart DMA**: 專利級壓縮 DMA 機制，能在 DRAM 與 ANE SRAM 間傳遞經壓縮之神經網絡權重。 |
@@ -126,7 +126,7 @@ tags:
  (All-to-All 網路受限)       (算力/記憶體頻寬受限)       (片上 SRAM 計算受限)
          │                         │                         │
          ▼                         ▼                         ▼
-   Trillium / Blackwell           H200 / MI300X               ANE / Hexagon
+   TPU v6 (Trillium) / Blackwell           H200 / MI300X               ANE / Hexagon
 ```
 
 #### A. LLM Dense (稠密型大語言模型，如 LLaMA 3 70B/405B)
@@ -135,7 +135,7 @@ tags:
 
 #### B. LLM MoE (混合專家模型，如 Mixtral, DeepSeek V3)
 *   **特徵**：每次前向傳播只激活少數專家核心，但在分發 Token 時需要進行超高頻率的 **All-to-All 全域通訊**。這導致模型變成了嚴格的 **Network-Bound**（網路互聯受限）。
-*   **硬體映射**：極度考驗晶片群的網絡吞吐量與 DMA 調度。Google Trillium（優化了 ICI）與 NVIDIA Blackwell（透過 NVLink Switch 提供 1.8 TB/s 雙向頻寬）是此類模型的絕對霸主。若網路頻寬不足，MoE 的專家分發將面臨極嚴重的延遲抖動。
+*   **硬體映射**：極度考驗晶片群的網絡吞吐量與 DMA 調度。Google TPU v6 (Trillium)（優化了 ICI）與 NVIDIA Blackwell（透過 NVLink Switch 提供 1.8 TB/s 雙向頻寬）是此類模型的絕對霸主。若網路頻寬不足，MoE 的專家分發將面臨極嚴重的延遲抖動。
 
 #### C. CNN / YOLO (視覺與感知模型)
 *   **特徵**：局部連接性（Locality）極強。特徵圖（Feature Map）在經過摺疊與卷積後迅速縮小，運算具有極高的數據複用率（Data Reuse）。
@@ -324,7 +324,7 @@ tags:
 | **MI300X Memory 頻寬** | 5.3 TB/s | 5.3 TB/s (192GB HBM3) | **Grade A (100% Verified)** | 數據源自 AMD 官方 Whitepaper。 |
 | **Intel Gaudi 3 SRAM** | 96MB SRAM | 96MB on-board SRAM | **Grade A (100% Verified)** | 數據與 Hot Chips 大會報告吻合。 |
 | **Blackwell FP4 算力** | 20 PFLOPS | 20 PFLOPS Tensor FLOPS | **Grade B (High Confidence)** | 此數據基於稀疏矩陣（Sparsity）與雙 Die B200 頂規版本。 |
-| **Google Trillium 性能** | 運算效率提升 4.7 倍 | 晶片 MXU FP8/FP16 運算相比 v5e 提升約 4.7 倍 | **Grade B (High Confidence)** | 數據來自 Google Cloud 官方公告。 |
+| **Google TPU v6 (Trillium) 性能** | 運算效率提升 4.7 倍 | 晶片 MXU FP8/FP16 運算相比 v5e 提升約 4.7 倍 | **Grade B (High Confidence)** | 數據來自 Google Cloud 官方公告。 |
 
 ### 2. 極端失效模式分析 (Failure Modes & Edge Cases)
 *   **失效模式一：片上 SRAM 的「暗矽與熱集中（Hot Spot）」問題**
@@ -359,7 +359,7 @@ tags:
 ### ⏱️ 10 分鐘架構對比與抉擇版 (The 10-Minute Synthesis)
 *   **模型與硬體適配**：
     *   若你要跑 **Dense LLM（如 LLaMA-3）**，你需要 H200 或 MI300X 這種具備大 HBM 頻寬的晶片。
-    *   若你要跑 **MoE LLM（如 DeepSeek）**，單晶片算力不重要，拼的是 Blackwell 的 NVLink 5 或 TPU Trillium 的 ICI 網路互聯。
+    *   若你要跑 **MoE LLM（如 DeepSeek）**，單晶片算力不重要，拼的是 Blackwell 的 NVLink 5 或 TPU v6 (Trillium) 的 ICI 網路互聯。
     *   若你要在 **手機/終端跑 YOLO 視覺**，請指名 Apple M4/Qualcomm 8 Gen 4，其片上 SRAM 能讓特徵圖完全不漏到 DRAM。
 *   **SDK 抉擇**：
     *   **CUDA**：寫起來最痛苦，但性能最高、生態最穩，面試必備。

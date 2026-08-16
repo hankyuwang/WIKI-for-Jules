@@ -41,7 +41,7 @@ tags:
 | 晶片 | 主要情境 | 應用端點 | 硬體架構核心特徵 | 目標市場 |
 | --- | --- | --- | --- | --- |
 | **NVIDIA H100** | 訓練 & 推理 | 雲端 (Cloud) | GPU 架構，具備 Tensor Core (Hopper 架構) 與 HBM3。高通用性與絕對效能。 | 通用 AI 訓練與大型語言模型推理、HPC。 |
-| **Google TPU v5p / Trillium** | 訓練 & 推理 | 雲端 (Cloud) | ASIC 架構，高度依賴 Systolic Array 矩陣乘法單元與 HBM。 | 內部大模型訓練，GCP 客戶專用 AI 加速。 |
+| **Google TPU v5p / TPU v6 (Trillium)** | 訓練 & 推理 | 雲端 (Cloud) | ASIC 架構，高度依賴 Systolic Array 矩陣乘法單元與 HBM。 | 內部大模型訓練，GCP 客戶專用 AI 加速。 |
 | **Apple ANE (A17/M3)** | 推理 (Inference) | 邊緣端 (Edge) | NPU 架構，極高 TOPS/W，緊密整合 CPU/GPU 共享記憶體 (UMA)。 | 智慧型手機、筆電上的在地端小模型推理與影像處理。 |
 | **Groq LPU** | 推理 (Inference) | 雲端 (Cloud) | 無指令集管線開銷的確定性架構 (TSP)，全 SRAM 內建無 DRAM。 | 對延遲極度敏感的 LLM 推理服務 (Token 生成)。 |
 
