@@ -1,12 +1,15 @@
-# Wiki 定期巡檢報告
+# Wiki 巡檢報告
 
-## 1. 失效連結 (Broken Links)
-- 無失效連結。
+## 概述
+本報告基於維護員的定期巡檢，標出知識庫中需要擴充內容或建立連結的項目。
 
-## 2. 過時版本與更新建議 (Narrowed Scope for Execution)
-- [x] `content/主流AI加速晶片架構分析.md`: Mentions B200 but lacks Blackwell architecture details. Mentions HBM3 but lacks HBM3e updates.
-- [x] `content/HBM 高頻寬記憶體技術.md`: Mentions HBM3 but lacks HBM3e updates.
-- [x] `content/HBM.md`: Mentions B200 but lacks Blackwell architecture details.
+## 1. 需要內容擴充 (內容過短 / 缺乏細節)
+以下文章的內容小於 1500 bytes，可能缺乏足夠的概念與術語解說，導致初學者難以理解。已觸發虛擬團隊對這些專有名詞進行補充說明，並轉換為易讀的形式。
 
-## 3. 執行建議
-此報告將由虛擬團隊直接執行，修正上述過時版本。
+- [x] `TPU技術解析.md`
+- [x] `邊緣運算AI晶片.md`
+- [x] `GPU與NPU架構比較.md`
+- [x] `AI晶片記憶體架構.md`
+
+## 2. 缺少知識地圖連結
+目前，`content/` 目錄下的所有 markdown 檔案都已成功與 `INDEX.md` 知識地圖建立連結。無需進行額外修正。
