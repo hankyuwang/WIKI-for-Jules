@@ -21,7 +21,7 @@ tags:
 此策略旨在開發能廣泛支援各種 AI 模型 (尤其是大型語言模型) 的雲端加速晶片，直接挑戰 GPU 的核心市場。
 
 *   **目標對象**: 大型雲端服務供應商 (CSP)、需要龐大算力的 AI 新創。
-*   **代表案例**: Google TPU v4/v5/Trillium, AWS Trainium/Inferentia。
+*   **代表案例**: Google TPU v4/v5/Trillium (TPU v6), AWS Trainium/Inferentia。
 *   **優點**:
     *   **規模經濟**: 若能大量部署於自家雲端資料中心，可大幅降低內部算力成本。
     *   **深度最佳化**: 可針對自家主推的模型架構與軟體框架 (如 Google 的 JAX) 進行深度軟硬體協同設計 (Codesign)。
