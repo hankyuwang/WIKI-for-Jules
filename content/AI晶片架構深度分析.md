@@ -7,7 +7,7 @@ tags:
   - Systolic Array
 ---
 
-摘要：本文件針對使用者提出的六個核心問題進行深度分析，涵蓋 NPU 算力與 SRAM 容量關係、TPU 與 CISC/RISC 架構差異、脈動陣列 (Systolic Array) 解析、TPU 與 NVIDIA GPU 架構對比、現代 AI 模型訓練硬體選擇，以及 TPUv8 (規格尚未公開) 的集合通訊加速引擎 (CAE) 分析。
+摘要：本文件針對使用者提出的六個核心問題進行深度分析，涵蓋 NPU 算力與 SRAM 容量關係、TPU 與 CISC/RISC 架構差異、[[Systolic Array|脈動陣列 (Systolic Array)]] 解析、[[TPU]] 與 NVIDIA [[GPU]] 架構對比、現代 AI 模型訓練硬體選擇，以及 TPUv8 (規格尚未公開) 的集合通訊加速引擎 (CAE) 分析。
 
 ## 1. NPU 矩陣算力與 SRAM 的關係
 在 NPU 架構中，特別是以矩陣運算為核心的脈動陣列，算力（MAC 單元數量）與所需 SRAM 頻寬往往呈「開根號關係」。
@@ -22,7 +22,7 @@ TPU 使用單一複雜指令（如 `MatrixMultiply`）即可觸發成千上萬�
 - 相比於 SIMD（如 GPU 的向量單元），脈動陣列大幅減少了從暫存器或 SRAM 讀寫中間變數的次數。
 - 相比於存算一體 (CIM)，脈動陣列仍將運算與記憶體分離，但在運算陣列內部實現了極高密度。
 
-## 4. TPU 與 NVIDIA GPU 的架構差異
+## 4. [[TPU]] 與 NVIDIA [[GPU]] 的架構差異
 - **運算核心**：GPU 採用 SIMT 架構，具備強大的通用性與複雜的排程器；TPU 核心是單一龐大的脈動陣列，專注於密集矩陣乘法。
 - **記憶體管理**：GPU 擁有硬體管理的 L1/L2 Cache；TPU 則多採用軟體管理的 Scratchpad Memory（由編譯器靜態排程，避免 Cache Miss 的不確定性）。
 
