@@ -1,49 +1,43 @@
 ---
-title: KV Cache
+title: KV Cache (Key-Value Cache)
 level: intermediate
 tags:
-  - AI
-  - KV-Cache
+  - transformer
+  - llm
+  - memory
 ---
 
-# KV Cache
+# KV Cache (Key-Value Cache)
 
-摘要：KV Cache 是 Transformer架構在推論時的快取技術，保存歷史鍵值對以減少重複計算。
+摘要：KV Cache 是提升大型語言模型 (LLM) 推論速度的關鍵優化技術。透過暫存先前的計算結果，避免在生成新字詞時進行重複計算，但這也帶來了巨大的記憶體頻寬挑戰。
 
-## 已知事實
-在 LLM 的自迴歸生成 (Decode) 階段，每次生成新 token 時只需計算當前 token，但必須存取之前所有 token 的 Key 與 Value 狀態。這使得 Decode 階段成為嚴重的 Memory-bound（受限於記憶體頻寬）任務，導致算力閒置。
+## Prerequisites
+- [[Transformer]]
+- [[Prefill]]
+- [[Decode]]
 
-## 原理
-當注意力機制 (Attention) 運算時，新的 Query 需要與所有歷史的 Key 和 Value 進行點積。KV Cache 將這些歷史資料暫存於高頻寬記憶體 (HBM) 中。隨著上下文長度增加，KV Cache 佔用的記憶體會呈線性甚至超線性增長，擠壓模型參數可使用的記憶體空間。
+## 什麼是 KV Cache？
 
-## 限制
-KV Cache 受限於硬體的物理記憶體容量與頻寬。在多請求 (Batching) 情境下，動態變化的序列長度會導致嚴重的記憶體碎片問題。
+在 Transformer 架構中，模型的文本生成是一個**自回歸 (Autoregressive)** 的過程。也就是說，模型必須根據之前生成的所有文字，來預測下一個文字。
 
-## 未知問題
-如何有效將 KV Cache 卸載 (Offload) 到較慢的記憶體（如 DDR 或 SSD）並隱藏延遲，以及硬體架構如何原生支援動態記憶體分配，仍在積極研究中。
+如果沒有優化，當模型要生成第 $N$ 個字時，它必須重新計算第 $1$ 到第 $N-1$ 個字的注意力 (Attention) 權重。這種做法的時間複雜度是 $O(N^2)$，效率極低。
 
-## 最佳實務
-採用 PagedAttention 技術（如 vLLM 框架），將 KV Cache 切割成不連續的分頁 (Pages)，有效消除記憶體碎片，大幅提升 Batch Size 與系統吞吐量。
+為了加速這個過程，**KV Cache 技術被引入**。在注意力機制中，運算涉及 Query (Q)、Key (K) 和 Value (V) 矩陣。由於先前已生成的文字其 K 和 V 的值是固定不變的，我們可以在記憶體中把這些 K 和 V 矩陣儲存（Cache）起來。
 
-## 方案與觀點分析
+當生成下一個字時，我們只需要計算**當前新字的 Q**，並將其與 Cache 中**所有過去的 K 和 V** 進行運算即可。
 
-### 方案一：軟體層級 PagedAttention (vLLM)
-- 優點：有效解決記憶體碎片問題，大幅提升推論吞吐量，無需硬體改動。
-- 缺點：增加了記憶體管理的軟體開銷，需要編寫複雜的 Kernel。
-- 成本：低，以軟體工程為主。
-- 維護性：高，開源社群支援強大。
-- 風險：對於極短序列，分頁管理的開銷可能大於帶來的收益。
+## 對硬體的影響與挑戰
 
-### 方案二：KV Cache 量化 (Quantization)
-- 優點：將 FP16 的 KV Cache 量化為 INT8 甚至 INT4，直接減少一半以上的記憶體佔用與頻寬需求。
-- 缺點：可能導致模型生成品質下降（精度損失），需要特定的反量化硬體單元支援。
-- 成本：中，需軟硬體協同開發。
-- 維護性：中，需定期針對新模型重新校準。
-- 風險：量化帶來的誤差在長文本推論時可能累積並導致嚴重的幻覺。
+> **虛擬團隊教育員補充**：把 KV Cache 想像成你在做筆記。每次寫新句子時，你不需要重頭把整本書讀一遍，只要看你之前做好的筆記 (Cache) 就好。這雖然省時間，但你的書桌 (記憶體) 空間很快就會被筆記塞滿。
 
-### 方案三：硬體層 SRAM 擴容與架構重設
-- 優點：透過大幅增加晶片上的 SRAM，將 KV Cache 盡可能留在 On-chip 記憶體，從根本上解決 HBM 頻寬瓶頸。
-- 缺點：SRAM 面積微縮困難，會大幅增加晶片面積與製造成本。
-- 成本：極高，為硬體開發成本。
-- 維護性：低，硬體一旦流片難以更改。
-- 風險：如果模型序列長度增長過快，SRAM 容量將再次不足。
+1. **記憶體容量危機 (Memory Capacity Crisis)**
+   - 隨著生成文本的長度（Context Length）增加，KV Cache 佔用的記憶體會線性成長。對於千億參數模型與超長上下文，KV Cache 的大小甚至可能超過模型權重本身。
+
+2. **記憶體頻寬瓶頸 (Memory Bandwidth Bottleneck)**
+   - 在生成階段 (Decode phase)，每一次生成新的 Token，硬體都必須將龐大的 KV Cache 從主記憶體（如 HBM）載入到運算單元（SRAM）中。這使得推論過程變成嚴重的 **Memory-bound (受限於記憶體頻寬)** 問題。
+
+## 解決方案與最佳實務
+為了緩解 KV Cache 帶來的瓶頸，業界提出了多種優化方法：
+- **架構層面**：採用 Multi-Query Attention (MQA) 或 Grouped-Query Attention (GQA) 來減少需要儲存的 KV Head 數量。
+- **系統層面**：使用 PagedAttention (如 vLLM 框架所採用)，將 KV Cache 分頁管理，解決記憶體碎片化問題。
+- **硬體層面**：依賴更高頻寬的 [[HBM 高頻寬記憶體技術]]。
