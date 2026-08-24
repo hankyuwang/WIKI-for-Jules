@@ -1,30 +1,41 @@
 ---
-title: MAC
+title: MAC (Multiply-Accumulate)
 level: beginner
 tags:
-  - AI
-  - MAC
-  - Hardware
-  - Architecture
+  - hardware
+  - arithmetic
 ---
 
-# MAC (Multiply-Accumulate)
+# MAC (Multiply-Accumulate 乘加運算)
 
-摘要：MAC (Multiply-Accumulate，乘積累加運算) 是深度學習與神經網路底層硬體運算的最基本核心元件。它將乘法與加法結合在單一指令或硬體單元中，大幅提升了矩陣運算的效率。
+摘要：MAC (Multiply-Accumulate) 是深度學習硬體中最基礎、也最核心的運算單元。理解 MAC，是理解 GPU、TPU 以及神經網路為何能運作的第一步。
 
-## 已知事實與原理
-在深度學習中，神經網路的前向傳播與反向傳播大量依賴於矩陣乘法 (Matrix Multiplication) 與卷積運算 (Convolution)。這些運算本質上都是由無數次的「將兩個數字相乘，然後加到一個累加器中」所構成。
+## Prerequisites
+- [[基礎計算機結構]]
 
-一個標準的 MAC 運算公式為：
-$$ a \leftarrow a + (b \times c) $$
+## 什麼是 MAC？
 
-在硬體層面，MAC 單元負責在單一時脈週期 (Clock Cycle) 內完成這兩個動作。現代的 AI 加速器（如 GPU、TPU 或 NPU）會將成千上萬個 MAC 單元平行排列，以達到極高的運算吞吐量 (Throughput)。例如，Google TPU 的核心脈動陣列 (Systolic Array) 就是由大量的 MAC 單元組成的二維陣列。
+MAC 的全名是 Multiply-Accumulate（乘積累加）。它執行的是一個非常簡單的數學方程式：
 
-## 效能與限制
-- **算力指標**：硬體的 AI 算力常以 TOPS (Tera Operations Per Second) 或 TFLOPS 來衡量。一個 MAC 運算通常包含兩次 Operation (一次乘法，一次加法)。
-- **瓶頸 - 記憶體牆 (Memory Wall)**：MAC 單元雖然運算極快，但如果無法及時從記憶體 (如 SRAM 或 HBM) 讀取資料 $b$ 與 $c$，MAC 單元就會閒置。因此，如何提升資料重用率 (Data Reuse) 並降低資料搬移功耗，是硬體架構設計的核心難題。
+$$a \leftarrow a + (b \times c)$$
 
-## 延伸學習
-- [[GPU架構與演進]]：了解現代 GPU 如何透過 Tensor Core 平行處理大量的 MAC 運算。
-- [[TPU架構深度解析]]：探索 TPU 如何透過脈動陣列將 MAC 單元緊密結合，解決資料傳輸延遲。
-- [[基礎計算機結構]]：回顧算術邏輯單元 (ALU) 的基本原理。
+也就是把 $b$ 和 $c$ 相乘，然後把結果加到目前的累加器 $a$ 上面。這一個動作，在硬體設計上被實作為一個單一的運算週期，這個硬體單元就稱為 MAC 單元。
+
+## 為什麼 MAC 在 AI 中如此重要？
+
+如果你回想神經網路的基本原理，一個神經元的輸出是：
+
+$$y = \sum (權重 \times 輸入) + 偏差值$$
+
+這正是無數個「相乘然後相加」的過程。無論是卷積神經網路 (CNN) 中的卷積運算，還是大型語言模型 (LLM) 中的龐大矩陣相乘，其底層全部都是由數以十億、百億計的 MAC 運算所構成。
+
+> **虛擬團隊教育員補充**：你可以把 AI 模型想像成一座由樂高積木組成的巨大城堡，而 MAC 就是最基本的那一塊樂高積木。AI 加速晶片的強大與否，很大程度上取決於它能在晶片上塞入多少個 MAC 單元，以及它能多快地提供資料給這些單元運作。
+
+## MAC 與算力的關係 (TOPS)
+
+我們常聽到評估 AI 晶片算力的單位叫做 **TOPS (Tera Operations Per Second)**，代表每秒可以進行一兆次運算。
+
+一次 MAC 運作包含了兩個操作（一個乘法和一個加法）。所以，如果一個晶片有 $1000$ 個 MAC 單元，運作時脈是 $1$ GHz（每秒十億次週期），它的理論算力大約是：
+$1000 \text{ (MACs)} \times 1\text{G (Hz)} \times 2 \text{ (Ops/MAC)} = 2000 \text{ GOPS} = 2 \text{ TOPS}$。
+
+這也是為什麼像 [[GPU架構與AI計算]] 和 TPU 這樣的硬體，會盡可能捨棄複雜的控制邏輯，將晶片面積大量讓給 MAC 單元，以換取極高的運算吞吐量。
