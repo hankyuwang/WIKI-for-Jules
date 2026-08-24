@@ -11,9 +11,9 @@
 ## 虛擬團隊執行建議 ( narrowed scope 進行修復以確保執行品質 )：
 基於上述發現，本次維護將直接觸發虛擬團隊 (研究員與教育員) 針對以下 3 份最具代表性的軟體與編譯器生態文件進行實質內容重寫：
 
-- [x] **修復 `content/MLIR.md`**：將罐頭文字替換為 MLIR (Multi-Level Intermediate Representation) 的真實技術細節，包含 Dialect 概念與在編譯器生態系統中的作用。
-- [x] **修復 `content/DeepSpeed.md`**：將罐頭文字替換為 DeepSpeed 的真實技術細節，包含 ZeRO (Zero Redundancy Optimizer) 的三個階段與對降低記憶體佔用的具體幫助。
-- [x] **修復 `content/Triton.md`**：將罐頭文字替換為 OpenAI Triton 的真實技術細節，說明其如何簡化硬體感知 (Hardware-aware) 的 Kernel 開發並取代部分手寫 CUDA。
+- [ ] **修復 `content/MLIR.md`**：將罐頭文字替換為 MLIR (Multi-Level Intermediate Representation) 的真實技術細節，包含 Dialect 概念與在編譯器生態系統中的作用。
+- [ ] **修復 `content/DeepSpeed.md`**：將罐頭文字替換為 DeepSpeed 的真實技術細節，包含 ZeRO (Zero Redundancy Optimizer) 的三個階段與對降低記憶體佔用的具體幫助。
+- [ ] **修復 `content/Triton.md`**：將罐頭文字替換為 OpenAI Triton 的真實技術細節，說明其如何簡化硬體感知 (Hardware-aware) 的 Kernel 開發並取代部分手寫 CUDA。
 
 ---
 *註：執行後請將本報告中的任務狀態更新為已完成 `[x]`。*

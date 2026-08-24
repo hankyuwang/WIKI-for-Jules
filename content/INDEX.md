@@ -58,6 +58,7 @@ tags:
 - [[商用AI加速晶片架構研究]] : 主流商業 AI 加速晶片介紹與架構探討。
 - [[NPU架構探索]] : NPU 硬體設計、SW/HW 協同與最新進展。
 - [[主要商用AI加速晶片架構分析]] : 主要商用 AI 加速晶片（NVIDIA B200/H100、AMD MI300X、Google TPU v5p、AWS Trainium2）架構分析與比較。
+- [[硬體架構與SWHW協同]] : 硬體架構與軟體（Software/Hardware）協同設計的重要性，探討軟硬體整合策略。
 - [[主流商業AI加速器比較]] : NVIDIA GPU、AMD Instinct 以及 Google TPU 之分析比較。
 - [[商業AI加速器比較]] : NVIDIA GPUs, AMD Instinct, Google TPUs 之比較與分析。
 - [[GPU 架構與演進]] : 探討 GPU 架構的演進與深度學習加速。
@@ -241,5 +242,6 @@ tags:
 - [[前瞻技術挑戰]]
 - [[AI模型分類與硬體協同設計]]
 - [[主要商用AI加速晶片架構分析]]
+- [[硬體架構與SWHW協同]] : 硬體架構與軟體（Software/Hardware）協同設計的重要性，探討軟硬體整合策略。
 - [[小型團隊策略]]
 - [[AI加速晶片軟體堆疊與SDK設計]]

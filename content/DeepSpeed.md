@@ -4,49 +4,27 @@ level: intermediate
 tags:
   - AI
   - DeepSpeed
+  - LLM
 ---
 
 # DeepSpeed
 
-摘要：DeepSpeed 是 微軟開源的分散式訓練框架，其ZeRO優化能大幅減少記憶體佔用。
+摘要：DeepSpeed 是微軟開源的分散式訓練框架，其最著名的 ZeRO (Zero Redundancy Optimizer) 優化技術能大幅減少超大型模型訓練時的記憶體佔用。
 
-## 已知事實
-在業界，DeepSpeed 的硬體與軟體支援度不斷提升，成為解決特定技術瓶頸的關鍵。
+## ZeRO (Zero Redundancy Optimizer) 原理
 
-## 原理
-DeepSpeed 運作的核心在於透過底層架構的最佳化，解決傳統架構在 微軟開源的分散式訓練框架 上遇到的效能瓶頸。
+在傳統的資料平行 (Data Parallelism) 訓練中，每一個 GPU 都會保留一份完整的模型權重 (Weights)、梯度 (Gradients) 以及優化器狀態 (Optimizer States, 例如 Adam 的 momentum 和 variance)。對於百億或千億參數的巨型模型，這些狀態會輕易撐爆單一 GPU 的 HBM (如 80GB 的 A100)。
 
-## 限制
-導入 DeepSpeed 面臨的主要挑戰包含實作複雜度高、硬體資源限制，以及與現有生態系統的相容性問題。
+ZeRO 透過在叢集內的 GPU 之間「切分」並「分散」這些資料來消除冗餘，主要分為三個階段：
 
-## 未知問題
-未來針對 DeepSpeed 的研究將聚焦於如何在保持高效能的同時，進一步降低功耗與開發門檻。
+- **ZeRO Stage 1**：僅切分並分散 **優化器狀態 (Optimizer States)**。這可以在不增加額外通訊開銷的情況下，節省大量記憶體。
+- **ZeRO Stage 2**：除了優化器狀態，進一步切分 **梯度 (Gradients)**。
+- **ZeRO Stage 3**：進一步切分 **模型權重 (Parameters)**。在需要進行前向 (Forward) 或反向 (Backward) 傳播時，才透過通訊動態抓取需要的權重片段。這使得訓練極大模型成為可能，但會增加網路通訊負擔。
 
-## 最佳實務
-目前主流作法是將 DeepSpeed 整合至現有的軟硬體堆疊中，並利用自動化工具輔助調優。
+## 與 Megatron 的結合
 
-## 個人見解
-隨著 AI 模型規模日益龐大，DeepSpeed 所代表的優化策略將是決定次世代系統效能的勝負手。
+在實務上，為了訓練極巨量參數模型，業界普遍採用 **Megatron-DeepSpeed** 框架。[[Megatron]] 負責處理張量平行 (Tensor Parallelism) 與管線平行 (Pipeline Parallelism)，而 DeepSpeed 負責 ZeRO 數據平行，兩者結合以達到最佳的擴展性。
 
-## 方案與觀點分析
+## 其他特性
 
-### 方案一：基於現有框架的軟體層優化
-- 優點：無須硬體更動，導入快
-- 缺點：效能提升有限
-- 成本：低
-- 維護性：高
-- 風險：無法突破硬體天花板
-
-### 方案二：客製化硬體 (ASIC) 方案
-- 優點：極致效能與能效
-- 缺點：開發週期長，缺乏彈性
-- 成本：極高
-- 維護性：低
-- 風險：沉沒成本高
-
-### 方案三：軟硬協同設計 (Co-design)
-- 優點：兼具彈性與效能
-- 缺點：跨領域整合難度極高
-- 成本：中高
-- 維護性：中等
-- 風險：專案複雜度帶來的延遲風險
+除了 ZeRO，DeepSpeed 還包含其他優化技術，如 DeepSpeed-MoE (針對混合專家模型的優化)、Offloading (將部分狀態卸載到 CPU 記憶體或 NVMe SSD) 以突破 GPU 記憶體容量極限。
