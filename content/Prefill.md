@@ -8,7 +8,24 @@ tags:
 
 # Prefill
 
+## Prerequisites
+- [[Transformer]]
+
 摘要：Prefill 是 LLM推論的提示詞處理階段，屬於Compute-bound，將大量輸入一次性平行計算。
+
+
+
+## 虛擬團隊補充說明：Prefill 階段的算力爆發
+
+> **教育員白話文解釋**：想像你要閱讀一整本說明書來回答問題。在 Prefill 階段，模型就像是擁有「一目十行」超能力的讀者，它不是一個字一個字讀，而是將整本書的內容一次性轉化為巨大的數學矩陣，然後同時進行處理。
+
+**為什麼 Prefill 是 Compute-bound (受限於運算力)？**
+
+當使用者輸入一段 Prompt 時，這段文字（Tokens）是已知且固定的。這使得模型可以利用硬體的平行運算能力，將這些 Tokens 排列成巨大的矩陣，並一次性通過所有的神經網路層。
+
+這個過程涉及到極大規模的矩陣乘法（Matrix Multiplication）。此時，記憶體頻寬通常足以應付資料的搬運，真正的瓶頸在於硬體內部乘加運算單元（MAC, Multiply-Accumulate Compute）的數量和運算時脈。只要硬體算力夠強，就能越快消化完這段長長的提示詞。
+
+近年來，為了解決超長文本（Long Context）帶來的注意力機制（Attention）計算複雜度呈平方級暴增的問題，業界發展出了如 **FlashAttention** 等演算法。FlashAttention 透過硬體感知的設計（Hardware-aware），巧妙地優化了 SRAM 和 HBM 之間的資料讀寫模式，讓 Prefill 階段能夠更極致地榨乾硬體的算力。
 
 ## 已知事實
 Prefill（預填充）是大型語言模型推論過程中的第一個階段。當使用者輸入一段提示詞（Prompt）時，模型需要先閱讀並理解這段輸入，這個計算過程就是 Prefill。因為可以將所有輸入的字詞（Tokens）一次性進行平行運算，這個階段高度依賴運算能力（Compute-bound），能有效發揮硬體的算力極限。

@@ -36,6 +36,20 @@ tags:
 2. **記憶體頻寬瓶頸 (Memory Bandwidth Bottleneck)**
    - 在生成階段 (Decode phase)，每一次生成新的 Token，硬體都必須將龐大的 KV Cache 從主記憶體（如 HBM）載入到運算單元（SRAM）中。這使得推論過程變成嚴重的 **Memory-bound (受限於記憶體頻寬)** 問題。
 
+
+
+## 虛擬團隊補充說明：KV Cache 的記憶體容量挑戰
+
+> **教育員白話文解釋**：想像你在聽一場演講並做筆記。一開始，你的筆記本（記憶體）還有很多空白。但隨著演講（Context Length）越來越長，你做的筆記（KV Cache）也越來越多。很快地，整本筆記本都被寫滿了！如果筆記本爆了，你就無法再記下任何新的東西。這就是大型語言模型在面對超長文本時，KV Cache 會把記憶體撐爆的原因。
+
+**為什麼 KV Cache 容量是個大問題？**
+
+在自回歸生成的過程中，為了不重複計算過去已經生成的 Attention 權重，模型會將每一層神經網路中，所有歷史 Token 的 Key 和 Value 矩陣儲存在 GPU 的記憶體中。
+
+對於千億級參數的模型（如 Llama 3 70B）或是超大 Context Length（如 128k 或 1M tokens）的應用場景，KV Cache 佔用的記憶體容量甚至會遠大於模型權重本身。這不僅限制了單一 GPU 能處理的最大文本長度，也極大地限制了 Batch Size（能同時服務的使用者數量），進而影響整體的推論吞吐量與成本效益。
+
+為了解決這個「記憶體容量危機」，業界採用了如 **PagedAttention** 等系統級優化技術，將 KV Cache 像作業系統管理虛擬記憶體一樣，切割成分頁並動態分配，大幅減少了記憶體碎片的浪費。
+
 ## 解決方案與最佳實務
 為了緩解 KV Cache 帶來的瓶頸，業界提出了多種優化方法：
 - **架構層面**：採用 Multi-Query Attention (MQA) 或 Grouped-Query Attention (GQA) 來減少需要儲存的 KV Head 數量。

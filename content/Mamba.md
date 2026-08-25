@@ -8,7 +8,23 @@ tags:
 
 # Mamba
 
+## Prerequisites
+- [[Transformer]]
+- [[RNN]]
+
 摘要：Mamba 是 基於狀態空間模型(SSM)的新架構，具備線性時間複雜度，有望解決長文本瓶頸。
+
+
+
+## 虛擬團隊補充說明：Mamba 的線性時間複雜度優勢
+
+> **教育員白話文解釋**：在傳統的 Transformer 中，要回顧過去的記憶就像是每次都要把所有讀過的書重新翻一遍（運算量呈平方級增長）。而 Mamba 就像是學會了「做筆記」和「動態忘記不重要資訊」的技術，它把所有重要的歷史資訊壓縮成一個固定大小的筆記本（Hidden State）。不管讀了多少書，它都只需要看這本筆記本就好，這大大減少了運算和記憶體的負擔。
+
+**Mamba 在硬體上的優勢：**
+
+1. **解決長文本的 O(N^2) 瓶頸**：傳統 Attention 機制在處理長度為 $N$ 的文本時，運算量與記憶體需求會隨著 $N^2$ 暴增。Mamba 基於選擇性狀態空間模型 (Selective SSM)，將時間複雜度降為 $O(N)$（線性時間複雜度）。這意味著它可以輕鬆處理數十萬甚至百萬級別長度的 Context。
+2. **免除龐大的 KV Cache**：Transformer 在推論時需要儲存每一層、每一個 Token 的 KV Cache，這會佔用驚人的記憶體容量，並導致嚴重的 Memory-bound 問題。Mamba 不需要完整的 KV Cache，只需維護固定大小的狀態向量（State Vector），極大地減輕了記憶體容量與頻寬的壓力。
+3. **SRAM 感知運算 (Hardware-aware Algorithm)**：Mamba 演算法在設計時就考慮了底層硬體的特性。它透過在快速的 SRAM 中完成核心的狀態掃描與更新運算，避免了頻繁向較慢的 HBM 讀寫資料，從而實現了極高的推論吞吐量。
 
 ## 已知事實
 隨著 LLM 推理序列長度增加，Transformer 架構的 Attention 機制呈現平方複雜度，KV Cache 佔用龐大記憶體。Mamba 透過選擇性狀態空間模型 (Selective SSM)，在保持高效能的同時實現了線性複雜度，成為當前備受矚目的 Transformer 替代或互補方案。
