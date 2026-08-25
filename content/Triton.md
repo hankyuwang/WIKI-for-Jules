@@ -19,10 +19,10 @@ Triton 提供了一套基於 Python 的高階語法，隱藏了部分底層細�
 
 ## 核心優勢
 
-- **降低開發門檻**：以 Python 語法編寫，讓熟悉 PyTorch 的 AI 研究人員能自行開發高度客製化且高效的算子 (如 FlashAttention)。
+- **降低開發門檻**：以 Python 語法編寫，讓熟悉 PyTorch 的 AI 研究人員能自行開發高度客製化且高效的算子 (如 FlashAttention (如 FlashAttention-2, FlashAttention-3))。
 - **效能優異**：透過內建的編譯器優化 (基於 [[MLIR]])，Triton 產出的機器碼在多數情況下能達到手寫 CUDA Kernel 80% 到 90% 以上的效能，有時甚至更好。
 - **跨硬體潛力**：雖然目前主要針對 NVIDIA GPU 優化，但 Triton 的架構設計使其有潛力支援 AMD [[ROCm]] 等其他硬體後端，減少 Vendor Lock-in。
 
 ## 應用案例
 
-Triton 在社群中最著名的應用之一是 PyTorch 2.0 中的 `torch.compile` 底層後端，以及被廣泛應用於大型語言模型訓練與推理的 **FlashAttention** 演算法實作。
+Triton 在社群中最著名的應用之一是 PyTorch 2.0 中的 `torch.compile` 底層後端，以及被廣泛應用於大型語言模型訓練與推理的 **FlashAttention (如 FlashAttention-2, FlashAttention-3)** 演算法實作。

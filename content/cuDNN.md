@@ -35,7 +35,7 @@ cuDNN 是一個閉源 (Closed-source) 函式庫，開發者無法修改其底層
 - 風險：黑箱作業，當遇到特定 edge case 導致效能異常時，難以進行底層除錯。
 
 ### 方案二：採用 OpenAI Triton 編寫自訂 Kernel
-- 優點：提供極高的靈活性，能針對非標準的新型算子 (如 FlashAttention) 進行融合優化，效能有時甚至超越 cuDNN 的原生實作。
+- 優點：提供極高的靈活性，能針對非標準的新型算子 (如 FlashAttention (如 FlashAttention-2, FlashAttention-3)) 進行融合優化，效能有時甚至超越 cuDNN 的原生實作。
 - 缺點：學習曲線陡峭，需要開發者具備深厚的硬體與平行運算知識。
 - 成本：中高 (需投入專業研發人力)。
 - 維護性：中。

@@ -1,21 +1,11 @@
-# Wiki 巡檢報告
+# Wiki 定期巡檢報告
 
-## 1. 知識地圖延伸與孤兒節點 (Orphaned Files)
-以下檔案並未連結到 `INDEX.md` 知識地圖中。我們需要將這些檔案歸類並建立連結，讓讀者能有脈絡地學習：
-- [x] 將 `前沿技術挑戰與瓶頸.md` 加入 `INDEX.md`
-- [x] 將 `AI模型分類與硬體架構關聯.md` 加入 `INDEX.md`
-- [x] 將 `主流AI加速晶片架構與應用.md` 加入 `INDEX.md`
-- [x] 將 `小團隊自研AI晶片策略.md` 加入 `INDEX.md`
-- [x] 將 `AI晶片軟體堆疊與SDK設計.md` 加入 `INDEX.md`
-
-## 2. 內容過少/需補充說明的節點 (Short Files)
-以下節點內容過少（少於 800 字元），讀者可能無法完全理解。需呼叫虛擬團隊（研究員 -> 驗證員 -> 教育員）補充這些專有名詞或概念的詳細說明，並轉化為易讀的形式：
-- [x] 擴充 `TPU與專用AI晶片.md` 的內容
-- [x] 擴充 `算子融合.md` 的內容
-- [x] 擴充 `PTQ.md` 的內容
-- [x] 擴充 `ROCm.md` 的內容
-- [x] 擴充 `RDMA.md` 的內容
-
-## 3. 失效連結 (Dead Links)
-在 `INDEX.md` 中發現以下失效連結：
-無失效連結。
+- [x] 新最佳實務: 檔案 `HBM技術與AI硬體瓶頸.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `cuDNN.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `AI加速器晶片研究.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `ROCm.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `RNN.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `AI晶片軟體堆疊與SDK設計.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `AI模型分類與硬體協同設計.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `Triton.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
+- [x] 新最佳實務: 檔案 `AI加速晶片全景探索.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
