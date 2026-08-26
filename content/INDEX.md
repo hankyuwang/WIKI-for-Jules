@@ -15,6 +15,7 @@ tags:
 - [[KV Cache]]
 - [[Long Context]]
 - [[Mamba]]
+- [[SSM]] : 狀態空間模型 (State Space Model)，一種將連續訊號轉化為離散狀態的新型架構，為 Mamba 的底層數學基礎。
 - [[MoE]]
 - [[Prefill]]
 - [[SIMD]]
