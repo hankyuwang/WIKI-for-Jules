@@ -44,7 +44,7 @@ RNN 面臨著演算法與硬體層面的雙重挑戰：
 
 ### 方案三：探索現代化線性 RNN 架構 (如 Mamba/RWKV)
 - 優點：結合了 RNN 的固定記憶體狀態 (推論效率高) 與 Transformer 的平行訓練優勢，是未來極具潛力的發展方向。
-- 缺點：硬體生態系尚不成熟，現有 GPU/NPU 針對這類特製算子的優化程度不如 Transformer (如 FlashAttention)。
+- 缺點：硬體生態系尚不成熟，現有 GPU/NPU 針對這類特製算子的優化程度不如 Transformer (如 FlashAttention (如 FlashAttention-2, FlashAttention-3))。
 - 成本：中高 (早期技術採用成本)。
 - 維護性：低 (社群與工具鏈仍在快速變動中)。
 - 風險：尚未經過如 Transformer 般廣泛的大規模商業驗證。

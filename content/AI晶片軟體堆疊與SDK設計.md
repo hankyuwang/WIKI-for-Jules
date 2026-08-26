@@ -27,7 +27,7 @@ tags:
 ### A. The "Kernel Library" Approach (NVIDIA CUDA)
 NVIDIA CUDA 是最成功、也最龐大的生態系。它依賴大量工程師「手工打造」極致優化的底層函式庫。
 
-*   **設計哲學**: 提供一套像 C++ 一樣靈活的底層語言 (CUDA C++)。對於常見操作 (Matmul, Convolution, Attention)，NVIDIA 提供官方手工榨乾硬體效能的 Library (cuBLAS, cuDNN, FlashAttention)。
+*   **設計哲學**: 提供一套像 C++ 一樣靈活的底層語言 (CUDA C++)。對於常見操作 (Matmul, Convolution, Attention)，NVIDIA 提供官方手工榨乾硬體效能的 Library (cuBLAS, cuDNN, FlashAttention (如 FlashAttention-2, FlashAttention-3))。
 *   **優勢**:
     *   **極致效能**: 手工寫的 Kernel 通常能達到硬體理論上限的 80%~90%。
     *   **靈活性極高**: 如果有全新的模型架構出現，開發者可以馬上用 CUDA 寫出新的 Kernel。

@@ -47,7 +47,7 @@ tags:
 - **運算特性**: 反覆迭代去噪 (Denoising)，通常結合了 CNN (U-Net) 與 Transformer (Cross-Attention)。
 - **硬體關聯與需求**:
   - 記憶體消耗極大，特別是在高解析度圖片生成時的 Activation 尺寸會暴增。
-  - 推論時間長，硬體設計若能加速 Attention 運算 (如 FlashAttention 的硬體化支援) 將大幅受益。
+  - 推論時間長，硬體設計若能加速 Attention 運算 (如 FlashAttention (如 FlashAttention-2, FlashAttention-3) 的硬體化支援) 將大幅受益。
 
 ## 軟硬體協同設計的核心思維
 

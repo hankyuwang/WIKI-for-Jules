@@ -79,7 +79,7 @@ tags:
 
 1. **CUDA (NVIDIA)**
    - **設計原因**: 基於 C/C++ 的底層控制，讓開發者能操作 Thread block、Shared memory。
-   - **優勢**: 生態系無可匹敵，靈活度極高，所有的最新算法 (如 FlashAttention) 都在此首發。
+   - **優勢**: 生態系無可匹敵，靈活度極高，所有的最新算法 (如 FlashAttention (如 FlashAttention-2, FlashAttention-3)) 都在此首發。
    - **劣勢**: 學習曲線陡峭，硬體架構綁定，且為閉源壟斷生態。
 2. **XLA / JAX (Google TPU)**
    - **設計原因**: 以計算圖 (Computation Graph) 為核心，透過編譯器進行算子融合 (Operator Fusion) 與記憶體配置優化。

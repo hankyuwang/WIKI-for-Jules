@@ -26,7 +26,7 @@ tags:
 
 ## 視角二：軟硬體協同優化與模型壓縮（Bypass HBM Dependency）
 
-此視角認為，與其無止盡地追求硬體頻寬，不如從演算法與系統架構著手。透過 [[模型量化技術]]（Quantization）、稀疏化（Sparsity）、以及如 FlashAttention 等記憶體感知（Memory-aware）演算法，大幅減少對 HBM 的頻寬與容量需求。
+此視角認為，與其無止盡地追求硬體頻寬，不如從演算法與系統架構著手。透過 [[模型量化技術]]（Quantization）、稀疏化（Sparsity）、以及如 FlashAttention (如 FlashAttention-2, FlashAttention-3) 等記憶體感知（Memory-aware）演算法，大幅減少對 HBM 的頻寬與容量需求。
 
 - **優點（Pros）**：能有效降低對極致硬體規格的依賴，使得中低階硬體也能運行大型 AI 模型。提升了整體系統的能源效率（TOPS/W）。
 - **缺點（Cons）**：可能帶來模型精度的損失（如過度量化），且特定演算法的優化往往與特定硬體架構綁定，泛用性受限。

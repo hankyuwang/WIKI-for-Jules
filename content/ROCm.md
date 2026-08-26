@@ -30,7 +30,7 @@ ROCm 的目標是讓深度學習框架（如 [[PyTorch]]、[[TensorFlow]]）能�
 ## ROCm 與開源生態系的整合
 隨著 AI 模型規模日益龐大，單一廠商的優化已不足夠，開源編譯器與框架變得更加重要。
 - **PyTorch 支援**: ROCm 目前已成為 PyTorch 官方正式支援的後端之一，開發者幾乎不需要修改程式碼即可在 AMD GPU 上訓練模型。
-- **Triton 與 OpenAI**: OpenAI 開發的 [[Triton]] 語言也積極支援 ROCm，這意味著許多基於 Triton 撰寫的高效能算子（如 FlashAttention）可以直接在 AMD 硬體上跑出優異效能。
+- **Triton 與 OpenAI**: OpenAI 開發的 [[Triton]] 語言也積極支援 ROCm，這意味著許多基於 Triton 撰寫的高效能算子（如 FlashAttention (如 FlashAttention-2, FlashAttention-3)）可以直接在 AMD 硬體上跑出優異效能。
 
 ## 挑戰與未來發展
 儘管進步神速，ROCm 仍面臨一些挑戰：
