@@ -11,6 +11,7 @@ tags:
 這是一個由 AI 虛擬團隊驅動的領域知識庫，專注於 AI 研究、探索與實驗驗證。這不僅僅是一個 Wiki，也是一個隨時在演化、生長中的 Digital Garden。
 
 ## 基礎運算與模型架構
+- [[SSM]] : 狀態空間模型基礎，近期在語言模型領域展現出能替代或補充 Transformer 的潛力。
 - [[Decode]]
 - [[KV Cache]]
 - [[Long Context]]
