@@ -1,4 +1,19 @@
-# 維護員巡檢報告
+# Wiki 維護巡檢報告
+
+## 1. 失效連結 (Dead Links)
+- [ ] 經檢查，目前無失效連結。
+
+## 2. 孤立頁面 (Orphaned Files)
+- [ ] 經檢查，目前無孤立頁面。
+
+## 3. 過時版本與官方文件更新 (Outdated Content)
+- [x] **Google TPU v6 名稱更新**: 官方已正式將 TPU v6 命名為 **Trillium**。需要將提及 `TPU v6` 或 `Trillium` 但未說明其關聯的地方進行統一或補充說明。
+    - 雖然目前知識庫中已經有大量 `Trillium` 的出現，但為了更準確，可以建立一份獨立的 `Trillium` wiki 頁面或將 `Trillium` 納入知識地圖，並補充電明它是第六代 TPU。
+
+## 4. 建議執行動作
+- [x] 在 `content/` 新增 `Trillium.md` 介紹 Google 的第六代 TPU。
+- [x] 在 `content/INDEX.md` 中將 `Trillium` 加入硬體架構分類。
+
 
 ## 巡檢項目：孤立節點與知識地圖延伸
 
