@@ -1,86 +1,19 @@
-# Wiki 定期巡檢報告
+# 維護員巡檢報告
 
-- [x] 新最佳實務: 檔案 `HBM技術與AI硬體瓶頸.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `cuDNN.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `AI加速器晶片研究.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `ROCm.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `RNN.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `AI晶片軟體堆疊與SDK設計.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `AI模型分類與硬體協同設計.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `Triton.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-- [x] 新最佳實務: 檔案 `AI加速晶片全景探索.md` 提及 `FlashAttention`，應更新為最新的 `FlashAttention-2` 或 `FlashAttention-3` 以反映最新最佳實務。
-## 1. 知識地圖架構整理
-目前 `INDEX.md` 中有 56 個項目被放在 `## 其他知識節點` 底下，未被妥善分類到知識地圖。
-建議將這些孤兒節點移至適當的分類：
+## 巡檢項目：孤立節點與知識地圖延伸
 
-**虛擬團隊與 AI Agent 相關 (移至「虛擬團隊」或「AI 軟體」):**
-- [[AIAgent與硬體架構演進]]
+發現 1 個未與知識地圖 `INDEX.md` 連結的孤立節點：
+- `SSM.md`
 
-**硬體架構與加速器相關 (移至「硬體架構 (中階)」):**
-- [[AI加速晶片的記憶體架構]]
-- [[AI加速晶片研究總覽]] 及底下延伸閱讀
-- [[AI晶片方案評估與發展趨勢]]
-- [[AI晶片未來發展趨勢]]
-- [[AI晶片記憶體架構]]
-- [[ASIC加速晶片設計]]
-- [[ASIC與TPU架構分析]]
-- [[FPGA在AI加速的應用]]
-- [[FPGA在AI硬體的角色]]
-- [[GPU在AI加速的應用]]
-- [[GPU架構與AI計算]]
-- [[GPU與NPU架構比較]]
-- [[TPU技術解析]]
-- [[TPU深度解析]]
-- [[TPU與專用AI晶片]]
-- [[邊緣AI晶片設計]]
-- [[邊緣運算AI晶片]]
-- [[新型態AI硬體架構]]
-- [[前瞻技術挑戰]]
+**改善方案：**
+1. 觀察 `Mamba.md` 內容，Mamba 是基於狀態空間模型 (SSM) 的新架構。
+2. 將 `SSM` 歸類至 `INDEX.md` 的「基礎運算與模型架構」分類中，置於 `Mamba` 的附近，作為其基礎知識延伸。
+3. 在 `INDEX.md` 中新增對 `SSM` 的連結及簡短說明。
 
-**記憶體與封裝 (移至「進階記憶體與封裝 (高階)」):**
-- [[AI晶片的新型記憶體解決方案]]
-- [[CoWoS]]
-- [[GDDR]]
-- [[LPDDR]]
-- [[前沿技術挑戰與瓶頸]]
+## 巡檢項目：內容過少與專有名詞解說 (虛擬團隊補充)
 
-**模型架構與運算相關 (移至「基礎運算與模型架構」):**
-- [[Decode]]
-- [[KV Cache]]
-- [[Long Context]]
-- [[Mamba]]
-- [[MoE]]
-- [[Prefill]]
-- [[SIMD]]
-- [[模型與硬體適配性]]
+發現 `SSM.md` 內容過於簡略且充斥佔位符文字（例如「狀態空間模型基礎」等字樣未有深入解釋）。讀者無法從中學習到真正的 SSM 背景知識。
 
-**軟體與編譯器 (移至「AI 軟體與編譯器」):**
-- [[AI最佳實務與部署指引]]
-- [[CUDA逆向工程與算子實作分析]]
-- [[DeepSpeed]]
-- [[Megatron]]
-- [[Optimizer]]
-- [[SDK與軟體堆疊]]
-- [[TVM]]
-- [[TensorRT]]
-- [[cuDNN]]
-
-**網路與互連 (建議新增分類「網路與互連」):**
-- [[InfiniBand]]
-- [[NVLink]]
-- [[NoC]]
-- [[PCIe]]
-- [[RDMA]]
-- [[RoCE]]
-
-*(已排除 `其他知識節點` 中重複的項目如 [[小型團隊策略]]、[[前瞻技術挑戰]] 等)*
-
-## 2. 內容擴充與完善 (呼叫虛擬團隊)
-下列專有名詞頁面內容過少或僅有標題，需要呼叫虛擬團隊（研究員 -> 驗證員 -> 教育員）進行內容擴充：
-- [[Decode]]: 說明 LLM 推論中的 Decode 階段硬體需求。
-- [[Prefill]]: 說明 LLM 推論中的 Prefill 階段硬體需求與效能瓶頸。
-- [[KV Cache]]: 說明 LLM 推論中 KV Cache 對記憶體容量和頻寬的影響。
-- [[Mamba]]: 介紹 SSM/Mamba 模型架構與傳統 Transformer 的差異及其在硬體上的優勢。
-
-## 3. 執行計畫
-- 由於使用者要求我「在產生巡檢報告後，直接觸發虛擬團隊執行報告中的內容」，我將直接扮演虛擬團隊的角色，對 `INDEX.md` 進行重構，將所有孤立節點整合回主架構，並擴充上述四個核心概念 (`Decode.md`, `Prefill.md`, `KV Cache.md`, `Mamba.md`) 的內容。
+**改善方案 (觸發虛擬團隊補充)：**
+1. 將呼叫虛擬團隊對 `SSM.md` 進行大幅度重寫，補充其真正的數學背景（如 State Space Model 如何將連續訊號轉化為離散狀態、HiPPO 矩陣的概念）及其在硬體上的優勢（如硬體感知的平行掃描）。
+2. 在 `SSM.md` 中新增 `Prerequisites` 區段，並連結至相關前置知識。
