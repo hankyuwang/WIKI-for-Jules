@@ -1,19 +1,26 @@
-# 維護員巡檢報告
+# Wiki 定期巡檢報告
 
-## 巡檢項目：孤立節點與知識地圖延伸
+## 巡檢項目與結果
 
-發現 1 個未與知識地圖 `INDEX.md` 連結的孤立節點：
-- `SSM.md`
+1. **失效連結 (Broken Links)**:
+   - 經檢查所有 `content/` 目錄下的 Markdown 檔案，無發現失效連結。
+2. **孤兒頁面 (Orphan Pages)**:
+   - 經檢查 `content/` 目錄，所有頁面皆已加入 `INDEX.md`，無孤兒頁面。
+3. **過時版本 / 官方文件更新**:
+   - `INDEX.md` 中提及 `TPU v8 (規格尚未公開)`，但在官方架構演進中，TPU v6 的正式名稱為 `Trillium`，且 TPU 家族的演進順序應為 `TPU v5 -> TPU v6 (Trillium) -> (TPU v7 / v8)`。目前知識庫缺乏 TPU v6 (Trillium) 的獨立頁面（僅散落各處），且過度提前探討 `TPU v8`。
+   - `INDEX.md` 提及：`[[TPUv8架構與演進]] : 探討 Google TPU v8 (規格尚未公開) 的集合通訊加速引擎 (CAE) 與次世代叢集架構。`
+   - 目前文件中已經大量出現 Trillium，需要確保它被認知為 TPU v6。
 
-**改善方案：**
-1. 觀察 `Mamba.md` 內容，Mamba 是基於狀態空間模型 (SSM) 的新架構。
-2. 將 `SSM` 歸類至 `INDEX.md` 的「基礎運算與模型架構」分類中，置於 `Mamba` 的附近，作為其基礎知識延伸。
-3. 在 `INDEX.md` 中新增對 `SSM` 的連結及簡短說明。
+## 修正建議與行動方案
 
-## 巡檢項目：內容過少與專有名詞解說 (虛擬團隊補充)
+1.  **更名與修正 TPU 架構認知**:
+    - 將 `content/TPUv8架構與演進.md` 重新命名並改寫為 `content/TPUv6_Trillium架構與演進.md`（或將其定位回歸正確版本）。由於 `TPU v8` 尚未公開，探討其架構（CAE 等）若無根據應屬幻覺或提前猜測。若要保留前沿預測，應將焦點放在即將到來/已發布的 Trillium (v6) 及未來預測。
+    - 根據知識庫內容，Trillium 已經發布，具有 MXU Gen 6、Software-controlled SRAM (64MB+)、HBM3e 等特性。我們應該建立/更新 `TPU_Trillium架構深度解析.md`，並在 `INDEX.md` 中替換掉 `TPUv8架構與演進`。
 
-發現 `SSM.md` 內容過於簡略且充斥佔位符文字（例如「狀態空間模型基礎」等字樣未有深入解釋）。讀者無法從中學習到真正的 SSM 背景知識。
+2.  **執行內容**:
+    - 將 `content/TPUv8架構與演進.md` 重命名為 `content/TPUv6_Trillium架構與演進.md`。
+    - 更新 `content/TPUv6_Trillium架構與演進.md` 內容，將 "TPU v8 (規格尚未公開)" 替換為 "TPU v6 (Trillium)"，並調整描述以符合 Trillium 的實際規格 (MXU Gen 6, HBM3e, Software-controlled SRAM 等，可從 `知名大廠AI加速晶片研究.md` 擷取)。
+    - 更新 `INDEX.md`，將 `[[TPUv8架構與演進]]` 的連結更新為 `[[TPUv6_Trillium架構與演進]]`，並修改說明為 Trillium 架構。
+    - 在其他檔案中（如 `知名大廠AI加速晶片研究.md`, `INDEX.md`）搜尋 `TPU v8` 並視情況移除或修正為 Trillium (v6) 或未來展望。
 
-**改善方案 (觸發虛擬團隊補充)：**
-1. 將呼叫虛擬團隊對 `SSM.md` 進行大幅度重寫，補充其真正的數學背景（如 State Space Model 如何將連續訊號轉化為離散狀態、HiPPO 矩陣的概念）及其在硬體上的優勢（如硬體感知的平行掃描）。
-2. 在 `SSM.md` 中新增 `Prerequisites` 區段，並連結至相關前置知識。
+- [x] 已完成 TPU v8 到 TPU v6 (Trillium) 的修正
