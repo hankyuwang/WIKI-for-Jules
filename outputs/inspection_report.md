@@ -1,19 +1,34 @@
-# 維護員巡檢報告
+# Wiki 維護巡檢報告 - 2026-08-29
 
-## 巡檢項目：孤立節點與知識地圖延伸
+本報告由維護員產生，針對知識庫進行定期巡檢，包含失效連結、過時版本、已棄用架構、官方文件更新與新最佳實務。
 
-發現 1 個未與知識地圖 `INDEX.md` 連結的孤立節點：
-- `SSM.md`
+## 1. 發現與分析
 
-**改善方案：**
-1. 觀察 `Mamba.md` 內容，Mamba 是基於狀態空間模型 (SSM) 的新架構。
-2. 將 `SSM` 歸類至 `INDEX.md` 的「基礎運算與模型架構」分類中，置於 `Mamba` 的附近，作為其基礎知識延伸。
-3. 在 `INDEX.md` 中新增對 `SSM` 的連結及簡短說明。
+### 1.1 失效連結與孤兒節點 (Broken Links & Orphans)
+* 經腳本檢查，目前知識庫中 **無失效連結 (Broken Links)**。
+* 經腳本檢查，目前知識庫中 **無孤兒節點 (Orphan Files)**。
 
-## 巡檢項目：內容過少與專有名詞解說 (虛擬團隊補充)
+### 1.2 過時版本與官方更新 (Outdated Versions & Official Updates)
+* **發現問題**：多處文件提到 Google TPU v8 時標註「(規格尚未公開)」。
+* **實際情況**：Google 已正式發表最新一代 TPU，命名為 **Trillium** (即第六代 TPU v6)，而並非 v8，且規格已經公開。
+* **影響範圍**：
+    * `TPUv8架構與演進.md` 標題與內文需要更新。
+    * `知名大廠AI加速晶片研究.md`
+    * `INDEX.md`
 
-發現 `SSM.md` 內容過於簡略且充斥佔位符文字（例如「狀態空間模型基礎」等字樣未有深入解釋）。讀者無法從中學習到真正的 SSM 背景知識。
+### 1.3 最佳實務與架構演進 (Best Practices & Architecture Evolution)
+* **發現問題**：多處文件提到 FlashAttention 時，標註為 `FlashAttention (如 FlashAttention-2, FlashAttention-3)` 或是較為攏統的稱呼。
+* **實際情況**：FlashAttention-3 已經是主流最佳實務，且我們已經有專門的頁面 `FlashAttention3與極低精度量化硬體需求.md`。
 
-**改善方案 (觸發虛擬團隊補充)：**
-1. 將呼叫虛擬團隊對 `SSM.md` 進行大幅度重寫，補充其真正的數學背景（如 State Space Model 如何將連續訊號轉化為離散狀態、HiPPO 矩陣的概念）及其在硬體上的優勢（如硬體感知的平行掃描）。
-2. 在 `SSM.md` 中新增 `Prerequisites` 區段，並連結至相關前置知識。
+## 2. 建議行動清單 (Action Items)
+
+- [ ] **Task 1: 修正 TPU Trillium (v6) 的命名與資訊**
+  - 將 `TPUv8架構與演進.md` 重新命名並修改內容，正確反映其為 Trillium (TPU v6)，並移除「(規格尚未公開)」。
+  - 修改 `INDEX.md` 中對應的連結名稱。
+  - 在 `知名大廠AI加速晶片研究.md` 中，將 `TPU v8 (規格尚未公開)` 的相關描述修正為 Trillium。
+
+- [ ] **Task 2: 統一 FlashAttention 的連結與描述**
+  - 將文件中攏統的 `FlashAttention (如 FlashAttention-2, FlashAttention-3)` 替換為直接連結到 `[[FlashAttention3與極低精度量化硬體需求|FlashAttention-3]]` 或是更新描述。
+
+---
+> 請直接觸發虛擬團隊執行上述建議行動。

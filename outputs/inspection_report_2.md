@@ -1,19 +1,28 @@
-# Wiki 維護巡檢報告 (補充)
+# Wiki 維護巡檢報告 - 2025-02-23
 
-## 巡檢項目：
-1. **失效連結**：未發現 (`INDEX.md` 及所有 `.md` 檔案連結皆正常對應)。
-2. **過時版本**：未發現 (TPU v6 已正確正名為 Trillium，TPU v8 已標示規格尚未公開)。
-3. **已棄用架構**：未發現。
-4. **官方文件或是論文更新**：未發現需要立即更新的重大硬體規格改動。
-5. **新最佳實務 (文件品質與內容豐富度)**：
-   - **發現問題**：在巡檢過程中，發現多個 Wiki 頁面內容為罐頭生成的佔位文字 (Placeholder Text)，例如 `MLIR.md`, `DeepSpeed.md`, `Triton.md`，這些檔案包含無具體說明的「方案一：基於現有框架的軟體層優化」等通用模板，缺乏實質且有意義的知識點，違反了知識庫合成真實資訊的最佳實務。
+本報告由維護員產生，針對知識庫進行定期巡檢，包含失效連結、過時版本、已棄用架構、官方文件更新與新最佳實務。
 
-## 虛擬團隊執行建議 ( narrowed scope 進行修復以確保執行品質 )：
-基於上述發現，本次維護將直接觸發虛擬團隊 (研究員與教育員) 針對以下 3 份最具代表性的軟體與編譯器生態文件進行實質內容重寫：
+## 1. 發現與分析
 
-- [ ] **修復 `content/MLIR.md`**：將罐頭文字替換為 MLIR (Multi-Level Intermediate Representation) 的真實技術細節，包含 Dialect 概念與在編譯器生態系統中的作用。
-- [ ] **修復 `content/DeepSpeed.md`**：將罐頭文字替換為 DeepSpeed 的真實技術細節，包含 ZeRO (Zero Redundancy Optimizer) 的三個階段與對降低記憶體佔用的具體幫助。
-- [ ] **修復 `content/Triton.md`**：將罐頭文字替換為 OpenAI Triton 的真實技術細節，說明其如何簡化硬體感知 (Hardware-aware) 的 Kernel 開發並取代部分手寫 CUDA。
+### 1.1 失效連結與孤兒節點 (Broken Links & Orphans)
+* 經腳本檢查，目前知識庫中 **無失效連結 (Broken Links)**。
+* 經腳本檢查，目前知識庫中 **無孤兒節點 (Orphan Files)**。
+
+### 1.2 過時版本與官方更新 (Outdated Versions & Official Updates)
+* **發現問題**：部分文件提到 Google TPU v8 時標註「(規格尚未公開)」。但在知識庫中，Trillium (TPU v6) 才是 Google 發表的最新一代 TPU。雖然 TPU v8 可能在研發中，但直接將 TPU v8 與未公開規格綁定可能會造成讀者混淆，應明確標示 Trillium 為 v6。同時，FlashAttention 相關的名稱可以更加精確的指向已有文件。
+* **縮小範圍執行 (Scope reduction)**：為避免過度修改大量文件造成風險，本次修復將僅針對以下文件進行最關鍵的修正：
+  1. `content/知名大廠AI加速晶片研究.md` - 將「Trillium」統一標註為「Trillium (TPU v6)」以明確其世代。
+  2. `content/AI加速晶片全景探索.md` - 將 `TPU v5p / Trillium` 修改為 `TPU v5p / Trillium (TPU v6)`。
+  3. `content/AI模型分類與硬體協同設計.md` - 更新 FlashAttention 連結，指向特定的 markdown 頁面。
+
+## 2. 建議行動清單 (Action Items)
+
+ - [x] **Task 1: 更新 Trillium 為 Trillium (TPU v6)**
+  - 修改 `content/知名大廠AI加速晶片研究.md` 中對應的行。
+  - 修改 `content/AI加速晶片全景探索.md` 中對應的行。
+
+ - [x] **Task 2: 更新 FlashAttention 連結**
+  - 修改 `content/AI模型分類與硬體協同設計.md` 中第 50 行的 `FlashAttention (如 FlashAttention-2, FlashAttention-3)` 替換為 `[[FlashAttention3與極低精度量化硬體需求|FlashAttention]]`。
 
 ---
-*註：執行後請將本報告中的任務狀態更新為已完成 `[x]`。*
+> 請直接觸發虛擬團隊執行上述建議行動。
