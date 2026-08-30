@@ -218,7 +218,7 @@ tags:
 - [[MLIR]]
 - [[FlashAttention3與極低精度量化硬體需求]] : 探討 FlashAttention-3 與 FP4/INT4 等極低精度量化對最新硬體架構的影響。
 - [[PTQ]]
-- [[QAT]]
+- [[QAT]] : 量化感知訓練，在訓練時模擬量化誤差以保持高精度。
 - [[AI加速晶片架構師學習地圖]] : 如何成為AI加速晶片架構師的Top-Down系統性學習地圖與知識框架。
 - [[AI加速晶片與邊緣運算部署策略]] : 探討邊緣運算環境中 CPU/GPU、FPGA 以及 ASIC/NPU 部署策略。
 - [[邊緣運算AI晶片部署策略]] : 探討邊緣環境中 CPU/GPU, FPGA, ASIC/NPU 部署策略。
@@ -236,9 +236,9 @@ tags:
 - [[AIAgent與硬體架構演進]]
 
 ## 網路與互連
-- [[InfiniBand]]
+- [[InfiniBand]] : 專為高效能運算設計的低延遲、無損網路標準，主導大型 AI 訓練叢集。
 - [[NVLink]]
 - [[NoC]]
 - [[PCIe]]
 - [[RDMA]]
-- [[RoCE]]
+- [[RoCE]] : 允許在標準乙太網路上運行 RDMA，為資料中心降低成本。
