@@ -1,16 +1,4 @@
-# 知識庫巡檢報告
+# Wiki Inspection Report: AI Agent 實務操作指引
 
-## 發現的問題
-
-1. **缺乏脈絡的連結**: `content/INDEX.md` 中有些主題缺乏解釋，讓初學者難以理解。
-   - `[[SIMD]]` 在 "基礎運算與模型架構" 中。
-   - `[[LPDDR]]` 在 "進階記憶體與封裝 (高階)" 中。
-   - `[[NoC]]` 在 "網路與互連" 中。
-2. **內容過少與專有名詞未解說**: `SIMD.md`, `LPDDR.md`, `NoC.md` 使用了泛用的模板內容，缺乏針對該專有名詞的詳細解說。
-
-## 建議行動
-
-- [x] **更新 INDEX.md**: 為 `SIMD`, `LPDDR`, `NoC` 加上簡短但清晰的脈絡說明。
-- [x] **擴充 SIMD.md**: 呼叫虛擬團隊補充 單指令多資料流 (Single Instruction, Multiple Data) 的詳細解說，包含其在 AI 運算中的角色與限制。
-- [x] **擴充 LPDDR.md**: 呼叫虛擬團隊補充 低功耗雙倍資料率記憶體 (Low Power Double Data Rate) 的詳細解說，包含其在邊緣 AI 中的應用。
-- [x] **擴充 NoC.md**: 呼叫虛擬團隊補充 晶片內網路 (Network on Chip) 的詳細解說，包含其在解決多核心架構互連瓶頸的作用。
+- [x] Add `content/AIAgent實務操作指引.md` to document practical AI Agent usage strategies.
+- [x] Update `content/INDEX.md` to link `AIAgent實務操作指引`.
