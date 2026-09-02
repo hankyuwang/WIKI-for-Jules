@@ -9,6 +9,9 @@ tags:
 
 # GPU 架構與應用
 
+## Prerequisites (先備知識)
+- [[基礎計算機結構]]
+
 ## 摘要
 GPU（Graphics Processing Unit，圖形處理器）最初專為處理圖形渲染設計，具備高度平行計算能力。隨著 AI 發展，GPU 成為訓練與推理深度學習模型的核心硬體。本篇探討 GPU 的架構方案及其在 AI 領域的應用與權衡。
 

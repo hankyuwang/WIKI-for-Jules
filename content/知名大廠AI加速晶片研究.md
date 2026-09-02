@@ -38,7 +38,7 @@ tags:
 系統性梳理當前市面上最具代表性的 AI 加速晶片架構，釐清「硬體設計如何回應該世代 AI 演算法（特別是 LLM 與 MoE）的算力與頻寬需求」，並為自研 AI 晶片的小團隊提供兼具可行性與商業價值的策略指南。
 
 ### 2. 範圍 (Scope)
-- **雲端/資料中心級晶片**：NVIDIA Hopper (H100/H200) & Blackwell (B200)、Google TPU v4 & v5p & Trillium & TPU v8 (規格尚未公開)、AMD Instinct MI300X/MI325X、AWS Trainium2 & Inferentia2、Intel Gaudi 3。
+- **雲端/資料中心級晶片**：NVIDIA Hopper (H100/H200) & Blackwell (B200)、Google TPU v4 & v5p & Trillium (TPU v6)、AMD Instinct MI300X/MI325X、AWS Trainium2 & Inferentia2、Intel Gaudi 3。
 - **邊緣/終端級晶片**：Apple Silicon ANE (Apple Neural Engine)、Qualcomm Hexagon NPU。
 - **架構剖析面向**：ISA、主記憶體 (DRAM/HBM)、內部 SRAM、快取 (Cache)、脈動陣列/矩陣引擎、DMA、網路互聯、編譯器與 SDK (CUDA, ROCm, OpenXLA/Triton, SNPE, CoreML)。
 
