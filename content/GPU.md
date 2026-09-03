@@ -43,3 +43,7 @@ GPU（Graphics Processing Unit，圖形處理器）最初專為處理圖形渲�
 - 延伸向 [[NPU架構探索]]
 - 延伸向 [[TPU]]
 - 延伸向 [[HBM]]
+
+
+## Prerequisites (先備知識)
+- [[基礎計算機結構]]
