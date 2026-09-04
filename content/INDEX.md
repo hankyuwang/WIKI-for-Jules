@@ -11,9 +11,9 @@ tags:
 這是一個由 AI 虛擬團隊驅動的領域知識庫，專注於 AI 研究、探索與實驗驗證。這不僅僅是一個 Wiki，也是一個隨時在演化、生長中的 Digital Garden。
 
 ## 基礎運算與模型架構
-- [[Decode]]
-- [[KV Cache]]
-- [[Long Context]]
+- [[Decode]] : 推論階段中的生成步驟，每次自迴歸地產生一個 Token。在硬體上通常受到記憶體頻寬 (Memory Bandwidth) 限制。
+- [[KV Cache]] : 在 LLM 推論過程中，將注意力機制 (Attention) 中重複計算的 Key 和 Value 矩陣暫存於記憶體，以空間換取時間的關鍵加速技術。
+- [[Long Context]] : 處理超長文本序列的能力。長文本會導致 KV Cache 呈線性成長並大幅增加 Attention 計算量，是目前硬體加速的一大挑戰。
 - [[Mamba]]
 - [[SSM]] : 狀態空間模型 (State Space Model)，一種將連續訊號轉化為離散狀態的新型架構，為 Mamba 的底層數學基礎。
 - [[MoE]]
