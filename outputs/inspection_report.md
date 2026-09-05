@@ -1,23 +1,32 @@
-# Wiki 巡檢報告
+# Wiki 維護巡檢報告
 
-## 1. 知識地圖整合與孤兒節點 (Orphaned Files)
-經過巡檢，並未發現未連結的孤兒 `.md` 檔案。所有檔案皆已直接或間接連結至 `INDEX.md`。
+## 巡檢結果
 
-## 2. 脈絡補充 (INDEX.md Contextual Descriptions)
-以下節點在 `INDEX.md` 中僅有標題連結，缺乏引導讀者的脈絡說明，讀者可能不知從何開始，需要補充簡要說明：
-- [ ] `[[Decode]]`
-- [ ] `[[KV Cache]]`
-- [ ] `[[Long Context]]`
+### 1. 失效連結 (Broken Links)
+無。
 
-*(註：為確保執行品質與符合脈絡，本次巡檢先聚焦處理上述核心概念)*
+### 2. 過時版本 & 3. 已棄用架構 & 4. 官方文件或是論文更新 (Outdated Versions / Deprecated Architectures / Official Updates)
+- 發現 `TPUv8 (規格尚未公開)` 和 `TPU v8 (規格尚未公開)` 的內容。根據目前的公開資訊與記憶提示，Google 最新的第六代 TPU 正式命名為 **Trillium**，而非 TPU v8 (這屬於未發表或內部代號，目前已知存在 TPU v5e/v5p，下一代為 v6/Trillium，並不應跨代到 TPU v8)。
+- 知識庫中有數個檔案提到 `TPU v8 (規格尚未公開)` 以及 `TPUv8架構與演進`，需要將其正名並修改為 `Trillium (TPU v6)` 以符合官方最新命名。
 
-## 3. 內容過少與專有名詞解釋 (Sparse Content)
-以下檔案的內容過於簡略（多為樣板內容），缺乏詳細背景知識與深入解說，讀者會完全不知道在說什麼。需要呼叫虛擬團隊進行大幅擴充，將詳細內容轉換為易讀形式：
-- [ ] `content/PyTorch.md`
-- [ ] `content/TVM.md`
-- [ ] `content/GDDR.md`
+### 5. 新最佳實務 (New Best Practices)
+- 待修正上述架構命名後再作更新。
 
-- [x] 更新 INDEX.md 中的 Decode, KV Cache, Long Context
-- [x] 擴充 content/PyTorch.md
-- [x] 擴充 content/TVM.md
-- [x] 擴充 content/GDDR.md
+## 需要執行的變更
+1. 將 `content/TPUv8架構與演進.md` 重新命名為 `content/Trillium架構與演進.md`。
+2. 修改 `content/Trillium架構與演進.md` 內容，將 `TPU v8 (規格尚未公開)` 替換為 `Trillium (TPU v6)`，並將 `TPUv8` 替換為 `Trillium`。
+3. 修改 `content/INDEX.md` 中的相關連結與文字描述：
+   - 移除 `[[TPUv8架構與演進]]`，新增 `[[Trillium架構與演進]]`。
+   - 將文字描述的 `TPU v8 (規格尚未公開)` 改為 `Trillium (TPU v6)`。
+4. 修改 `content/AI晶片架構深度分析.md`：
+   - 標題與內文中的 `TPUv8 (規格尚未公開)` 改為 `Trillium (TPU v6)`。
+5. 修改 `content/知名大廠AI加速晶片研究.md`：
+   - 將內文的 `TPU v8 (規格尚未公開)` 移除或替換為 `Trillium (TPU v6)`。
+
+---
+
+- [x] 執行重新命名 `content/TPUv8架構與演進.md` -> `content/Trillium架構與演進.md`
+- [x] 執行 `content/Trillium架構與演進.md` 內文更新
+- [x] 執行 `content/INDEX.md` 更新
+- [x] 執行 `content/AI晶片架構深度分析.md` 更新
+- [x] 執行 `content/知名大廠AI加速晶片研究.md` 更新
