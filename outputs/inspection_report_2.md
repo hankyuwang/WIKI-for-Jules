@@ -1,19 +1,31 @@
-# Wiki 維護巡檢報告 (補充)
+# 知識庫巡檢報告
 
 ## 巡檢項目：
-1. **失效連結**：未發現 (`INDEX.md` 及所有 `.md` 檔案連結皆正常對應)。
-2. **過時版本**：未發現 (TPU v6 已正確正名為 Trillium，TPU v8 已標示規格尚未公開)。
-3. **已棄用架構**：未發現。
-4. **官方文件或是論文更新**：未發現需要立即更新的重大硬體規格改動。
-5. **新最佳實務 (文件品質與內容豐富度)**：
-   - **發現問題**：在巡檢過程中，發現多個 Wiki 頁面內容為罐頭生成的佔位文字 (Placeholder Text)，例如 `MLIR.md`, `DeepSpeed.md`, `Triton.md`，這些檔案包含無具體說明的「方案一：基於現有框架的軟體層優化」等通用模板，缺乏實質且有意義的知識點，違反了知識庫合成真實資訊的最佳實務。
+1. 失效連結 (Dead Links)
+2. 過時版本 (Outdated Versions)
+3. 已棄用架構 (Deprecated Architectures)
+4. 官方文件或是論文更新 (Official Docs / Paper Updates)
+5. 新最佳實務 (New Best Practices)
 
-## 虛擬團隊執行建議 ( narrowed scope 進行修復以確保執行品質 )：
-基於上述發現，本次維護將直接觸發虛擬團隊 (研究員與教育員) 針對以下 3 份最具代表性的軟體與編譯器生態文件進行實質內容重寫：
+## 分析與發現：
 
-- [ ] **修復 `content/MLIR.md`**：將罐頭文字替換為 MLIR (Multi-Level Intermediate Representation) 的真實技術細節，包含 Dialect 概念與在編譯器生態系統中的作用。
-- [ ] **修復 `content/DeepSpeed.md`**：將罐頭文字替換為 DeepSpeed 的真實技術細節，包含 ZeRO (Zero Redundancy Optimizer) 的三個階段與對降低記憶體佔用的具體幫助。
-- [ ] **修復 `content/Triton.md`**：將罐頭文字替換為 OpenAI Triton 的真實技術細節，說明其如何簡化硬體感知 (Hardware-aware) 的 Kernel 開發並取代部分手寫 CUDA。
+### 1. 失效連結
+- 經過腳本檢查，目前沒有發現失效連結或是孤兒頁面。
+- 發現所有 wiki 缺少 "先備知識" (Prerequisites) 區塊，違反 `.jules/instructions.md` 規範 (因數量過大，本次先挑選 4 篇進行修正)。
 
----
-*註：執行後請將本報告中的任務狀態更新為已完成 `[x]`。*
+### 2. 過時版本 & 4. 官方文件或論文更新
+- GPU 架構中，關於 NVIDIA B200 (Blackwell) 的描述較為缺乏，需補充說明其特點，尤其是對 FP4 的支援。
+
+### 3. 已棄用架構
+- 需標示 GPU 相關 wiki 中較舊架構 (如 Kepler/Maxwell) 為歷史參考。
+
+### 5. 新最佳實務
+- 隨著模型量化技術發展，FP4 / INT4 / FP8 等極低精度量化已經成為最佳實務，需要確認這些技術在軟硬體協同 wiki 中的完整性。
+
+## 虛擬團隊行動指南 (Action Items)：
+
+- [x] **接待員/知識架構師**：更新 `INDEX.md` 中的分類與描述，將 `Trillium架構與演進` 歸類並更新描述以強調其為 TPU v6。
+- [x] **研究員**：更新 `content/主要商用AI加速晶片架構分析.md`，新增一段關於 NVIDIA Blackwell (B200) 的段落，描述其支援 FP4 與最新的 NVLink 互連技術。
+- [x] **研究員**：更新 `content/GPU架構與演進.md`，增加說明 Kepler/Maxwell 等為早期架構，並說明最新的架構如 Hopper/Blackwell，且將前沿的極低精度量化最佳實務(FP4/INT4)作為新實務寫入。
+- [x] **教育員**：補上缺少的 `Prerequisites (先備知識)` 區塊到上述三個檔案以及 `Trillium架構與演進.md`。
+

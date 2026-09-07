@@ -10,11 +10,15 @@ tags:
 
 # 主要商用AI加速晶片架構分析
 
-本頁面探討目前市場上主流的商用 AI 加速晶片（Accelerator Chips）之硬體架構，包含 NVIDIA B200/H100、AMD MI300X、Google TPU v5p / Trillium 以及 AWS Trainium2。
-
-## Prerequisites
+## 先備知識 (Prerequisites)
+- [[AI加速晶片概覽]]
+- [[GPU]]
+- [[TPU]]
 - [[NPU架構探索]]
 - [[深度學習運算原理]]
+
+
+本頁面探討目前市場上主流的商用 AI 加速晶片（Accelerator Chips）之硬體架構，包含 NVIDIA B200/H100、AMD MI300X、Google TPU v5p / Trillium 以及 AWS Trainium2。
 
 ## 1. NVIDIA B200 (Blackwell) & H100 (Hopper)
 NVIDIA 的 GPU 是目前 AI 訓練與推理的主流平台。
@@ -67,3 +71,7 @@ AWS Trainium2 是 Amazon 專為深度學習訓練設計的客製化晶片。
 ## 未來研究方向
 - **模型量化技術與硬體架構的結合**：探討 FP4 / INT4 如何在實際硬體上達到 Zero-overhead 的運算轉換。
 - **跨平台編譯器技術**：例如 OpenAI Triton 或 MLIR 等開源編譯器如何降低對單一硬體廠商 (CUDA) 的依賴。
+
+
+## 最新架構更新：NVIDIA Blackwell (B200)
+NVIDIA Blackwell (如 B200) 是當前最新一代的架構，特別針對 LLM 進行了優化。其最顯著的新最佳實務為支援 **FP4** 極低精度量化運算，這能夠在保持模型精度的前提下，大幅提升推論效能並降低記憶體頻寬壓力。此外，它配備了最新一代的 NVLink 互連技術，進一步打破了多晶片互連的記憶體牆瓶頸。

@@ -10,6 +10,11 @@ tags:
 
 # Trillium (TPU v6) 架構解析與演進
 
+## 先備知識 (Prerequisites)
+- [[TPU架構解析]]
+- [[MoE]]
+
+
 ## 摘要
 Google 的第八代張量處理單元 (Trillium (TPU v6))，標誌著 TPU 架構演進到了全新的階段。隨著 AI 訓練需求邁向超大規模萬億參數的 LLM 與 MoE（混合專家）模型，單晶片算力已無法滿足需求，叢集的互連網路與記憶體頻寬成為關鍵。Trillium (TPU v6) 進一步強化了集合通訊加速引擎 (CAE)，大幅度優化分布式訓練中的 All-to-All 算子，降低叢集通訊延遲，以支援次世代的 AI 工作負載。
 
