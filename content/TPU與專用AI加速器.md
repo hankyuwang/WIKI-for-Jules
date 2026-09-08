@@ -46,3 +46,6 @@ tags:
 * [[GPU架構與發展]]
 * [[NPU架構探索]]
 * [[模型量化技術]]
+
+## 補充：Google Trillium (TPU v6)
+Trillium 是 Google 最新一代的 TPU (v6)，相較於上一代 v5e，它提供了超過 4 倍的巔峰運算效能 (Peak Compute Performance)，兩倍的 HBM 頻寬與容量，並且內建了第三代 SparseCore (專門針對嵌入式處理)，進一步提升大規模 LLM 與推薦系統的訓練/推論效率。

@@ -58,3 +58,9 @@ FlashAttention 系列演算法的核心思想是透過平鋪 (Tiling) 技術，�
 - **成本 (Cost)**：設計中等複雜度的解壓縮硬體單元。
 - **維護性 (Maintainability)**：良好，透過軟體更新量化策略即可。
 - **風險 (Risks)**：量化格式標準（如 FP4, NF4 等）尚未完全統一，過早綁定單一格式可能面臨不相容風險。
+
+
+## 最新最佳實務與更新
+隨著極低精度硬體（如支援 FP4/INT4 的 NVIDIA Blackwell 與 AMD 架構）陸續問世，最新的最佳實務建議：
+1. **混合精度與硬體感知編譯**：利用 MLIR/Triton 等開源編譯器技術，結合硬體的 Tensor Core，自動化執行最佳的混合精度切換（例如 GEMM 使用 FP4，而 Accumulation 保持 FP16/FP32），這成為了避免「精度雪崩」的關鍵。
+2. **動態縮放 (Dynamic Scaling) 的軟硬協同**：演算法端需配合硬體提供的動態縮放引擎 (Dynamic Scaling Engine) 即時調整縮放因子，確保低精度表示不會發生溢位或下溢。

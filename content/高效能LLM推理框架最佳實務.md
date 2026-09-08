@@ -35,3 +35,11 @@ TensorRT-LLM 是 NVIDIA 官方推出的推理框架，專門針對 NVIDIA GPU �
 - **成本 (Cost)**：軟體免費（需搭配 NVIDIA 硬體），但時間成本與工程師學習成本較高。
 - **維護性 (Maintainability)**：中低，模型權重轉換和編譯流程複雜，每次更新模型可能都需要重新編譯。
 - **風險 (Risks)**：深度綁定 NVIDIA 生態，缺乏硬體選擇的彈性（Vendor Lock-in）。
+
+
+## 2024 新最佳實務與演進
+### 1. Speculative Decoding (推測解碼)
+為了打破自迴歸生成中 Memory-bound 的瓶頸，越來越多框架 (如 vLLM) 導入了 Speculative Decoding。這是一種利用較小、較快的「草稿模型 (Draft Model)」先行預測多個 Token，再交由大模型一次性驗證 (Verify) 的技術。在硬體端，這會將原本零碎的矩陣向量運算 (GEMV) 轉變為更有效率的矩陣乘法 (GEMM)，大幅提升硬體利用率。
+
+### 2. FP8 KV Cache
+為了應對 Long Context 的挑戰，除了傳統的 PagedAttention，將 KV Cache 進一步量化為 FP8 (甚至是 INT4) 成為新主流。這不僅減少了一半以上的 VRAM 占用，還減輕了讀取 KV Cache 時的記憶體頻寬壓力。
