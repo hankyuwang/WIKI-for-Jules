@@ -34,7 +34,8 @@ AMD MI300X 是針對生成式 AI 和高效能運算 (HPC) 設計的加速器。
 Google 的 Tensor Processing Unit (TPU) 是專為 TensorFlow 和 JAX 等機器學習框架深度最佳化的 ASIC 晶片。
 - **架構特點**：
   - 採用了高度最佳化的脈動陣列 (Systolic Array) 來執行矩陣乘法。
-  - v5p 版本強調了單晶片效能的提升以及更強的互連能力，利用光學互連 (Optical Circuit Switches, OCS) 技術構建超大規模的超級電腦叢集 (Pod)。
+  - **TPU v5p**: 強調單晶片效能的提升以及更強的互連能力，利用光學互連 (Optical Circuit Switches, OCS) 技術構建超大規模的超級電腦叢集 (Pod)。
+  - **Trillium (TPU v6)**: Google 最新一代的高效能加速器，相較於 v5e 提供 4.7 倍尖峰運算效能，具備更強大的 SparseCore 與雙倍 HBM 容量及頻寬。
 - **生態系限制**：通常僅在 Google Cloud 上提供，適合深度綁定 Google 雲端生態與 JAX/XLA 的大型模型訓練。
 
 ## 4. AWS Trainium2
