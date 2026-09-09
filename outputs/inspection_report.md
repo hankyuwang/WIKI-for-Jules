@@ -1,40 +1,18 @@
-# Wiki 維護巡檢報告 (Inspection Report)
+# 維護員巡檢報告
+建立日期：2026-09-09
 
-## 1. 失效連結 (Dead Links)
-發現 0 個失效連結：
-無失效連結。
+## 巡檢項目
 
-## 2. 孤兒檔案 (Orphaned Files)
-發現 0 個未在 INDEX.md 中引用的檔案：
-無孤兒檔案。
+1. **失效連結 (Dead Links)**: 在 `INDEX.md` 中未發現失效連結。
+2. **孤兒檔案 (Orphan Files)**: 未發現未被 `INDEX.md` 連結的孤兒檔案。
+3. **過時版本與官方文件更新**: 發現多個文件提及 "Trillium / TPU v6" 相關的架構資訊需要一致化更新。特別是，根據記憶與知識地圖，Google TPU v6 被正式命名為 Trillium，必須避免與未發布的 TPU v8 混淆，且需更新部分可能過時的硬體描述。
+4. **發現的需要修改的項目**:
+   - `content/知名大廠AI加速晶片研究.md`: 裡面有一處提到 `v8 (規格尚未公開)`，這是不正確的，Google 最新的世代是 Trillium (v6)，不應直接跳躍至 v8。需要將 `v8 (規格尚未公開)` 移除。
+   - `content/Trillium架構與演進.md`: 第一段中將 Trillium 稱為「第八代張量處理單元 (Trillium (TPU v6))」，這是自相矛盾的。TPU v6 應為第六代。需要修正為「第六代張量處理單元」。
 
-## 3. 過時版本與官方文件更新 (Outdated Versions & Official Docs Updates)
-- [x] `TPU與專用AI加速器.md`：需確認是否已納入 Google TPU v6 (Trillium) 的最新架構資訊。
-- [x] `主要商用AI加速晶片架構分析.md`：需更新最新一代晶片（如 Blackwell, MI300X, Trillium）的具體規格比較，並確認有無棄用之舊架構。
-- [x] `FlashAttention3與極低精度量化硬體需求.md`: 確認是否有更新的最佳實務。
+## 任務清單
+- [ ] 修正 `content/知名大廠AI加速晶片研究.md` 中的 "v8 (規格尚未公開)"。
+- [ ] 修正 `content/Trillium架構與演進.md` 中的 "第八代" 為 "第六代"。
 
-## 4. 新最佳實務與已棄用架構 (New Best Practices & Deprecated Architectures)
-- [x] 定期檢查 AI 推理框架 (如 vLLM, TensorRT-LLM) 是否有新的效能優化 (e.g. Speculative Decoding, FP8 KV Cache) 需新增至 `高效能LLM推理框架最佳實務.md`。
-
-## 5. 待辦事項清單 (Action Items)
-- [x] 執行虛擬團隊工作流程，針對上述項目進行研究與更新 (接待員 -> 知識架構師 -> 研究員 -> 驗證員 -> 教育員)。
-- [x] 確保修改後的內容通過 `npx quartz build` 驗證。
-# Wiki 維護巡檢報告
-
-## 1. 知識地圖脈絡與延伸 (INDEX.md 整理建議)
-為了讓初學者更容易從初始連結延伸，建議在 `INDEX.md` 中進一步將概念分層，並在各節點加入簡短的解釋說明，引導讀者。
-- **建議行動**: 將過於扁平的列表轉換為具有引導性說明的脈絡樹狀結構，特別是在「基礎運算與模型架構」與「軟體與編譯器」段落。
-
-## 2. 內容過少與專有名詞待補充 (需呼叫虛擬團隊)
-以下檔案內容較為簡短（少於 1500 字元），可能缺乏足夠的背景知識、專有名詞解說或實作細節，導致讀者難以理解。請呼叫虛擬團隊（研究員 -> 驗證員 -> 教育員）進行內容擴充：
-
-- [x] `GPU架構與AI計算.md` (目前長度: 737 字元)
-- [x] `新型態AI硬體架構.md` (目前長度: 744 字元)
-- [x] `Long Context.md` (目前長度: 779 字元)
-- [x] `模型與硬體適配性.md` (目前長度: 803 字元)
-- [x] `BF16.md` (目前長度: 830 字元)
-
-*(註：共有 98 個檔案長度少於 1500 字元，此處列出最短的 5 個作為首批優化目標)*
-
-## 3. 孤兒節點 (Orphaned Files) 處理
-目前沒有發現孤兒節點，所有文章皆已連結至知識地圖。
+## Execution Status
+- [x] Implemented fixes for TPU naming conventions.
