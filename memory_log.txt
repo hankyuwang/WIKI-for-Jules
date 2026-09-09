@@ -1,0 +1,1 @@
+- When editing files, using sed replacement with precise searches is a powerful way to safely manipulate markdown task lists or specific text blocks without risking truncation errors from reading large files.
