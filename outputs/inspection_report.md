@@ -1,20 +1,19 @@
-# 知識庫巡檢與修復計畫
+# 維護員巡檢報告
 
-根據 `.jules/instructions.md` 維護員的定期巡檢規範，本次針對 `content/` 進行巡檢，發現以下問題：
+## 1. 失效連結 (Dead Links)
+- 檔案：`content/GDDR.md`
+  - 描述：發現失效連結 `[[商用AI加速晶片架構]]`。
+  - 建議行動：該名稱不存在，根據檔案列表，最接近的檔案為 `主流商用AI加速晶片架構.md` 或 `商用AI加速晶片.md` 或 `主要商用AI加速晶片架構分析.md`。建議將其修正為 `[[主流商用AI加速晶片架構]]`。
 
-## 1. 知識地圖與 wiki 內容連結
-- **狀態**：目前 `INDEX.md` 與 `content/` 內的檔案已達到 100% 互連 (0 Dead links, 0 Orphaned files)。
-- **行動**：知識地圖脈絡完整，讀者可透過 `INDEX.md` 順利探索所有知識節點。
+## 2. 過時版本與已棄用架構 (Outdated Versions & Deprecated Architectures)
+- 檔案：`content/AI晶片架構深度分析.md`, `content/INDEX.md`, `content/TPU與專用AI加速器.md`, `content/TPU與專用AI晶片.md`, `content/Trillium架構與演進.md`, `content/主要商用AI加速晶片架構分析.md`, `content/知名大廠AI加速晶片研究.md`
+  - 描述：文件中提到 Trillium 並將其標記為 (TPU v6)。
+  - 建議行動：確認 Trillium (TPU v6) 在知識庫的呈現一致性。雖然它被稱為 TPU v6，但根據官方命名，Google 官方正式將其稱為 Trillium。如果這只是為了讓人理解對應版本，保留沒問題，但如果需要嚴謹正名，應確保主要以 Trillium 稱呼。
+- **孤兒頁面檢查**：`INDEX.md` 中所有連接都正常，且所有的 md 檔案都有在 `INDEX.md` 被引用，沒有孤兒檔案。
 
-## 2. 內容長度過短或過於空泛的文章
-- **狀態**：所有文章字元數皆大於 800 字。
-- **行動**：已透過虛擬團隊針對核心初學者文章（如《反向傳播》、《梯度下降》、《深度學習運算原理》）補充詳細的易讀解說，確保讀者能快速掌握核心概念。
+## 3. 官方文件或是論文更新與新最佳實務 (Official Docs/Papers Updates & New Best Practices)
+- 檢查期間未發現顯著需要緊急更新的架構過時資訊，但在持續關注 AI 硬體與架構（如 NVIDIA Blackwell, Google Trillium, AMD MI300 等）。
 
-## 3. 缺失【先備知識 (Prerequisites)】章節
-根據規範，發現有多篇文章缺少 `## 先備知識` 章節。
-為了避免單次修改量過大導致執行逾時，本次已挑選最關鍵的 **3 篇** 初階/核心文章進行修復，模擬維護員觸發虛擬團隊進行更新。
-
-### 執行結果
-- [x] `content/反向傳播.md` 已修復
-- [x] `content/梯度下降.md` 已修復
-- [x] `content/深度學習運算原理.md` 已修復
+## 虛擬團隊執行事項 (Task List)
+- [ ] 修正 `content/GDDR.md` 中的失效連結 `[[商用AI加速晶片架構]]` 為 `[[主流商用AI加速晶片架構]]`。
+- [x] 修正 GDDR.md 中的失效連結
