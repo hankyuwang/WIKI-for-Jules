@@ -1,5 +1,15 @@
 # 知識庫巡檢報告
 
+## 內容過少需要補充的節點 (字數 < 1500 字)
+- [x] `GPU.md`
+- [x] `算子融合.md`
+- [x] `邊緣AI晶片設計.md`
+- [x] `TPU.md`
+
+## 缺少 '先備知識' (Prerequisites) 區塊的節點
+- [x] `GPU.md`
+- [x] `邊緣AI晶片設計.md`
+- [x] `TPU.md`
 ## 1. 知識地圖與孤立節點檢查 (Orphan Nodes)
 經檢查 `content/INDEX.md` 與 `content/*.md`，**目前沒有發現任何沒有被 INDEX.md 連結的孤立節點 (Orphan Nodes)**。這表示所有知識節點都已經有脈絡地與知識地圖相連。
 
