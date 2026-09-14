@@ -11,18 +11,24 @@ tags:
 
 摘要：OpenAI Triton 是一個專為 GPU 設計的開源程式語言與編譯器，它大幅簡化了硬體感知 (Hardware-aware) Kernel 的開發難度，讓研究人員能用 Python 寫出媲美手寫 CUDA 的高效能程式碼。
 
-## 設計初衷
+## Prerequisites (先備知識)
+- [[GPU架構與發展]]：理解 GPU 硬體的限制。
+- [[CUDA]]：了解傳統 GPU 開發的門檻與挑戰。
 
-傳統上，要充分發揮 GPU (特別是 NVIDIA [[GPU架構與發展]]) 的極致效能，工程師必須使用 [[CUDA]] C++ 來撰寫底層 Kernel。這需要深刻理解硬體架構，如 Shared Memory、Warp scheduling、Memory coalescing 等，學習曲線極其陡峭。
+## 為什麼我們需要 Triton？
+傳統上，要充分發揮 GPU 的極致效能，工程師必須使用 [[CUDA]] C++ 來撰寫底層 Kernel。這就像是在沒有現代化工具的環境下手刻極為精密的機械：你需要深刻理解硬體架構，精準控制 Shared Memory 的分配、Warp 的排程、以及 Memory coalescing (記憶體合併存取)。學習曲線極其陡峭，開發成本極高。
 
-Triton 提供了一套基於 Python 的高階語法，隱藏了部分底層細節。工程師只需定義 **Block** 層級的操作，Triton 編譯器會自動處理 Warp 級別的排程、Shared Memory 的分配與同步。
+Triton 提供了一套基於 Python 的高階語法，隱藏了許多繁瑣的底層細節，讓 AI 研究員能專注於「演算法本身」，而非「硬體細節」。
 
-## 核心優勢
+## 核心原理解析：Block-level Operations
+在 CUDA 中，開發者必須定義每個「單一執行緒 (Thread)」要做什麼事，這非常容易出錯。
 
-- **降低開發門檻**：以 Python 語法編寫，讓熟悉 PyTorch 的 AI 研究人員能自行開發高度客製化且高效的算子 (如 FlashAttention (如 FlashAttention-2, FlashAttention-3))。
-- **效能優異**：透過內建的編譯器優化 (基於 [[MLIR]])，Triton 產出的機器碼在多數情況下能達到手寫 CUDA Kernel 80% 到 90% 以上的效能，有時甚至更好。
-- **跨硬體潛力**：雖然目前主要針對 NVIDIA GPU 優化，但 Triton 的架構設計使其有潛力支援 AMD [[ROCm]] 等其他硬體後端，減少 Vendor Lock-in。
+Triton 的創新在於：**開發者只需定義「Block (區塊)」層級的操作**。
+這意味著你寫的程式碼是針對一小塊記憶體矩陣（例如 $64 \times 64$ 的區塊）進行操作。Triton 的編譯器會在背後自動幫你處理：
+1. 將這個 Block 拆解並分配給底層的 Warp 和 Thread。
+2. 自動管理 Shared Memory 的分配與同步。
+3. 最佳化記憶體的存取模式以最大化頻寬。
 
-## 應用案例
-
-Triton 在社群中最著名的應用之一是 PyTorch 2.0 中的 `torch.compile` 底層後端，以及被廣泛應用於大型語言模型訓練與推理的 **FlashAttention (如 FlashAttention-2, FlashAttention-3)** 演算法實作。
+## 開發成本與效能對比
+- **手寫 CUDA**：可能需要數百行 C++ 程式碼，耗時數週進行除錯與效能調校。效能極限最高，但僅限少數硬體專家。
+- **使用 Triton**：只需數十行 Python 程式碼，幾天內即可完成開發。在多數常見場景下（如 FlashAttention），能達到手寫 CUDA 80%~95% 以上的效能，大幅縮短了從理論到部署的距離。
