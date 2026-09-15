@@ -1,6 +1,6 @@
 ---
 title: "FlashAttention-3與極低精度量化硬體需求"
-level: "advanced"
+level: advanced
 tags:
   - "FlashAttention"
   - "Quantization"
