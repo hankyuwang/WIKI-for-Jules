@@ -1,6 +1,6 @@
 ---
 title: "CXL 3.1與記憶體擴展最新進展"
-level: "advanced"
+level: advanced
 tags:
   - "CXL"
   - "Memory Pooling"
