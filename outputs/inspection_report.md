@@ -57,3 +57,12 @@
 - [x] 任務 2：擴充 `MLIR.md` 已完成。
 - [x] 任務 3：擴充 `Triton.md` 已完成。
 - [x] 任務 4：擴充 `QAT.md` 已完成。
+
+
+## 5. 新增虛擬團隊行動方案 (Action Items)
+- [x] **任務 5：擴充 `Transformer.md`**
+  - 增加「Prerequisites (先備知識)」(如 深度學習運算原理, RNN/CNN)。
+  - 補充 Transformer 核心架構挑戰，與 KV Cache 的記憶體瓶頸解說。
+- [x] **任務 6：擴充 `GDDR.md`**
+  - 增加「Prerequisites (先備知識)」(如 AI硬體之記憶體牆問題, 記憶體架構)。
+  - 補充與 HBM 的比較，與在邊緣運算的應用。
