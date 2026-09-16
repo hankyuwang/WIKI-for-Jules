@@ -57,3 +57,8 @@
 - [x] 任務 2：擴充 `MLIR.md` 已完成。
 - [x] 任務 3：擴充 `Triton.md` 已完成。
 - [x] 任務 4：擴充 `QAT.md` 已完成。
+
+## 5. 過時架構與版本更新 (Outdated/Deprecated Architectures)
+- [x] `TPU與專用AI晶片.md` 包含過時架構 (TPU v1, TPU v2)，需增加提示說明。
+- [x] `GPU 架構與演進.md` 包含過時架構 (Volta)，需增加提示說明。
+- [x] `Systolic Array.md` 包含過時架構 (TPU v1)，需增加提示說明。
