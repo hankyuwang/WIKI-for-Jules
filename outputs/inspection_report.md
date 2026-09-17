@@ -1,17 +1,12 @@
-# 知識庫巡檢報告
+# Wiki 巡檢報告
 
-## 內容過少需要補充的節點 (字數 < 1500 字)
-- [x] `GPU.md`
-- [x] `算子融合.md`
-- [x] `邊緣AI晶片設計.md`
-- [x] `TPU.md`
+## 1. 知識地圖與 wiki 內容連結
+目前所有 `.md` 檔案都有被連結在 `INDEX.md` 中，沒有孤兒檔案，也沒有死連結。
 
-## 缺少 '先備知識' (Prerequisites) 區塊的節點
-- [x] `GPU.md`
-- [x] `邊緣AI晶片設計.md`
-- [x] `TPU.md`
-## 1. 知識地圖與孤立節點檢查 (Orphan Nodes)
-經檢查 `content/INDEX.md` 與 `content/*.md`，**目前沒有發現任何沒有被 INDEX.md 連結的孤立節點 (Orphan Nodes)**。這表示所有知識節點都已經有脈絡地與知識地圖相連。
+## 2. 內容過少或缺少說明的項目
+以下檔案的內容字數偏少，可能需要補充說明：
+- [x] `Transformer.md`
+- [x] `GDDR.md`
 
 ## 2. 壞死連結檢查 (Dead Links)
 經檢查所有 markdown 檔案，發現以下壞死連結並已於巡檢過程中修復：
@@ -77,3 +72,7 @@
   - **接待員 / 知識架構師**：確認調整「Prerequisites (先備知識)」。
   - **研究員**：保留原有架構方案與進階技術 (如 HBM3, NVLink, Mamba)。
   - **教育員**：在文章開頭加入前言引導初學者進入脈絡。
+## 3. 缺少 Prerequisites (先備知識) 區塊
+根據 `.jules/instructions.md` 規定，所有的 wiki 需要有 `Prerequisites` 區塊，以下檔案缺少：
+- [x] `前沿技術挑戰與瓶頸.md`
+- [x] `SRAM微縮挑戰與替代方案.md`
