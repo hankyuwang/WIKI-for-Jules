@@ -1,26 +1,35 @@
-# 知識庫巡檢報告
+# Wiki 維護員巡檢報告
+**巡檢時間**: 2026-09-15 19:06:58
 
-## 內容過少需要補充的節點 (字數 < 1500 字)
-- [x] `GPU.md`
-- [x] `算子融合.md`
-- [x] `邊緣AI晶片設計.md`
-- [x] `TPU.md`
+## 1. 失效連結 (Broken Links) 與 孤兒節點 (Orphaned Files)
+經過檢查，目前無失效連結與孤兒節點。
 
-## 缺少 '先備知識' (Prerequisites) 區塊的節點
-- [x] `GPU.md`
-- [x] `邊緣AI晶片設計.md`
-- [x] `TPU.md`
-## 1. 知識地圖與孤立節點檢查 (Orphan Nodes)
-經檢查 `content/INDEX.md` 與 `content/*.md`，**目前沒有發現任何沒有被 INDEX.md 連結的孤立節點 (Orphan Nodes)**。這表示所有知識節點都已經有脈絡地與知識地圖相連。
+## 2. 過時版本 (Outdated Versions) & 已棄用架構 & 官方文件更新
+- [x] `content/知名大廠AI加速晶片研究.md`: 將 `Google (TPU v4/v5p/Trillium/v8 (規格尚未公開))` 中的 `v8` 移除或修正，因為 Trillium 是 TPU v6，不應與未發布的 v8 混淆。
+# Wiki 巡檢報告
 
-## 2. 壞死連結檢查 (Dead Links)
-經檢查所有 markdown 檔案，發現以下壞死連結並已於巡檢過程中修復：
-- 發現 `GDDR.md` 中指向不存在的 `[[商用AI加速晶片架構]]`。
-- **已修復**：將其修正為正確的 `[[商用AI加速晶片架構研究]]`。
+## 1. 知識地圖與 wiki 內容連結
+目前所有 `.md` 檔案都有被連結在 `INDEX.md` 中，沒有孤兒檔案，也沒有死連結。
 
-## 3. 短內容節點檢查 (Short Content)
-經過掃描，我們發現有四份文件內容長度較短 (小於 1000 bytes)，且缺少詳細的「先備知識 (Prerequisites)」段落及足夠深入的探討，導致讀者可能缺乏足夠的上下文來理解：
+## 2. 內容過少或缺少說明的項目
+以下檔案的內容字數偏少，可能需要補充說明：
+- [x] `Transformer.md`
+- [x] `GDDR.md`
 
+## 3. Wiki 格式規範檢查 (缺失 level 與 Prerequisites)
+### 缺少 YAML `level` 欄位的檔案 (2 個)
+- [x] `CXL3_1與記憶體擴展最新進展.md`
+- [x] `FlashAttention3與極低精度量化硬體需求.md`
+### 缺少 `Prerequisites` 區塊的檔案 (取前 5 個)
+- [x] `3D封裝與記憶體整合.md`
+- [x] `AIAgent與硬體架構演進.md`
+- [x] `AI加速器架構總覽.md`
+- [x] `AI加速晶片全解析.md`
+- [x] `AI加速晶片架構師學習地圖.md`
+
+
+## 4. 已棄用架構 & 官方文件更新 & 新最佳實務 (Virtual Team Action Items)
+經過全面檢查，目前無顯著的棄用架構、官方文件更新或新最佳實務需要立即更新。若有後續更新，將會建立新的 Action Items。
 1. `CUDA.md` (919 bytes)
 2. `MLIR.md` (924 bytes)
 3. `Triton.md` (967 bytes)
@@ -66,3 +75,25 @@
 - [x] **任務 6：擴充 `GDDR.md`**
   - 增加「Prerequisites (先備知識)」(如 AI硬體之記憶體牆問題, 記憶體架構)。
   - 補充與 HBM 的比較，與在邊緣運算的應用。
+## 5. 追加短內容節點檢查 (Short Content) - 第二梯次
+經過再次掃描，我們發現以下文件需要增加初學者友善的說明或先備知識：
+
+1. `XLA.md`
+2. `AI晶片方案評估與發展趨勢.md`
+
+## 6. 追加虛擬團隊行動方案 (Action Items) - 第二梯次
+我們將觸發虛擬團隊執行以下補充說明任務：
+
+- [x] **任務 5：擴充 `XLA.md`**
+  - **接待員 / 知識架構師**：確認增加「Prerequisites (先備知識)」(如 TensorFlow, JAX, Compiler)。
+  - **研究員**：保留原有高階知識 (如 HLO/LLO, MLIR)。
+  - **教育員**：在五分鐘版加入白話比喻以利初學者理解。
+
+- [x] **任務 6：擴充 `AI晶片方案評估與發展趨勢.md`**
+  - **接待員 / 知識架構師**：確認調整「Prerequisites (先備知識)」。
+  - **研究員**：保留原有架構方案與進階技術 (如 HBM3, NVLink, Mamba)。
+  - **教育員**：在文章開頭加入前言引導初學者進入脈絡。
+## 3. 缺少 Prerequisites (先備知識) 區塊
+根據 `.jules/instructions.md` 規定，所有的 wiki 需要有 `Prerequisites` 區塊，以下檔案缺少：
+- [x] `前沿技術挑戰與瓶頸.md`
+- [x] `SRAM微縮挑戰與替代方案.md`
