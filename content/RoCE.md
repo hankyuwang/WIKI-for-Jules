@@ -25,3 +25,19 @@ tags:
 
 ## 業界應用現況
 雖然大型的 AI 訓練叢集（如 Nvidia SuperPOD）歷史上傾向使用 [[InfiniBand]]，但隨著雲端服務商（如 AWS, Azure, GCP）的大規模採用，基於 RoCE v2 的乙太網路架構正在迅速普及。其優勢在於能利用現有的乙太網路交換機硬體，大幅降低基礎設施的建置與維護成本，並達到與 InfiniBand 相當的效能水準。
+
+
+
+## 虛擬團隊補充說明：RoCEv2 的實務痛點與優化策略
+
+對於預算有限或希望統一網路架構 (單一乙太網路) 的團隊來說，RoCEv2 是一個非常吸引人的方案。但實務上，要讓 RoCEv2 發揮出接近 InfiniBand 的效能，必須解決以下痛點：
+
+1. **PFC (Priority-based Flow Control) 的死鎖問題**：
+   RoCEv2 依賴 PFC 來實現無損網路。當接收端緩衝區滿時，會發送暫停訊號 (Pause Frame) 給發送端。在複雜拓撲中，這可能導致環狀的暫停，造成網路死鎖 (PFC Deadlock)，甚至引發 PFC 風暴癱瘓整個網路。
+2. **ECN (Explicit Congestion Notification) 的調優難度**：
+   為了在封包丟失前減緩發送速度，必須精細調校交換機的 ECN 閾值。這個調校過程非常複雜，且對於不同特性的 AI 訓練流量 (如 All-Reduce vs All-to-All) 的最佳參數可能完全不同。
+
+**優化策略與最佳實務**：
+- **實體隔離**：強烈建議將 AI 訓練的 RoCEv2 流量與一般儲存或管理網路 (TCP/IP) 進行實體隔離，使用專屬的交換機與網卡。
+- **智慧網卡 (SmartNIC/DPU)**：利用現代 DPU (如 Nvidia BlueField 或 AMD Pensando) 將擁塞控制與 RDMA 處理邏輯卸載到網卡上的硬體加速器，減輕 CPU 負擔並提升網路穩定性。
+- **監控與可見度**：部署細粒度的網路遙測 (Telemetry) 系統，即時監控 PFC 暫停幀的數量與佇列深度，才能在效能崩潰前找到瓶頸點。
