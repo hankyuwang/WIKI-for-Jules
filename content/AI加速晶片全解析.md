@@ -8,6 +8,11 @@ tags:
   - infrastructure
 ---
 
+## 先備知識 (Prerequisites)
+- [[AI加速晶片概述]]
+- [[AI模型分類與硬體需求]]
+
+
 # AI 加速晶片全解析與部署策略
 
 ## 摘要

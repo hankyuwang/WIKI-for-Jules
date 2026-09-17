@@ -12,7 +12,7 @@ tags:
 # 知名大廠 AI 加速晶片深度研究報告
 
 > **摘要**
-> 本報告由 AI 虛擬團隊協同完成，針對 NVIDIA (Hopper/Blackwell)、Google (TPU v4/v5p/Trillium/v8 (規格尚未公開))、AMD (Instinct MI300X/MI325X)、AWS (Trainium2/Inferentia2)、Apple (ANE)、Qualcomm (Hexagon) 及 Intel (Gaudi 3) 等主流 AI 加速晶片進行深度剖析。內容涵蓋：應用情境、ISA 介面、Memory/SRAM/Cache、運算與 DMA 架構、AI 模型（如 LLM Dense, MoE, YOLO）之硬體映射、SDK 設計哲學、前沿技術瓶頸（如 Memory Wall, Interconnect, Packaging良率），並為小團隊提供 3 套自研 AI 加速晶片之具體設計架構方案與市場戰略評估。
+> 本報告由 AI 虛擬團隊協同完成，針對 NVIDIA (Hopper/Blackwell)、Google (TPU v4/v5p/Trillium)、AMD (Instinct MI300X/MI325X)、AWS (Trainium2/Inferentia2)、Apple (ANE)、Qualcomm (Hexagon) 及 Intel (Gaudi 3) 等主流 AI 加速晶片進行深度剖析。內容涵蓋：應用情境、ISA 介面、Memory/SRAM/Cache、運算與 DMA 架構、AI 模型（如 LLM Dense, MoE, YOLO）之硬體映射、SDK 設計哲學、前沿技術瓶頸（如 Memory Wall, Interconnect, Packaging良率），並為小團隊提供 3 套自研 AI 加速晶片之具體設計架構方案與市場戰略評估。
 
 ## Prerequisites
 - [[基礎計算機結構]]
