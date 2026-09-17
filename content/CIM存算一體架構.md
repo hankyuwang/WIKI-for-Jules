@@ -9,6 +9,8 @@ tags:
   - architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # CIM 存算一體架構
 
 CIM (Computing-in-Memory) 或稱為存算一體技術，是一種顛覆傳統馮·諾伊曼 (Von Neumann) 架構的新興設計。在傳統架構中，運算單元 (CPU/GPU) 與記憶體 (SRAM/DRAM) 是分離的，這導致了在執行神經網路時，大部分的功耗與時間都花費在資料的搬移上。

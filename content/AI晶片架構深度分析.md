@@ -7,6 +7,8 @@ tags:
   - Systolic Array
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 摘要：本文件針對使用者提出的六個核心問題進行深度分析，涵蓋 [[NPU架構探索|NPU]] 算力與 SRAM 容量關係、TPU 與 CISC/RISC 架構差異、[[Systolic Array|脈動陣列 (Systolic Array)]] 解析、[[TPU]] 與 NVIDIA [[GPU]] 架構對比、現代 AI 模型訓練硬體選擇，以及 Trillium (TPU v6) 的集合通訊加速引擎 (CAE) 分析。
 
 ## 1. [[NPU架構探索|NPU]] 矩陣算力與 SRAM 的關係

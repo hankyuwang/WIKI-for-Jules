@@ -8,6 +8,8 @@ tags:
   - architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # TPU 與脈動陣列 (Systolic Array)
 
 TPU (Tensor Processing Unit) 是 Google 專為神經網路推論與訓練開發的客製化 ASIC 加速器。與通用 GPU 相比，TPU 放棄了許多為了圖形處理而保留的複雜控制邏輯，轉而極大化晶片上的乘累加單元 (MAC)。

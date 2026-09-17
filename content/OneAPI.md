@@ -7,6 +7,8 @@ tags:
   - Heterogeneous Computing
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # OneAPI
 
 摘要：OneAPI 是由 Intel 提出的一項開放且跨架構的程式設計模型與軟體框架。其核心目標是打破目前硬體專有編程模型（如 NVIDIA 的 [[CUDA]]）所造成的「硬體鎖定」生態，讓開發者只需編寫一次程式碼，就能在各種異質運算硬體（包含 CPU、GPU、FPGA 等）上高效執行。

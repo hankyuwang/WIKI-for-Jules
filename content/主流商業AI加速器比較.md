@@ -8,6 +8,8 @@ tags:
   - hardware
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # 主流商業AI加速器比較
 
 這份研究報告分析與比較了當前市場上最主流的三種商業 AI 加速器解決方案：NVIDIA GPU、AMD Instinct 以及 Google TPU。

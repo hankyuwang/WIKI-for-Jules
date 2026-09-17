@@ -9,6 +9,8 @@ tags:
   - system-architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # CXL 在 AI 系統的應用
 
 摘要：Compute Express Link (CXL) 是一種基於 PCIe 實體層的高速互連標準，旨在提供處理器（CPU）、加速器（GPU/NPU）與記憶體之間的高頻寬、低延遲且具備快取一致性（Cache Coherency）的連接。在 AI 系統中，CXL 能打破單一伺服器的記憶體容量限制，實現記憶體池化（Memory Pooling）與動態分配，是建立大型 AI 訓練叢集的關鍵基礎設施。

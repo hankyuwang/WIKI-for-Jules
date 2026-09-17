@@ -7,6 +7,8 @@ tags:
   - LLM
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # DeepSpeed
 
 摘要：DeepSpeed 是微軟開源的分散式訓練框架，其最著名的 ZeRO (Zero Redundancy Optimizer) 優化技術能大幅減少超大型模型訓練時的記憶體佔用。

@@ -8,6 +8,8 @@ tags:
   - tpu
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # 商用 AI 加速器比較
 
 本文比較目前市場上主要的三大商用 AI 加速器：NVIDIA GPUs、AMD Instinct 以及 Google TPUs，並從多個維度進行分析，包含優缺點、成本、維護性與風險。

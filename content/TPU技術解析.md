@@ -7,6 +7,8 @@ tags:
   - architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # TPU 技術解析
 
 TPU (Tensor Processing Unit) 是 Google 專為機器學習定制的 ASIC (特殊應用積體電路)。它是 [[AI加速晶片概覽]] 中極具代表性的一種架構，專門針對神經網路的龐大矩陣運算進行了硬體級別的深度優化，使其在處理特定 AI 負載時展現出卓越的效能。

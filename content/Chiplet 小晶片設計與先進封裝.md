@@ -8,6 +8,8 @@ tags:
   - CoWoS
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # Chiplet 小晶片設計與[[AdvancedPackaging|先進封裝]]
 
 ## 摘要

@@ -7,6 +7,8 @@ tags:
   - snn
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # Neuromorphic 神經形態運算
 
 ## 摘要

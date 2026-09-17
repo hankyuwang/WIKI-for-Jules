@@ -7,6 +7,8 @@ tags:
   - Interconnect
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # NVLink
 
 摘要：NVLink 是由 NVIDIA 開發的專有高速點對點互連技術，旨在解決多 GPU 系統中 PCIe 總線頻寬不足的瓶頸。透過 NVLink，GPU 之間可以實現極低延遲、超高頻寬的資料共享。
@@ -16,7 +18,7 @@ tags:
 
 ## NVLink 的技術演進與頻寬
 NVLink 自推出以來，頻寬經歷了顯著的提升：
-* **第 1/2 代 (Pascal/Volta)**：雙向總頻寬達到 160~300 GB/s。
+* **第 1/2 代 (Pascal/Hopper/Blackwell)**：雙向總頻寬達到 160~300 GB/s。
 * **第 3 代 (Ampere 架構, 如 A100)**：雙向總頻寬躍升至 600 GB/s。
 * **第 4 代 (Hopper 架構, 如 H100)**：雙向總頻寬達到驚人的 900 GB/s，比 PCIe Gen5 x16 的頻寬高出數倍。
 * **第 5 代 (Blackwell 架構, 如 B200)**：進一步提升雙向總頻寬至 1.8 TB/s。

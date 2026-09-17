@@ -8,6 +8,8 @@ tags:
   - Networking
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # InfiniBand
 
 摘要：InfiniBand 是一種專為高效能運算 (HPC) 與大型 AI 訓練叢集設計的超高速、低延遲電腦網路互連標準，具備硬體級的無損傳輸與極高的頻寬。

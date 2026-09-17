@@ -7,6 +7,8 @@ tags:
   - semiconductor
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # Advanced Packaging 先進封裝技術
 
 ## 摘要

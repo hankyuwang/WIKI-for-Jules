@@ -6,6 +6,8 @@ tags:
   - Long-Context
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # Long Context
 
 摘要：Long Context 是 長文本處理，在LLM中需要消耗大量記憶體與運算資源，KV Cache管理為其瓶頸。

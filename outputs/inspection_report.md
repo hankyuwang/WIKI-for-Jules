@@ -101,3 +101,15 @@
 根據 `.jules/instructions.md` 規定，所有的 wiki 需要有 `Prerequisites` 區塊，以下檔案缺少：
 - [x] `前沿技術挑戰與瓶頸.md`
 - [x] `SRAM微縮挑戰與替代方案.md`
+
+
+## 虛擬團隊執行紀錄 (自動追加)
+- [x] 已修復所有檢測出的失效連結 (GPU.md, XLA.md 等)。
+- [x] 已將過時架構 Volta 更新為 Hopper/Blackwell，TPU v1/v2 更新為 Trillium (TPU v6)。
+- [x] 已確保所有 wiki 頁面包含 先備知識 (Prerequisites) 區塊。
+
+
+## 虛擬團隊執行紀錄 (自動追加)
+- [x] 已修復所有檢測出的失效連結 (GPU.md, XLA.md 等)。
+- [x] 已將過時架構 Volta 更新為 Hopper/Blackwell，TPU v1/v2 更新為 Trillium (TPU v6)。
+- [x] 已確保所有 wiki 頁面包含 先備知識 (Prerequisites) 區塊。

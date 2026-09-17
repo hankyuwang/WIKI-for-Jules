@@ -8,6 +8,8 @@ tags:
   - ai-accelerator
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # HBM技術與AI硬體瓶頸
 
 ## 摘要

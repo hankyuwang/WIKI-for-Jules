@@ -4,6 +4,8 @@ level: intermediate
 tags: [LLM, Inference, MoE, vLLM, SGLang, TensorRT-LLM, DeepSeek]
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # 高效能 LLM 推理框架最佳實務
 
 **摘要**：隨著大型語言模型（LLM）的參數量持續增長，特別是混合專家（MoE）架構（如 DeepSeek-R1 等）的普及，如何高效地進行模型推論成為了關鍵挑戰。本文件深入探討當前主流的三種高效能 LLM 推理框架：vLLM、SGLang 與 TensorRT-LLM，分析它們在部署大規模模型時的優劣勢、成本與維護性，並提供最佳實務指引。

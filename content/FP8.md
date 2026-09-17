@@ -8,6 +8,8 @@ tags:
   - Hardware
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # FP8 (8-bit Floating Point)
 
 摘要：FP8 (8-bit Floating Point) 是一種新興的低精度資料格式，旨在深度學習訓練與推論中，大幅減少記憶體頻寬需求與運算功耗，同時維持接近 16 位元浮點數 (FP16/BF16) 的模型準確度。它已成為下一代 [[AI加速晶片概覽]] (如 NVIDIA Hopper 架構) 的核心特性之一。

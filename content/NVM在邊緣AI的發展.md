@@ -8,6 +8,8 @@ tags:
   - edge-ai
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # NVM 在邊緣 AI 的發展
 
 摘要：非揮發性記憶體（Non-Volatile Memory, NVM），如 RRAM、MRAM、PCM 等，具備斷電不遺失資料的特性，且儲存密度通常高於 SRAM。在邊緣 AI（Edge AI）領域，由於設備常面臨嚴格的功耗與體積限制，NVM 被視為取代傳統 eFlash，甚至是部分 SRAM，以實現「常時開啟 (Always-on)」、「即開即用 (Normally-off computing)」與超低功耗 AI 推論的關鍵技術。

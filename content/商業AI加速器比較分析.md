@@ -7,6 +7,8 @@ tags:
   - comparison
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # 商業 AI 加速器比較分析
 
 這份文件分析並比較了目前市場上主流的商業 AI 加速器，包括 NVIDIA GPUs, AMD Instinct, 以及 Google TPUs。我們將從各種角度探討它們的優勢、劣勢、成本、維護性與潛在風險。

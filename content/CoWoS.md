@@ -7,6 +7,8 @@ tags:
   - Packaging
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # CoWoS
 
 摘要：CoWoS (Chip-on-Wafer-on-Substrate) 是 TSMC (台積電) 推出的一項領先業界的 2.5D 先進封裝技術。它透過矽中介層 (Silicon Interposer) 將多個晶片（如 GPU、SoC 與 HBM）緊密地整合在同一個基板上，大幅提升了晶片間的通訊頻寬並降低了功耗。

@@ -8,6 +8,8 @@ tags:
   - ai
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # HBM 架構解析
 
 摘要：高頻寬記憶體（High Bandwidth Memory, HBM）是一種基於 3D 堆疊技術的記憶體架構，透過矽穿孔（TSV, Through-Silicon Via）技術將多個 DRAM 晶粒堆疊在一起，並透過中介層（Interposer）與處理器（如 GPU 或 NPU）連接。這大幅增加了記憶體與運算單元之間的頻寬，同時降低了功耗，是現代高效能 AI 訓練與推論晶片中不可或缺的關鍵技術。

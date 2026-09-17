@@ -9,6 +9,8 @@ tags:
   - system-architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # UMA 於 AI 的優化
 
 摘要：統一記憶體架構（Unified Memory Architecture, UMA）允許 CPU 與 GPU（或 NPU）共享同一塊實體記憶體空間。在 AI 計算中，這意味著資料無需在系統主記憶體（如 DDR）與顯示卡記憶體（如 VRAM/HBM）之間透過 PCIe 匯流排來回拷貝。蘋果的 M 系列晶片就是 UMA 架構的極佳範例，它極大地簡化了程式模型並降低了延遲。

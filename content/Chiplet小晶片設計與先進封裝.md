@@ -7,6 +7,8 @@ tags:
   - packaging
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # 摘要
 
 隨著摩爾定律 (Moore's Law) 的放緩與單一晶片面積逼近光罩極限 (Reticle Limit)，傳統的系統單晶片 (System on Chip, SoC) 設計面臨著良率下降與成本劇增的巨大挑戰。Chiplet (小晶片) 技術應運而生，其核心概念是將原本龐大複雜的單一 SoC，拆解成多個較小、具有特定功能 (如運算、記憶體、I/O) 的裸晶 (Die/Chiplet)。這些 Chiplets 可採用不同的製程節點製造，最後透過先進封裝技術 (如 2.5D CoWoS, 3D 堆疊, 或高密度基板) 與高速 Die-to-Die (D2D) 互連標準 (如 UCIe) 整合在同一個封裝內。此技術正深刻改變 AI 晶片 (如 AMD MI300, Intel Ponte Vecchio) 的設計範式。本文將探討 Chiplet 在 AI 硬體開發中的三種應用策略。

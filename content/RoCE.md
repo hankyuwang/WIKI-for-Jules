@@ -8,6 +8,8 @@ tags:
   - Networking
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # RoCE (RDMA over Converged Ethernet)
 
 摘要：RoCE (RDMA over Converged Ethernet) 是一種允許在乙太網路上運行 RDMA（遠端直接記憶體存取）的網路協議。它結合了 RDMA 的低延遲、高頻寬優勢與乙太網路的廣泛普及性及低成本。

@@ -7,6 +7,8 @@ tags:
   - architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # FPGA 在 AI 硬體的角色
 
 在 AI 加速硬體的頻譜上，FPGA (Field-Programmable Gate Array，現場可程式化邏輯閘陣列) 佔據了一個獨特的位置，介於通用但能效較低的 GPU (見 [[GPU在AI加速的應用]]) 與極致高效但缺乏彈性的 ASIC (見 [[ASIC與TPU架構分析]]) 之間。

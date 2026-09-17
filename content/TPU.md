@@ -51,6 +51,6 @@ TPU（Tensor Processing Unit）是 Google 專為機器學習定制的特定應�
 - **風險**：若特定網路節點故障，可能會影響整個訓練任務的穩定性。
 
 ## 相關連結
-- 回到 [[INDEX]]
+- 回到 [[INDEX|Index]]
 - 延伸向 [[NPU架構探索]]
 - 延伸向 [[GPU]]

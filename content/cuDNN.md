@@ -6,6 +6,8 @@ tags:
   - cuDNN
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # cuDNN
 
 摘要：cuDNN (CUDA Deep Neural Network library) 是 NVIDIA 專為深度學習原語 (Primitives) 打造的 GPU 加速庫，高度優化了卷積、池化、正規化與啟動函數等基礎運算。

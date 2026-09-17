@@ -6,6 +6,8 @@ tags:
   - Optimizer
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # Optimizer
 
 摘要：Optimizer (最佳化器) 負責在模型訓練過程中，根據計算出的梯度來更新神經網路的權重。常見的 Optimizer 如 Adam、SGD 等，在分散式訓練中往往佔用大量記憶體。

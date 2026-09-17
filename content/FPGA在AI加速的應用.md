@@ -7,6 +7,8 @@ tags:
   - acceleration
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # FPGA 在 AI 加速的應用
 
 現場可程式化邏輯閘陣列 (Field-Programmable Gate Array, FPGA) 是一種可以讓使用者在出廠後重新組態硬體邏輯電路的晶片。在 AI 加速領域，FPGA 提供了一個介於 CPU/GPU（軟體可編程）和 ASIC（硬體固化）之間的獨特選擇。

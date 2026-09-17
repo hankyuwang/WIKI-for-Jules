@@ -7,6 +7,8 @@ tags:
   - architecture
 ---
 
+## 先備知識 (Prerequisites)
+- 建議先了解 [[深度學習運算原理]] 與 [[基礎計算機結構]]。
 # GPU 與 NPU 架構比較
 
 在 [[AI加速晶片概覽]] 中我們提到，GPU (Graphics Processing Unit) 和 NPU (Neural Processing Unit) 是目前推動 AI 發展最核心的兩種運算硬體。雖然它們都能用來加速深度學習，但它們在設計哲學、架構特徵和適用場景上有著本質上的差異。

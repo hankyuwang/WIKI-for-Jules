@@ -29,8 +29,8 @@ TPU 是一種特殊應用積體電路（ASIC），專為加速機器學習的工
 
 ## TPU 的世代演進
 Google 的 TPU 架構隨著 AI 模型的需求不斷演進，你可以參考 [[TPU 架構深度解析]] 獲得更細節的資訊：
-- **TPU v1 (已過時，現行為 Trillium / TPU v6)**: 專為推論（Inference）設計，主要使用 8-bit 整數（INT8）運算。
-- **TPU v2 (已過時，現行為 Trillium / TPU v6)/v3**: 引入了浮點運算能力，並支援模型訓練。增加了 HBM (高頻寬記憶體) 來解決記憶體頻寬瓶頸。
+- **Trillium (TPU v6) (已過時，現行為 Trillium / TPU v6)**: 專為推論（Inference）設計，主要使用 8-bit 整數（INT8）運算。
+- **Trillium (TPU v6) (已過時，現行為 Trillium / TPU v6)/v3**: 引入了浮點運算能力，並支援模型訓練。增加了 HBM (高頻寬記憶體) 來解決記憶體頻寬瓶頸。
 - **TPU v4/v5**: 引入了光學電路開關 (Optical Circuit Switches)，讓數千顆 TPU 可以動態改變連接拓撲，大幅提升大型叢集的訓練效率。
 - **Trillium (TPU v6)**: 最新一代架構，搭載了集合通訊加速引擎 (CAE)，專為超大型語言模型 (LLM) 訓練與推論設計。詳見 [[Trillium架構與演進]]。
 
