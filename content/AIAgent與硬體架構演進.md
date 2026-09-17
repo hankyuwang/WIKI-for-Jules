@@ -4,6 +4,12 @@ level: advanced
 tags: [AIAgent, HardwareArchitecture, VibeCoding, Accelerator]
 ---
 
+## 先備知識 (Prerequisites)
+- [[AI Agent 框架]]
+- [[Transformer]]
+- [[Long Context]]
+
+
 摘要
 本文探討從早期的 Vibe Coding（依賴直覺與反覆嘗試的輔助開發模式）到現代自主 AI Agent（如 Hermes、Claude Code、Codex、Jules 等）技術的演進過程，以及此一轉變對底層硬體支援需求帶來的深遠影響。在全面邁入 Agent 時代的背景下，AI 模型的運作模式從單次請求-回應轉向長時間的狀態保持、多步驟推理與工具調用。這促使 AI 加速晶片在軟硬體架構上發生變革，以支援低延遲推論、龐大的狀態上下文存取、以及複雜的任務切換。
 

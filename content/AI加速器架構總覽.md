@@ -7,6 +7,12 @@ tags:
   - hardware
 ---
 
+## 先備知識 (Prerequisites)
+- [[基礎計算機結構]]
+- [[GPU架構與AI計算]]
+- [[TPU技術解析]]
+
+
 # AI 加速器架構總覽
 
 ## 先備知識
