@@ -31,7 +31,7 @@ GPU 主要主導雲端的模型訓練（Training）與大規模推理（Inferenc
 GPU 最初是為了圖形渲染而設計，但其高度平行的架構完美契合了深度學習中的矩陣乘法運算。與 CPU 擁有少量高效能核心不同，GPU 擁有數以千計的較小核心，可以在同時處理大量的數據流（Data-parallelism）。這使得它在訓練（Training）與推理（Inference）階段都能提供極高的吞吐量。
 
 ## 核心技術：Tensor Core 與 SIMT (補充說明)
-現代 AI GPU（如 NVIDIA 的 Volta, Ampere, Hopper 架構）引入了專門為深度學習設計的運算單元：**Tensor Core**。
+現代 AI GPU（如 NVIDIA 的 Volta (已過時，現行主流為 Hopper / Blackwell), Ampere, Hopper 架構）引入了專門為深度學習設計的運算單元：**Tensor Core**。
 - **Tensor Core** 可以在單一指令週期內完成 4x4 或更大的矩陣乘加運算（MAC），並且支援混合精度（Mixed Precision，例如使用 [[FP16]] 或 [[BF16]] 進行乘法，使用 FP32 進行累加），這在保證模型精度的同時大幅提升了運算速度。
 - 此外，GPU 採用單指令多執行緒（[[SIMT]]）架構，多個執行緒同時執行相同的指令但處理不同的數據，極大地提升了資源利用率。為了降低記憶體帶寬壓力，通常會結合 [[模型量化技術]]（如 [[INT8]] 或 [[FP8]]）。
 
