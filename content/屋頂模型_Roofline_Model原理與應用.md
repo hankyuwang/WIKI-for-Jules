@@ -6,6 +6,10 @@ tags:
   - 效能分析
   - Performance
 ---
+
+## Prerequisites
+- [[基礎計算機結構]]
+
 摘要：屋頂模型（Roofline Model）是一種直觀且廣泛應用於電腦系統與 AI 領域的效能視覺化模型。本文將探索 Roofline Model 的基本原理，它如何結合硬體的理論峰值算力與理論記憶體頻寬，以及應用程式的算術強度（Arithmetic Intensity），幫助開發者快速判斷目前的應用程式是受限於運算資源還是記憶體頻寬。
 
 ## Roofline Model 是什麼？
