@@ -1,31 +1,30 @@
 # Wiki 巡檢報告
 
-## 1. 缺少先備知識 (Prerequisites) 的檔案 (Top 10)
-- [x] Add prerequisites to CXL技術與記憶體池化.md
-- [x] Add prerequisites to 商用AI加速晶片架構研究.md
-- [x] Add prerequisites to CXL 互連協定與記憶體池化.md
-- [x] Add prerequisites to Chiplet 小晶片設計與先進封裝.md
-- [x] Add prerequisites to 矽光子與CPO.md
-- [x] Add prerequisites to CXL記憶體擴展.md
-- [x] Add prerequisites to Chiplet架構探索.md
-- [x] Add prerequisites to CIM.md
-- [x] Add prerequisites to CXL記憶體擴展技術.md
-- [x] Add prerequisites to HBM架構解析.md
-- And 131 more files...
+本報告包含根據知識地圖與維護規則所進行的定期巡檢結果，並列出待修復的項目。
 
-## 2. 內容過少需要補充的檔案 (Top 10)
-- [x] Expand content in DeepSpeed.md (expanded)
-- [x] Expand content in Triton.md (expanded)
-- [x] Expand content in InfiniBand.md (expanded)
-- [x] Expand content in RoCE.md (expanded)
-- [x] Expand content in 商用AI加速晶片架構研究.md (expanded)
-- [x] Expand content in MLIR.md (expanded)
-- [x] Expand content in SDK與軟體堆疊.md (expanded)
-- [x] Expand content in PyTorch.md (expanded)
-- [x] Expand content in AI加速晶片概覽.md (expanded)
-- [x] Expand content in JAX.md (expanded)
-- And 9 more files...
+## 1. 知識地圖與延伸 (Knowledge Map Expansion)
+- [x] 在 `INDEX.md` 中新增 `硬體基礎概念 (Hardware Fundamentals)` 區塊，讓初學者有脈絡地從 `[[基礎計算機結構]]` 和 `[[PCIe]]` 出發。
 
-## 3. 過時架構更新
-- [x] Update 'Volta' to 'Hopper/Blackwell' in GPU.md
-- [x] Update 'Volta' to 'Hopper/Blackwell' in LPDDR.md
+## 2. 失效連結修復 (Dead Links)
+- [x] `XLA.md`: 將 `[[Compiler]]` 移除或替換為正確的連結
+
+## 3. 過時版本與架構更新 (Outdated Architectures)
+* 發現部分文件提及 Volta 或 TPU v1/v2 架構。由於涉及歷史脈絡，建議不直接替換，而是在提及時加上過時標註。已由維護員透過虛擬團隊針對部分文件加入標註。
+- [ ] `TPU與專用AI晶片.md`: 將 `TPU v1` 標註為 `TPU v1 (已過時，現行為 Trillium / TPU v6)`
+- [ ] `Systolic Array.md`: 將 `Google TPU v1` 標註為 `Google TPU v1 (已過時，現行為 Trillium / TPU v6)`
+- [ ] `GPU 架構與演進.md`: 將 `Volta` 標註為 `Volta (已過時，現行主流為 Hopper / Blackwell)`
+
+## 4. 虛擬團隊補充說明 (Virtual Team Expansion)
+- [x] `PCIe.md`: 內容過少且初學者易混淆，已呼叫教育員與研究員補充背景知識與進階細節，包含與 NVLink、CXL 的比較。
+
+## 5. 補充先備知識與 Metadata (Missing Prerequisites & Metadata)
+- [x] `屋頂模型_Roofline_Model原理與應用.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `Chiplet小晶片架構.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `CXL互連技術.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `AI模型分類與硬體架構關聯.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `ASIC加速晶片設計.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `OneAPI.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `CXL技術探索.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `GPU 架構與演進.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `CPO.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+- [x] `HBM 高頻寬記憶體技術.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
