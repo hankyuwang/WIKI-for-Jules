@@ -10,6 +10,10 @@ tags:
 
 # Chiplet 小晶片設計與[[AdvancedPackaging|先進封裝]]
 
+## 先備知識 (Prerequisites)
+- [[Chiplet]]
+- [[先進封裝與小晶片]]
+
 ## 摘要
 隨著半導體製程微縮遇到物理與經濟上的雙重挑戰，單一大型晶片（Monolithic Die）的良率與成本問題日益浮現。Chiplet（小晶片）技術應運而生，它將原本龐大的單一系統單晶片（SoC）拆解成多個功能獨立的小晶片，再透過[[AdvancedPackaging|先進封裝]]技術將它們整合在一起。這種技術已成為現代高效能運算與 AI 晶片（如 AMD MI300、Intel Ponte Vecchio）的設計主流。
 

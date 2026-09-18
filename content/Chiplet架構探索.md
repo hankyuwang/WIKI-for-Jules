@@ -10,6 +10,9 @@ tags:
 
 # Chiplet (小晶片) 架構探索
 
+## 先備知識 (Prerequisites)
+- [[Chiplet]]
+
 ## 摘要
 
 隨著摩爾定律 (Moore's Law) 逼近物理極限，單一超大晶片 (Monolithic Die) 的製造成本呈指數上升且良率急遽下降。Chiplet (小晶片) 架構應運而生，其核心概念是將原本單一的巨大晶片拆解成多個較小的、具有特定功能 (如運算、記憶體控制、I/O 等) 的裸晶 (Dies/Chiplets)，再透過先進封裝技術 (如 2.5D CoWoS 或 3D 堆疊) 和高速互連標準 (如 UCIe) 將它們整合在同一個封裝內。此架構不僅能大幅提升整體良率，還能實現異質整合 (Heterogeneous Integration)，允許不同功能的 Chiplet 使用最適合的製程節點製造。

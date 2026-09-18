@@ -9,6 +9,9 @@ tags:
 
 # CXL 記憶體擴展技術
 
+## 先備知識 (Prerequisites)
+- [[CXL]]
+
 ## 摘要
 Compute Express Link (CXL) 是一種基於 PCIe 實體層的開放式互連標準，旨在提供處理器（CPU、GPU、NPU）與記憶體、加速器之間的高頻寬、低延遲連線。CXL 最大的突破在於支援記憶體快取一致性（Cache Coherency），允許異質運算資源共享記憶體池（Memory Pooling）。這項技術被視為解決 AI 資料中心記憶體容量與頻寬瓶頸的關鍵基礎設施技術之一。
 

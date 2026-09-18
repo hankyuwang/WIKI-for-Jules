@@ -9,6 +9,9 @@ tags:
 
 # CIM 運算記憶體技術分析
 
+## 先備知識 (Prerequisites)
+- [[記憶體內運算_CIM]]
+
 ## 摘要
 運算記憶體（Compute-in-Memory, CIM 或 Processing-in-Memory, PIM）是一種顛覆傳統范紐曼架構（Von Neumann Architecture）的新型運算典範。傳統架構下，資料必須在記憶體與處理器之間頻繁搬移，產生大量延遲與功耗（即「記憶體牆」與「功耗牆」問題）。CIM 則將運算單元直接整合進記憶體陣列內部，讓資料「就地」進行運算（特別是 AI 運算中最常見的乘加運算 MAC），從而大幅減少資料搬移，極大地提升了能源效率與運算效能。
 

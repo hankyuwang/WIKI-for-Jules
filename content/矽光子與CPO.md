@@ -10,6 +10,10 @@ tags:
 
 # 矽光子與 CPO (Co-Packaged Optics)
 
+## 先備知識 (Prerequisites)
+- [[SiliconPhotonics]]
+- [[CPO]]
+
 **摘要**：
 矽光子 (Silicon Photonics) 技術利用成熟的矽基半導體製程來製造光學元件，以光子取代電子作為資料傳輸的載體。而 CPO (Co-Packaged Optics, 共同封裝光學) 則是將矽光子晶片與運算晶片 (如 Switch ASIC, GPU, CPU) 封裝在同一個載板上的先進技術。隨著 AI 叢集規模的急遽擴張，資料中心內的伺服器間通訊正面臨嚴重的銅線傳輸瓶頸 (高功耗、高延遲、短傳輸距離)。矽光子與 CPO 技術的結合，被視為解決下一代 Tbps 級別超高速、低功耗網路互連的終極方案。
 

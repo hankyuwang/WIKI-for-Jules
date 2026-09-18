@@ -34,3 +34,22 @@ MLIR (Multi-Level Intermediate Representation) 則是一個編譯器基礎架構
 
 ## Triton
 OpenAI 開發的 Triton 是一個為神經網路撰寫高效能客製化 GPU 程式碼的開源語言與編譯器。它抽象化了複雜的 GPU 記憶體階層與同步機制，讓研究人員與工程師能以接近 Python 的語法，寫出效能媲美手刻 CUDA C++ 的 kernel 程式碼，大幅降低了硬體最佳化的門檻。
+
+
+
+## 虛擬團隊補充說明：軟體堆疊的垂直整合與效能調優
+
+理解軟體堆疊 (Software Stack) 對於 AI 架構師或效能工程師至關重要。當我們說「這個模型跑得很慢」時，瓶頸可能出現在堆疊的任何一層：
+
+1. **框架層 (Framework Layer - PyTorch/JAX)**：
+   - 瓶頸可能在於運算圖的建構效率，或是 Python GIL 造成的 CPU 負擔。
+   - 優化方式：使用 `torch.compile`，或將關鍵邏輯用 C++ 重寫 (Custom C++ Extensions)。
+2. **中介層/編譯器層 (Middleware/Compiler - XLA/Triton/cuDNN)**：
+   - 瓶頸可能是未能有效利用算子融合 (Operator Fusion)，導致過多的記憶體讀寫。
+   - 優化方式：調整編譯器優化參數，或手寫高效的 Triton Kernel 替換原生算子。
+3. **驅動程式與硬體層 (Driver/Hardware - CUDA Driver/PCIe/NVLink)**：
+   - 瓶頸可能是 CPU 與 GPU 之間的資料傳輸延遲，或是多卡之間的通訊頻寬不足。
+   - 優化方式：使用 Pinned Memory 加速 CPU-GPU 傳輸，確保 NCCL 正確配置並使用了最高速的互連通道 (如 NVLink)。
+
+**實務建議**：
+在進行效能分析時，必須具備「穿透整個軟體堆疊」的視野。利用如 Nsight Systems 等 Profiling 工具，從頂層的 Python 呼叫，一路追蹤到底層的 CUDA Kernel 啟動與記憶體存取，才能找到真正的效能熱點。

@@ -10,6 +10,10 @@ tags:
 
 # CXL 互連協定與記憶體池化
 
+## 先備知識 (Prerequisites)
+- [[CXL]]
+- [[PCIe]]
+
 ## 摘要
 Compute Express Link (CXL) 是一種建立在 PCIe 實體層之上的開放式業界標準互連通訊協定，旨在為處理器（CPU、GPU）、記憶體與加速器之間提供高頻寬、低延遲的快取一致性（Cache Coherence）連接。CXL 的核心價值在於實現「記憶體池化」（Memory Pooling），打破傳統直連記憶體的容量與擴展限制，這對處理擁有龐大參數的 AI 巨型模型具有革命性意義。
 
