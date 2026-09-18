@@ -8,7 +8,7 @@ tags:
 
 # 摘要
 
-圖形處理器（GPU）最初專為加速電腦圖形渲染而設計，但其高度平行運算的特性使其成為深度學習與人工智慧（AI）領域的核心硬體。GPU 架構歷經多次演進，從早期的固定管線發展到可程式化的統一著色器架構（如 NVIDIA 的 Tesla、Fermi、Kepler、Pascal、Volta、Ampere 到目前的 Hopper 及 Blackwell）。現代 GPU 針對 AI 任務優化，引入了 Tensor Core 等專用硬體單元以加速矩陣運算，並大幅提升記憶體頻寬。本文章探討 GPU 應用於 AI 運算時的三種架構與佈署觀點，並分析其優缺點及風險。
+圖形處理器（GPU）最初專為加速電腦圖形渲染而設計，但其高度平行運算的特性使其成為深度學習與人工智慧（AI）領域的核心硬體。GPU 架構歷經多次演進，從早期的固定管線發展到可程式化的統一著色器架構（如 NVIDIA 的 Tesla、Fermi、Kepler、Pascal、Volta (已過時，現行主流為 Hopper / Blackwell)、Ampere 到目前的 Hopper 及 Blackwell）。現代 GPU 針對 AI 任務優化，引入了 Tensor Core 等專用硬體單元以加速矩陣運算，並大幅提升記憶體頻寬。本文章探討 GPU 應用於 AI 運算時的三種架構與佈署觀點，並分析其優缺點及風險。
 
 ## 方案一：單機多卡 (Single-Node Multi-GPU) 部署架構
 
