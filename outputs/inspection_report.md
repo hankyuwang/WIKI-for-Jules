@@ -1,31 +1,15 @@
-# Wiki 巡檢報告
+# 維護員巡檢報告
 
-## 1. 缺少先備知識 (Prerequisites) 的檔案 (Top 10)
-- [x] Add prerequisites to CXL技術與記憶體池化.md
-- [x] Add prerequisites to 商用AI加速晶片架構研究.md
-- [x] Add prerequisites to CXL 互連協定與記憶體池化.md
-- [x] Add prerequisites to Chiplet 小晶片設計與先進封裝.md
-- [x] Add prerequisites to 矽光子與CPO.md
-- [x] Add prerequisites to CXL記憶體擴展.md
-- [x] Add prerequisites to Chiplet架構探索.md
-- [x] Add prerequisites to CIM.md
-- [x] Add prerequisites to CXL記憶體擴展技術.md
-- [x] Add prerequisites to HBM架構解析.md
-- And 131 more files...
+## 1. 發現與問題
+- **失效連結 (Dead Links):**
+  - `content/XLA.md` 中發現了連往 `[[Compiler]]` 的失效連結，這表示 `Compiler.md` 檔案缺失。
+- **孤兒節點 (Orphans):**
+  - 經過圖論遍歷，未發現從 `INDEX.md` 出發無法到達的孤兒節點，知識庫的結構是完整的。
+- **專有名詞說明不足與內容過少:**
+  - `Compiler` 是一個非常重要的先備知識，但是卻沒有對應的 Wiki 頁面，讀者無法透過連結了解編譯器在 AI 領域的作用。
 
-## 2. 內容過少需要補充的檔案 (Top 10)
-- [x] Expand content in DeepSpeed.md (expanded)
-- [x] Expand content in Triton.md (expanded)
-- [x] Expand content in InfiniBand.md (expanded)
-- [x] Expand content in RoCE.md (expanded)
-- [x] Expand content in 商用AI加速晶片架構研究.md (expanded)
-- [x] Expand content in MLIR.md (expanded)
-- [x] Expand content in SDK與軟體堆疊.md (expanded)
-- [x] Expand content in PyTorch.md (expanded)
-- [x] Expand content in AI加速晶片概覽.md (expanded)
-- [x] Expand content in JAX.md (expanded)
-- And 9 more files...
-
-## 3. 過時架構更新
-- [x] Update 'Volta' to 'Hopper/Blackwell' in GPU.md
-- [x] Update 'Volta' to 'Hopper/Blackwell' in LPDDR.md
+## 2. 執行計畫 (交由虛擬團隊)
+1. **觸發虛擬團隊建立 `Compiler.md`**:
+   - 包含編譯器在 AI 的作用 (如將高階框架語法轉換為硬體可執行的機器碼)、常見的編譯器技術 (如 MLIR, XLA, TVM, Triton 等)，並確保具有 `beginner` level 以及完整的摘要、五分鐘版/十分鐘版等教學內容，並將其與現有知識地圖對接。
+2. **更新知識地圖 `INDEX.md`**:
+   - 將新建立的 `Compiler` 頁面加入到 `INDEX.md` 的 `## AI 軟體與編譯器` -> `### 2. 編譯器與中間層 (IR)` 分類中。
