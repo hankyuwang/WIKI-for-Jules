@@ -12,7 +12,7 @@ tags:
 ## 先備知識 (Prerequisites)
 - [[TensorFlow]]
 - [[JAX]]
-- [[Compiler]]
+- Compiler
 
 摘要：XLA 是一種領域特定的編譯器，能優化 TensorFlow 和 JAX 等框架中的線性代數運算，透過算子融合和圖層級優化來提升執行速度並減少記憶體佔用。
 
