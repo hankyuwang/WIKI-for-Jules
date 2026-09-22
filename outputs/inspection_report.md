@@ -41,3 +41,25 @@
 - [x] `GPU 架構與演進.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `CPO.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `HBM 高頻寬記憶體技術.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+
+## 2026-09-22 Wiki 巡檢報告
+
+### 1. 失效連結
+- 未發現任何失效連結。
+
+### 2. 過時版本與架構
+- [x] `GPU 架構與演進.md`: 發現早期架構 `Volta` 提及，建議在適當上下文更新為 `Hopper/Blackwell` 或加上「早期」前綴。
+- [x] `CUDA逆向工程與算子實作分析.md`: 發現早期架構 `Volta` 提及，建議在適當上下文更新為 `Hopper/Blackwell` 或加上「早期」前綴。
+
+### 3. 已棄用架構
+- 包含在上述過時架構更新中。
+
+### 4. 官方文件或是論文更新
+- 本次巡檢未涉及外部文件比對，但目前內部架構定義與已知最新文件(如 Trillium, Hopper/Blackwell)相符。
+
+### 5. 新最佳實務
+- 知識庫目前已包含 CXL 3.x, FlashAttention-3 等新最佳實務。
+
+### 待辦事項 (Action Items)
+- [x] 更新 `GPU 架構與演進.md` 中的 `Volta` 為現代對應架構。
+- [x] 更新 `CUDA逆向工程與算子實作分析.md` 中的 `Volta` 為現代對應架構。
