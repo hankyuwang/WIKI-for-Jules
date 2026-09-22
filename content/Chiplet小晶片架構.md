@@ -9,6 +9,10 @@ tags:
 
 # Chiplet (小晶片) 架構
 
+## Prerequisites
+- [[基礎計算機結構]]
+
+
 **摘要**：
 Chiplet (小晶片) 架構是一種顛覆傳統單一大型晶片 (Monolithic Die) 設計思維的半導體製造模式。隨著製程微縮逼近物理極限，製造超大面積晶片的良率急遽下降且成本高昂。Chiplet 技術將一個複雜的 SoC (System on a Chip) 拆解成多個較小、功能獨立的模組 (即 Chiplets)，這些模組可以採用不同的、最適合的製程節點來製造。最後，透過先進封裝技術 (如 2.5D/3D 封裝) 以及高速的裸晶間互連 (Die-to-Die Interconnect) 標準 (如 UCIe)，將這些 Chiplets 重新拼裝成一顆功能完整的強大晶片，廣泛應用於現代的高階 CPU、GPU 與 AI 運算晶片中。
 

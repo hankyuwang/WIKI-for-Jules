@@ -9,6 +9,10 @@ tags:
 
 # ASIC 加速晶片設計
 
+## Prerequisites
+- [[基礎計算機結構]]
+
+
 特殊應用積體電路 (Application-Specific Integrated Circuit, ASIC) 是為了單一特定用途所設計的晶片。在 AI 領域，ASIC 被設計來提供最佳的效能與最低的功耗。
 
 ## ASIC 在 AI 加速的定位

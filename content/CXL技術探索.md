@@ -9,6 +9,10 @@ tags:
 
 # CXL (Compute Express Link) 技術探索
 
+## Prerequisites
+- [[基礎計算機結構]]
+
+
 ## 摘要
 
 CXL (Compute Express Link) 是一種建立在 PCIe 實體層之上、具備快取一致性 (Cache Coherency) 的高速互連標準。其核心目標是打破 CPU、GPU、加速器 (Accelerators) 以及記憶體之間的隔閡，實現資源池化 (Resource Pooling) 與記憶體擴展 (Memory Expansion)。隨著資料中心 AI 模型的參數量呈指數級增長，單一伺服器的記憶體容量已不敷使用，CXL 成為了克服此限制的關鍵技術。
