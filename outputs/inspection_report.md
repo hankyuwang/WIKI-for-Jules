@@ -41,3 +41,35 @@
 - [x] `GPU 架構與演進.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `CPO.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `HBM 高頻寬記憶體技術.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+# Wiki 定期巡檢報告
+
+**日期**: 2026-09-23
+
+## 1. 失效連結檢查 (Dead Links)
+- 已掃描 `INDEX.md` 中的所有 `[[WikiLink]]`。
+- **結果**: 未發現失效連結 (0 dead links found)。
+
+## 2. 孤兒檔案檢查 (Orphaned Files)
+- 已掃描 `content/` 目錄中未被 `INDEX.md` 引用的 Markdown 檔案。
+- **結果**: 未發現孤兒檔案 (0 orphaned files found)。
+
+## 3. 過時版本與已棄用架構檢查 (Outdated Architectures)
+- 檢查了提及 `Volta`, `TPU v1`, `TPU v2`, `TPU v3` 的文件。
+- **結果**: 根據指示，歷史脈絡中的舊架構應標註為「早期」(例如「早期 Volta 架構」、「早期 TPU v1」) 以保持事實正確。
+- **已修正檔案**:
+  - `GPU 架構與演進.md` (標註早期 Volta)
+  - `CUDA逆向工程與算子實作分析.md` (標註早期 Volta)
+  - `NVLink.md` (標註早期 Pascal/Volta 架構)
+  - `GPU架構與演進.md` (標註早期 Volta)
+  - `TPU架構深度解析.md` (標註早期 TPU v2/v3)
+- `TPU與專用AI晶片.md`, `Systolic Array.md`, `TPU深度解析.md` 等檔案先前已正確標註。
+
+## 4. 官方文件或是論文更新檢查 (Docs/Papers Updates)
+- 在現有知識地圖中尚未發現過期或需要更正的引用。
+
+## 5. 新最佳實務檢查 (New Best Practices)
+- 近期知識庫已涵蓋 `Trillium/TPU v6` 與 `Hopper/Blackwell` 架構等最新最佳實務，無顯著缺漏。
+
+---
+## 後續執行行動
+- 虛擬團隊已確認更新架構名稱的檔案並將其提交。
