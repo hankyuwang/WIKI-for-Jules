@@ -11,6 +11,12 @@ tags:
 
 摘要：DeepSpeed 是微軟開源的分散式訓練框架，其最著名的 ZeRO (Zero Redundancy Optimizer) 優化技術能大幅減少超大型模型訓練時的記憶體佔用。
 
+## 先備知識 (Prerequisites)
+- [[PyTorch]]
+- [[Transformer]]
+- [[AI加速晶片軟體堆疊與SDK設計]]
+
+
 ## ZeRO (Zero Redundancy Optimizer) 原理
 
 在傳統的資料平行 (Data Parallelism) 訓練中，每一個 GPU 都會保留一份完整的模型權重 (Weights)、梯度 (Gradients) 以及優化器狀態 (Optimizer States, 例如 Adam 的 momentum 和 variance)。對於百億或千億參數的巨型模型，這些狀態會輕易撐爆單一 GPU 的 HBM (如 80GB 的 A100)。

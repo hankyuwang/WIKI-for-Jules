@@ -12,6 +12,12 @@ tags:
 
 雖然 [[GPU在AI加速的應用]] 中提到 GPU 是強大的平行運算硬體，但它們本質上仍然是為通用圖形任務設計的。為了追求極致的效能與能源效率，針對特定應用設計的 ASIC (Application-Specific Integrated Circuit) 應運而生，其中最著名的代表便是 Google 開發的 TPU (Tensor Processing Unit)。
 
+## 先備知識 (Prerequisites)
+- [[ASIC加速晶片設計]]
+- [[TPU]]
+- [[基礎計算機結構]]
+
+
 ## ASIC 的優勢與挑戰
 
 ASIC 是為單一特定目的而客製化的晶片。

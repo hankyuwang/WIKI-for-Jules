@@ -9,6 +9,12 @@ tags:
 
 # TPU 架構解析
 
+## 先備知識 (Prerequisites)
+- [[TPU]]
+- [[Systolic Array]]
+- [[TPU 架構深度解析]]
+
+
 ## 摘要
 張量處理器（Tensor Processing Unit, TPU）是由 Google 專為機器學習（特別是深度學習）設計的特定應用積體電路（ASIC）。TPU 的核心架構設計圍繞著脈動陣列（Systolic Array），旨在極大化矩陣乘法的運算效率並降低記憶體存取延遲。本篇筆記將解析 TPU 的設計哲學與實務部署的視角。
 

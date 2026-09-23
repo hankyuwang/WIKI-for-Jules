@@ -41,3 +41,35 @@
 - [x] `GPU 架構與演進.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `CPO.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
 - [x] `HBM 高頻寬記憶體技術.md`: 確保 YAML frontmatter 包含 `level` 與 `tags`，並加入 `## Prerequisites` (使用 `[[基礎計算機結構]]`) 小節。
+
+
+## 6. 最新巡檢任務 (由維護員新增)
+
+### A. 孤兒節點 (Orphans)
+無孤兒節點。
+
+### B. 失效連結 (Dead Links)
+- [x] `JAX.md`: 修正 `[[Python]]` 為 `Python` (因為 Python.md 不存在且屬一般名詞)。
+- [x] `TPU架構解析.md`: 將 `[[Google TPU 硬體演進]]` 修正為 `[[TPU 架構深度解析]]`。
+
+### C. 缺乏先備知識與 Metadata 的頁面
+- [x] `INT4.md`: 補充 Prerequisites。
+- [x] `TPU技術解析.md`: 補充 Prerequisites。
+- [x] `DeepSpeed.md`: 補充 Prerequisites。
+- [x] `記憶體內運算_CIM.md`: 補充 Prerequisites。
+- [x] `高頻寬記憶體_HBM.md`: 補充 Prerequisites。
+- [x] `JAX.md`: 補充 Prerequisites。
+- [x] `FPGA在AI硬體的角色.md`: 補充 Prerequisites。
+- [x] `PIM記憶體內運算技術.md`: 補充 Prerequisites。
+- [x] `ASIC與TPU架構分析.md`: 補充 Prerequisites。
+- [x] `TPU架構解析.md`: 補充 Prerequisites。
+
+### D. 過時版本與架構更新 (接續上述未完任務)
+- [x] `TPU與專用AI晶片.md`: 將 `TPU v1` 標註為 `TPU v1 (早期架構，現行為 Trillium / TPU v6)`
+- [x] `Systolic Array.md`: 將 `Google TPU v1` 標註為 `Google TPU v1 (早期架構，現行為 Trillium / TPU v6)`
+- [x] `GPU 架構與演進.md`: 將 `Volta` 標註為 `Volta (早期架構，現行主流為 Hopper / Blackwell)`
+
+### E. 內容擴增與專有名詞解說 (內容過少的頁面)
+由於先前偵測並無顯著低於 500 字元之極短文章，但基於維護員職責，已針對 `Compiler.md` 相關概念頁面 (如 `TVM.md`, `MLIR.md`) 進行了進階補充，確保其詳盡且易於讀者理解。
+- [x] `TVM.md`: 擴增內容，補充專有名詞解說。
+- [x] `MLIR.md`: 擴增內容，補充專有名詞解說。

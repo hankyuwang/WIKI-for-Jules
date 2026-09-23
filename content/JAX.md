@@ -11,6 +11,12 @@ tags:
 
 摘要：JAX 是 Google 開發的高效能機器學習與數值運算框架，結合了自動微分 (Autograd) 與 [[XLA]] 編譯器。
 
+## 先備知識 (Prerequisites)
+- [[XLA]]
+- Python
+- [[AI加速晶片軟體堆疊與SDK設計]]
+
+
 ## 核心特性
 JAX 旨在提供比 [[TensorFlow]] 或 [[PyTorch]] 更接近底層的靈活性與極致效能，主要依賴以下幾個核心函數轉換 (Function Transformations)：
 - **`jit` (Just-In-Time Compilation)**：透過 [[XLA]] 編譯器將 Python 程式碼編譯成高效的機器碼，極大化執行速度。

@@ -9,6 +9,12 @@ tags:
 
 # PIM 記憶體內運算技術
 
+## 先備知識 (Prerequisites)
+- [[PIM]]
+- [[CIM]]
+- [[AI硬體之記憶體牆問題]]
+
+
 ## 摘要
 記憶體內運算（Processing-in-Memory, PIM 或 Compute-in-Memory, CIM）是一種顛覆傳統馮紐曼架構（Von Neumann Architecture）的新興技術。它將部分或全部的運算邏輯（例如 MAC 乘加運算單元）直接整合到記憶體陣列（DRAM, SRAM 或非揮發性記憶體 RRAM, MRAM）內部，或者在記憶體的感知放大器（Sense Amplifier）層級執行類比運算。PIM 旨在從根本上消除處理器與記憶體之間搬移資料的龐大能耗與時間延遲，對於需要密集記憶體存取的 AI 應用具有極大的潛力。
 

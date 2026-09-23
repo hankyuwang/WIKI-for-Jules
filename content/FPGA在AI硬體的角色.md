@@ -11,6 +11,12 @@ tags:
 
 在 AI 加速硬體的頻譜上，FPGA (Field-Programmable Gate Array，現場可程式化邏輯閘陣列) 佔據了一個獨特的位置，介於通用但能效較低的 GPU (見 [[GPU在AI加速的應用]]) 與極致高效但缺乏彈性的 ASIC (見 [[ASIC與TPU架構分析]]) 之間。
 
+## 先備知識 (Prerequisites)
+- [[ASIC加速晶片設計]]
+- [[硬體架構與SWHW協同]]
+- [[基礎計算機結構]]
+
+
 ## 什麼是 FPGA？
 
 FPGA 是一種可以由使用者在製造完成後，透過硬體描述語言（如 Verilog 或 VHDL）進行配置的積體電路。它的內部包含大量的可程式化邏輯區塊（Logic Blocks）和可配置的互連網路（Interconnects）。這意味著你可以將 FPGA "程式化" 成任何你想要的硬體電路。
