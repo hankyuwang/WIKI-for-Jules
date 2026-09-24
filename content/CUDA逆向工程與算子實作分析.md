@@ -23,7 +23,7 @@ CUDA 的編譯流程中，高階語言 (C++) 會先被編譯為虛擬指令集 P
 透過逆向工程，研究人員可以觀察到算子的底層實作細節：
 - **暫存器配置 (Register Allocation)**：發現編譯器有時會為了避免溢出 (Spill) 而採取次優的配置策略，開發者可手動調整。
 - **指令排程 (Instruction Scheduling)**：包含記憶體載入延遲的隱藏策略，以及浮點運算指令 (如 FMA) 與張量核心 (Tensor Core) 指令 (如 HMMA) 的最佳管線化佈局。
-- **Control Code / 執行緒同步**：在較新的架構 (如 Volta 以及後續的 Hopper/Blackwell) 中，每條指令前會帶有 Control Code (或稱 Wait Barriers) 來控制指令發射時機與相依性，這是官方文件未詳細記載的核心優化關鍵。
+- **Control Code / 執行緒同步**：在現代架構 (如 Hopper/Blackwell) 中，每條指令前會帶有 Control Code (或稱 Wait Barriers) 來控制指令發射時機與相依性，這是官方文件未詳細記載的核心優化關鍵。
 
 ## 4. 限制與挑戰
 - **硬體迭代快速**：NVIDIA 每 2-3 年更新一代微架構，指令編碼與硬體行為經常發生劇烈變動，導致開源逆向工具維護困難。
