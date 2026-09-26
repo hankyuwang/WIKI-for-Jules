@@ -23,9 +23,9 @@
 
 ## 3. 過時版本與架構更新 (Outdated Architectures)
 * 發現部分文件提及 Volta 或 TPU v1/v2 架構。由於涉及歷史脈絡，建議不直接替換，而是在提及時加上過時標註。已由維護員透過虛擬團隊針對部分文件加入標註。
-- [ ] `TPU與專用AI晶片.md`: 將 `TPU v1` 標註為 `TPU v1 (已過時，現行為 Trillium / TPU v6)`
+- [x] `TPU與專用AI晶片.md`: 將 `TPU v1` 標註為 `TPU v1 (已過時，現行為 Trillium / TPU v6)`
 - [ ] `Systolic Array.md`: 將 `Google TPU v1` 標註為 `Google TPU v1 (已過時，現行為 Trillium / TPU v6)`
-- [ ] `GPU 架構與演進.md`: 將 `Volta` 標註為 `Volta (已過時，現行主流為 Hopper / Blackwell)`
+- [x] `GPU 架構與演進.md`: 將 `Volta` 標註為 `Volta (已過時，現行主流為 Hopper / Blackwell)`
 
 ## 4. 虛擬團隊補充說明 (Virtual Team Expansion)
 - [x] `PCIe.md`: 內容過少且初學者易混淆，已呼叫教育員與研究員補充背景知識與進階細節，包含與 NVLink、CXL 的比較。
@@ -63,3 +63,23 @@
 ### 待辦事項 (Action Items)
 - [x] 更新 `GPU 架構與演進.md` 中的 `Volta` 為現代對應架構。
 - [x] 更新 `CUDA逆向工程與算子實作分析.md` 中的 `Volta` 為現代對應架構。
+
+## 2026-09-26 Wiki 巡檢報告
+
+### 1. 失效連結 (Dead Links)
+- 未發現任何失效連結。
+
+### 2. 過時版本與已棄用架構 (Outdated / Deprecated)
+- 發現部分文件提及 Volta 或 TPU v1/v2 架構，需要加上過時標註。
+- [x] `TPU與專用AI晶片.md`: 將 `TPU v1` 標註為 `TPU v1 (已過時，現行為 Trillium / TPU v6)`
+- [x] `Systolic Array.md`: 將 `Google TPU v1` 或 `早期 TPU v1` 標註為 `早期 TPU v1 (已過時，現行為 Trillium / TPU v6)`
+- [x] `GPU 架構與演進.md`: 將 `Volta` 標註為 `Volta (已過時，現行主流為 Hopper / Blackwell)`
+
+### 3. 已棄用架構
+- 同第 2 點，需要標註已棄用架構。
+
+### 4. 官方文件或是論文更新
+- 近期未檢測到與現有 wiki 內容直接衝突或需立即翻新的重大官方文件變更。
+
+### 5. 新最佳實務
+- 知識庫目前已包含《FlashAttention3與極低精度量化硬體需求》，反映了極低精度量化與硬體需求的最新最佳實務，符合當前技術前沿。
