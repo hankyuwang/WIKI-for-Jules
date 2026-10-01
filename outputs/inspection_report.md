@@ -1,29 +1,46 @@
-# Wiki 維護巡檢報告 (2026-09-28)
+# 知識庫定期巡檢報告
 
-本報告基於知識地圖進行延伸巡檢，涵蓋以下五個重點領域。
+## 巡檢項目
 
-## 1. 失效連結 (Dead Links)
-- [x] 檢查 `content/` 目錄下的所有 markdown 檔案
-- **結果**: 未發現失效的 `[[WikiLinks]]`。所有連結均指向存在的檔案。
+### 1. 失效連結 (Dead Links)
+- **結果**：無。在巡檢過程中沒有發現任何失效連結。所有 wiki 頁面中的 `[[WikiLink]]` 都有對應的 Markdown 檔案。
 
-## 2. 過時版本 (Outdated Versions)
-- [x] 檢查是否有舊版資訊需要更新。
-- **結果**: 經檢查，無過時版本。雖然 `content/LPDDR.md` 包含 "Voltage" 相關字眼，但並非指涉已棄用架構 "Volta"。我們也確認了檔案中沒有遺留的 "TPU v8" 等未發布架構名稱。
+### 2. 過時版本 (Outdated Versions)
+- **結果**：發現一些文件仍提及舊版協定 (如 CXL 1.1)。
+- **需更新文件**：
+  - `CXL技術與記憶體池化.md`
+  - `CXL 互連協定與記憶體池化.md`
+  - `CXL記憶體擴展架構.md`
+  - `CXL互連協定與記憶體池化.md`
+  - `CXL在AI系統的應用.md`
+- **建議行動**：呼叫虛擬團隊 (研究員/教育員)，補充 CXL 2.0 / 3.0 / 3.1 規範的更新與比較。
 
-## 3. 已棄用架構 (Deprecated Architectures)
-- [x] 檢查是否包含已被棄用的硬體架構，如未標註 "早期" 的 Volta, TPU v1, TPU v2。
-- **結果**: 未發現未標記 "早期" 的已棄用架構。
+### 3. 已棄用架構 (Deprecated Architectures)
+- **結果**：部分文件提及早期架構如 Volta, TPU v1, TPU v2。
+- **需更新文件**：
+  - `TPU與專用AI晶片.md`
+  - `Systolic Array.md`
+  - `GPU 架構與演進.md`
+  - `TPU深度解析.md`
+  - `GPU架構與AI計算.md`
+  - `NVLink.md`
+  - `LPDDR.md`
+  - `TPU架構深度解析.md`
+  - `GPU架構與演進.md`
+- **建議行動**：將這些早期架構標示為歷史脈絡 (如：早期 TPU v1)，並呼叫虛擬團隊更新加入最新的架構 (如 NVIDIA Hopper/Blackwell, Google Trillium/TPU v6)。
 
-## 4. 官方文件或是論文更新 (Official Docs/Paper Updates)
-- [x] 檢查官方文件與論文。
-- **結果**: 無重大更新需要補充。
+### 4. 官方文件或是論文更新 (Official Document Updates)
+- **結果**：本次巡檢未發現需要直接對應官方文件或論文更新的項目。
 
-## 5. 新最佳實務 (New Best Practices)
-- [x] 檢查最佳實務。
-- **結果**: 無新最佳實務需要補充。
+### 5. 新最佳實務 (New Best Practices)
+- **結果**：本次巡檢未發現新的最佳實務需要立即更新。
 
-## 總結與後續行動 (Action Items)
-本次巡檢結果良好，無重大失效或過時問題。
+### 6. 孤兒節點與內容長度不足 (Orphaned Nodes & Short Content)
+- **結果**：無。所有 `content/` 中的檔案皆已透過 `INDEX.md` 正確連結，且沒有發現內容過少 (小於 1000 字元) 的檔案。
 
-## 觸發虛擬團隊 (Trigger Virtual Team)
-請接待員 (Receptionist) 根據本報告確認無後續修改需求。若未來有需要，將依序交由知識架構師 → 研究員 → 驗證員 → 教育員進行處理。
+---
+## 執行計畫 (虛擬團隊觸發)
+
+針對上述「過時版本」與「已棄用架構」，將由虛擬團隊自動執行以下更新：
+1. **研究員/教育員**：針對 CXL 相關文件，補充說明最新 CXL 協定 (2.0/3.0/3.1) 的進展，將舊版內容作為背景知識說明。
+2. **研究員/教育員**：針對提及 Volta, TPU v1, TPU v2 的文件，透過語意替換將其定義為早期架構，並加入最新 Hopper/Blackwell 及 Trillium 的簡介與連結。
