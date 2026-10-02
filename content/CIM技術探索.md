@@ -44,3 +44,7 @@ CIM (Computing-In-Memory，記憶體內運算) 是一種顛覆馮·紐曼架構 
 *   **成本 (Costs)：** 高階 3D 封裝技術 (如 TSV, Hybrid Bonding) 成本極高，主要應用於雲端或高效能運算 (HPC)。
 *   **維護性 (Maintainability)：** 軟體生態系統的調整相對於 Analog CIM 較為明確，但仍需要作業系統與編譯器支援。
 *   **風險 (Risks)：** 複雜的散熱問題可能限制了運算單元能維持的最高時脈，導致整體效能受限。
+
+
+## 延伸閱讀 (See Also)
+- 回到 [[INDEX]] 探索更多知識地圖節點。

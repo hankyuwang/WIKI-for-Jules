@@ -64,3 +64,7 @@ Google Tensor Processing Units (TPUs) 是專為機器學習量身打造的特定
 - **成本 (Costs)**: 採隨需付費 (Pay-as-you-go) 模式，免除初期硬體資本支出 (CAPEX)，但長期大規模連續使用的雲端營運成本 (OPEX) 仍需仔細精算。
 - **維護性 (Maintainability)**: 硬體與底層基礎設施由 Google 維護，大幅減輕了使用者的硬體維運負擔。
 - **風險 (Risks)**: 雲端平台鎖定風險。此外，若模型架構與 TPU 的硬體設計不夠契合，可能無法發揮預期的效能優勢。
+
+
+## 延伸閱讀 (See Also)
+- 回到 [[INDEX]] 探索更多知識地圖節點。

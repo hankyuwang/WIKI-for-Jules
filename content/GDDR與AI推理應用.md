@@ -40,3 +40,7 @@ Graphics Double Data Rate (GDDR) 記憶體最初專為圖形處理單元（GPU�
 *   **成本 (Costs)**：增加了推理引擎（Inference Engine）軟體的開發與測試成本。
 *   **維護性 (Maintainability)**：這類優化高度依賴特定模型架構（如對特定 Transformer 網路層進行優化），當模型結構改變時，排程器可能需要重新設計。
 *   **風險 (Risks)**：對於需要極低延遲的互動式應用（如語音助理或即時客服），權重切換帶來的延遲抖動（Jitter）可能導致嚴重的使用者體驗下降。
+
+
+## 延伸閱讀 (See Also)
+- 回到 [[INDEX]] 探索更多知識地圖節點。

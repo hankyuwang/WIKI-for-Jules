@@ -1,57 +1,36 @@
-# 知識庫巡檢報告與虛擬團隊觸發 (Maintainer Inspection Report)
+# 虛擬團隊觸發報告 (Virtual Team Trigger Report)
 
-## 維護員巡檢結果
-根據 `content/` 目錄內的 Markdown 文件掃描，發現以下失效連結 (Broken Links)：
-- `[[深度學習運算原理]]`：被 `NPU架構探索.md`、`模型量化技術.md` 與 `AI加速晶片全景探索.md` 引用，但對應的文件尚未建立。
+根據 `outputs/inspection_report.md` 的巡檢結果，我們觸發了虛擬團隊的協作流程來解決以下核心問題：
 
-根據 `.jules/instructions.md` 指南，由於需要建立新的知識節點與頁面，現將需求移交給虛擬團隊進行處理。
+## 1. 接待員 (Receptionist) 審視需求
+- **Goal**: 將巡檢報告中發現的「無對外連結孤立頁面」、「內容過短且缺乏解釋的頁面」與「未與核心脈絡連結的進階頁面」進行增補與連結修復。同時對早期硬體架構進行註記。
+- **Scope**: `content/` 目錄下的多篇 markdown 檔案，包含量化 (INT4, FP16)、SRAM 微縮、CXL 相關、以及架構分析相關等短文。
+- **Expected Output**:
+  1. 所有孤立頁面新增 `## Prerequisites (先備知識)` 與 `## See Also (延伸閱讀)` 區塊。
+  2. 內容過短的 7 份重點檔案，內容獲得大幅度擴充（加上白話文解釋與原理解說）。
+  3. 主要文章 (SRAM, Chiplet, CXL) 加入至進階文章的 WikiLink。
+  4. 巡檢報告的更新。
 
----
+## 2. 知識架構師 (Architect) 規劃結構
+- 對於沒有外部連結的孤立頁面（out_degree == 0）：
+  - 統一在文件最末端加上 `## See Also (延伸閱讀)`，或在開頭 YAML 後面加上 `## Prerequisites (先備知識)`。
+  - 對於 `INT4`, `FP16`，連結回 `[[Quantization]]`, `[[模型量化技術]]`。
+  - 對於 `SRAM微縮挑戰`, `SRAM微縮技術`，互相連結並連回 `[[SRAM]]`。
+  - 對於 `CIM記憶體內運算`, `PIM` 等，連回 `[[AI記憶體瓶頸與解決方案]]`。
+- 對於內容過少需要擴充的頁面：
+  - `ASIC與TPU架構分析.md`, `FPGA在AI硬體的角色.md`, `GPU在AI加速的應用.md`, `屋頂模型_Roofline_Model原理與應用.md`, `AI記憶體瓶頸與解決方案.md`, `TPU技術解析.md`, `PTQ.md`
+  - 將由研究員與教育員重新改寫，加入「白話文解釋」、「優劣勢圖表概念」、「實際應用場景」等，目標擴充至適合初學者吸收的詳盡程度。
 
-## 虛擬團隊協作流程
+## 3. 研究員 (Researcher) 與 教育員 (Educator) 協同作業 (內容產生)
+我們將使用 Python 腳本模擬研究員與教育員的工作，直接對上述目標檔案進行深入擴寫：
+- **擴寫策略**：
+  - 針對 `PTQ.md` (訓練後量化)：加入為何需要 PTQ、PTQ 與 QAT 的差異比較，以及在資源受限環境中的好處。
+  - 針對 `屋頂模型_Roofline_Model原理與應用.md`：加入更直觀的解釋，什麼是算力牆，什麼是記憶體牆，以及如何看懂 Roofline 曲線。
+  - 針對 `AI記憶體瓶頸與解決方案.md`：深入探討 Von Neumann 架構瓶頸，以及 HBM / CXL / PIM 如何成為解決方案。
+  - 針對 `ASIC與TPU架構分析.md` 等硬體文章：補強其架構圖解說概念與發展脈絡。
 
-### 1. 接待員 (Receptionist) 審查需求
-- **Goal**: 創建 `深度學習運算原理.md` 文件，補足現有知識庫的缺失環節。
-- **Scope**: 解釋深度學習背後的核心運算邏輯（例如矩陣乘法 GEMM、反向傳播原理），並分析其與硬體加速（如 NPU 脈動陣列）的關聯。
-- **Non-goal**: 不涉及特定框架（如 PyTorch）的程式碼教學。
-- **Assumptions**: 讀者已有基礎計算機結構的背景知識。
-- **Expected Output**: 一份遵循規範的 Markdown Wiki 頁面，包含摘要、三種不同視角的方案/見解分析。
-- **Learning Level**: Intermediate
+## 4. 驗證員 (Validator) 規則檢查
+- 確保所有的 `[[WikiLink]]` 指向存在的檔案。
+- 確保不會有「我覺得、應該」等模糊字眼。
+- 確保所有修改後的檔案仍然擁有正確的 YAML frontmatter (包含 level)。
 
-### 2. 知識架構師 (Knowledge Architect) 規劃結構
-- **Metadata**:
-  - `title`: 深度學習運算原理
-  - `level`: intermediate
-  - `tags`: [deep-learning, compute, AI-acceleration]
-- **Folder**: `content/深度學習運算原理.md`
-- **雙向連結策略**: 需確保內容能正確連結到現有的 `[[NPU架構探索]]` 與 `[[模型量化技術]]`。
-
-### 3. 研究員 (Researcher) 提出方案與見解
-深度學習運算存在記憶體牆與算力瓶頸，為解決這類問題，有三種主要的硬體與軟體優化視角：
-1. **純軟體與算法層面的優化 (Algorithm & Software Level)**
-   - *優點*：無需修改硬體，可在現有設備（CPU/GPU）上快速部署（如算子融合、剪枝）。
-   - *缺點*：受限於底層物理頻寬，優化存在上限。
-   - *成本*：主要為工程師的開發與調校時間。
-   - *維護性*：隨模型結構演進，底層 Kernel 可能需要反覆重寫，維護成本高。
-   - *風險*：過度優化（如極端剪枝）可能導致模型精度雪崩。
-2. **通用 GPU 加速 (General GPU Acceleration)**
-   - *優點*：生態系極其完善（CUDA），高度平行化架構對於矩陣運算極其友好。
-   - *缺點*：功耗巨大，散熱成本高，對於邊緣裝置不適用。
-   - *成本*：硬體採購成本極高。
-   - *維護性*：生態圈豐富，維護容易。
-   - *風險*：受限於 HBM 容量，對於記憶體密集型任務（如 LLM 推理）容易出現算力閒置。
-3. **專用 ASIC/NPU 加速 (ASIC/NPU Hardware Optimization)**
-   - *優點*：透過脈動陣列 (Systolic Array) 達到極致的 PPA (Power, Performance, Area)，能效比極高。
-   - *缺點*：硬體固化，若演算法出現顛覆性改變（如從 Transformer 轉向 Mamba），可能無法完美支援。
-   - *成本*：前期 Tape-out 研發成本極度高昂。
-   - *維護性*：編譯器開發難度極大。
-   - *風險*：晶片研發週期長，可能面臨上市即過時的風險。
-
-### 4. 驗證員 (Validator) 審查
-- 研究員提出的三種視角與事實相符，無模糊推測。
-- 關於 NPU 脈動陣列與 GPU 功耗的描述與市場現狀相符。
-- 建議在生成最終文件時，確實不包含 Prerequisites 章節以符合特定指令規範。
-
-### 5. 教育員 (Educator) 轉譯
-- 最終內容將整理為易讀的 Markdown 格式，包含清晰的段落與對比，並加上必要的 YAML frontmatter 準備發布至 `content/` 目錄。
-- *註：目前僅在此階段進行模擬規劃，實際文件的建立需由下一階段的任務執行。*

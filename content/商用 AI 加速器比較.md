@@ -76,3 +76,7 @@ Tensor Processing Units (TPUs) 是 Google 自主研發的特定應用積體電�
 *   **風險 (Risks)**:
     *   **雲端平台鎖定 (Cloud Vendor Lock-in)**: 深度綁定 GCP，未來若要遷移至其他雲端或地端將非常困難。
     *   **框架轉移成本**: 若原本使用 PyTorch，轉移到 TPU (可能需要改寫為 JAX) 會有學習曲線與開發成本。
+
+
+## 延伸閱讀 (See Also)
+- 回到 [[INDEX]] 探索更多知識地圖節點。
