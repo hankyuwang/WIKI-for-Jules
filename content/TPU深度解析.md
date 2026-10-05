@@ -38,5 +38,5 @@ TPU 設計中最關鍵的特徵是採用了**脈動陣列 (Systolic Array)** 作
 
 欲了解整個 AI 晶片生態，請返回：[[AI加速晶片總覽]]。
 
-### 從 TPU v1 到 Trillium
+### 從早期 TPU v1 到 Trillium
 相較於專注推論的早期 TPU v1，新一代的 Trillium (TPU v6) 架構在 HBM 容量與互連頻寬上實現了指數級別的增長，完美適應了現代巨型模型的訓練需求。
