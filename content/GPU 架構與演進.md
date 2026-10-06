@@ -43,4 +43,4 @@ tags:
 - **風險 (Risks)**：過度依賴單一或少數先進封裝供應商可能帶來供應鏈風險，且晶片互連技術標準若不統一，可能影響產品迭代。
 
 ### 現代 GPU 架構的演進
-自早期 Volta 架構以來，GPU 已經經歷了巨大的演進。現今的 Hopper 與 Blackwell 架構不僅大幅提升了 FP8 與 FP4 運算能力，還引入了 Transformer Engine 來專門加速 LLM。
+自早期的 Volta 架構以來，GPU 已經經歷了巨大的演進。現今的 Hopper 與 Blackwell 架構不僅大幅提升了 FP8 與 FP4 運算能力，還引入了 Transformer Engine 來專門加速 LLM。
