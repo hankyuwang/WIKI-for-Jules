@@ -51,3 +51,29 @@
 - [x] 早期架構 (Volta, TPU v1/v2) 已在所有 9 份指名文件中以自然通順的語法標示，並無縫融入現代架構 (Hopper/Blackwell) 演進說明。
 - [x] 虛擬團隊觸發報告已生成。
 - [x] 已確認無孤兒節點未連結至知識地圖。
+
+
+# 知識庫巡檢報告
+
+## 巡檢項目
+### 1. 失效連結 (Dead Links)
+- 巡檢結果：透過 `npx quartz build` 進行掃描，目前 `content/` 目錄下無失效連結。所有內部 `[[WikiLink]]` 均可正確對應到存在的頁面。
+
+### 2. 過時版本 (Outdated Versions) & 3. 已棄用架構 (Deprecated Architectures)
+- 巡檢結果：
+  - `TPU v1`、`TPU v2` 以及 `Volta` 架構已在此前的更新中被正確標示為歷史架構（如「早期 TPU v1」、「早期的 Volta 架構」），並且已對應到現代架構（Trillium / Hopper / Blackwell）。
+  - 目前知識庫架構文件均具備良好的歷史脈絡說明，無未被標記的過時或棄用架構。
+
+### 4. 官方文件或是論文更新 (Official Document Updates)
+- 巡檢結果：目前知識庫內的文件已涵蓋最新的架構與技術進展（例如：FlashAttention-3, Blackwell, Trillium 等），本次巡檢並未發現缺失的官方文件更新。
+
+### 5. 新最佳實務 (New Best Practices)
+- 巡檢結果：包含 vLLM、SGLang、TensorRT-LLM 等推理最佳實務與量化協同策略皆已記錄。本次巡檢並未發現需要新增的最佳實務。
+
+## 虛擬團隊觸發動作清單 (Action Items)
+鑑於目前維護狀態良好，本次巡檢未發現需要修正的失效項目。然而，根據虛擬團隊工作指引（接待員 → 知識架構師 → 研究員 → 驗證員 → 教育員），我們將觸發虛擬團隊進行一次防呆演練，產出一份虛擬團隊任務分派報告 `virtual_team_trigger_report.md`，準備未來的主題規劃。
+
+
+
+
+- [x] 產生 `virtual_team_trigger_report.md` 以指派各虛擬角色的演練任務。

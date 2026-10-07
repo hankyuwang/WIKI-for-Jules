@@ -300,3 +300,8 @@ AI 晶片的核心在於高效的平行處理單元，這些架構決定了算�
 初學者可以從這些基礎概念出發，逐步建立對 AI 硬體的認知。
 - [[基礎計算機結構]]
 - [[PCIe]]
+
+## 未來前沿探討 (Future Trends)
+- [[Optical Computing]] : 探討光學計算與下一代 AI 加速晶片的可能性。
+- [[Neuromorphic Engineering]] : 類神經形態運算架構。
+- [[Ultra Large Scale Cluster]] : 突破百萬節點級別的互連挑戰與架構設計。

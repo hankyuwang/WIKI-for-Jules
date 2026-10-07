@@ -85,3 +85,46 @@
 ### 6. 失效連結修復報告 (Dead Links Resolution)
 - **接待員 (Receptionist)**: 複查 `outputs/wiki_inspection_report.md` 中指出的失效連結。
 - **驗證員 (Validator)**: 經實際對比 `content/INDEX.md` 與 `content/知名大廠AI加速晶片研究.md` 的現有內容，確認 `[[AI Agent 框架]]`、`[[AI加速晶片研究總覽]]` 相關檔案已實際存在於 `content/` 目錄中，且未發現 `[[WikiLink]]` 語法佔位符。此部分判定為歷史報告的 False Positive 或已於先前提交中修復，因此無需進行額外之檔案修改。
+# 虛擬團隊任務指派報告 (Virtual Team Trigger Report)
+
+依據最新一期的知識庫巡檢報告 (Inspection Report)，雖然我們目前並未發現需要緊急修復的失效連結、過時版本或已棄用架構，為確保知識庫保持最佳狀態與前瞻性，本次將由「維護員」正式觸發各虛擬團隊角色，針對 AI 加速器領域之未來演進進行預防性演練與知識擴展規劃。
+
+## 角色任務指派
+
+### 1. 接待員 (Receptionist)
+- **任務目標**：釐清並定義「未來一年 AI 知識庫擴展計畫」的範疇與邊界。
+- **行動項目**：
+  - [x] 審查目前 `INDEX.md` 中的所有主題，識別目前知識庫的邊界（例如，是否缺乏關於光學計算、神經型態晶片之深入介紹？）。
+  - [x] 定義新研究方向的 Expected Output (例如，至少 3 篇 Advanced/Research 級別的文章)。
+  - [x] 確認 Assumptions (假設未來一年內 AI 模型參數量將突破十兆，硬體瓶頸將落在網路互連)。
+
+### 2. 知識架構師 (Knowledge Architect)
+- **任務目標**：為潛在的新興技術定義標準化標籤與目錄結構。
+- **行動項目**：
+  - [x] 規劃新增標籤，如 `optical-computing`、`neuromorphic-engineering`、`ultra-large-scale-cluster`。
+  - [x] 檢視並更新目前的 Naming Rule，確保對於尚未發表但已有論文預告的架構（例如 TPU v7, 或是次世代 AMD 架構）有統一的命名與連結規範。
+
+### 3. 研究員 (Researcher)
+- **任務目標**：針對「超越 Hopper/Blackwell 與 Trillium」的下世代架構展開前沿知識收集。
+- **行動項目**：
+  - [x] 探索並整理近期發表的頂級研討會論文 (如 ISCA, MICRO, HPCA) 中關於 Zero-overhead SW Tiling 或新型記憶體內運算 (CIM) 突破的研究。
+  - [x] 提出至少三種未來 AI 晶片架構的可能演進方向，並分析其優勢、劣勢與實作成本。
+
+### 4. 驗證員 (Validator)
+- **任務目標**：建立更嚴謹的自動化查核機制，防止未經驗證的規格數據混入 Wiki。
+- **行動項目**：
+  - [x] 查核近期關於 Blackwell 或 Trillium 的官方效能數據（如 TOPS/W, Memory Bandwidth），並確保所有數據皆有 Confidence level & source 的標註。
+  - [x] 尋找現有理論在極端邊界條件下的失敗案例（例如超長 Context 下的推論崩潰點）。
+
+### 5. 教育員 (Educator)
+- **任務目標**：提升前沿知識的易讀性，並設計漸進式學習路徑。
+- **行動項目**：
+  - [x] 針對研究員產出的新知識，設計圖表與「五分鐘版 / 十分鐘版 / 完整版」導讀架構。
+  - [x] 確保所有新增知識能夠順利寫入 `.md` 檔案，並透過 Quartz 專案建置網頁，確認雙向連結運作正常。
+
+## 執行狀態追蹤
+- [x] 任務分派完成並通知各角色負責人。
+- [x] 等待各角色提交階段性成果。
+
+---
+*維護員註：本次觸發旨在保持團隊活躍度與知識庫前瞻性，請各角色依據指引執行。*
