@@ -16,7 +16,7 @@ tags:
 
 ## NVLink 的技術演進與頻寬
 NVLink 自推出以來，頻寬經歷了顯著的提升：
-* **第 1/2 代 (如 Pascal 與早期 Volta 架構)**：雙向總頻寬達到 160~300 GB/s。
+* **第 1/2 代 (如 Pascal 與早期 Volta (現已演進為 Hopper/Blackwell) 架構)**：雙向總頻寬達到 160~300 GB/s。
 * **第 3 代 (Ampere 架構, 如 A100)**：雙向總頻寬躍升至 600 GB/s。
 * **第 4 代 (Hopper 架構, 如 H100)**：雙向總頻寬達到驚人的 900 GB/s，比 PCIe Gen5 x16 的頻寬高出數倍。
 * **第 5 代 (Blackwell 架構, 如 B200)**：進一步提升雙向總頻寬至 1.8 TB/s。
@@ -50,4 +50,4 @@ NVLink 自推出以來，頻寬經歷了顯著的提升：
 - 風險：標準推廣落地不如預期。
 
 ### NVLink 與超大型叢集
-早期的 NVLink (如 Volta 架構時期) 解決了單機內 GPU 間的頻寬瓶頸。如今，NVLink 配合 NVSwitch 已經可以支援包含數百顆 GPU 的超大型叢集，成為訓練萬億參數模型不可或缺的骨幹網路。
+早期的 NVLink (如 早期 Volta (現已演進為 Hopper/Blackwell) 架構時期) 解決了單機內 GPU 間的頻寬瓶頸。如今，NVLink 配合 NVSwitch 已經可以支援包含數百顆 GPU 的超大型叢集，成為訓練萬億參數模型不可或缺的骨幹網路。
