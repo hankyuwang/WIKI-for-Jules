@@ -70,6 +70,7 @@
 - 決議新增 `[[AI加速器最佳實務與部署指引]]` 文章，並於 `content/INDEX.md` 建立連結。
 - 針對 `AI晶片方案評估與發展趨勢.md` 與 `ASIC加速晶片設計.md`，新增對應過時風險的應對策略段落。
 - 針對 `AI加速器架構總覽.md`，新增最新架構（Blackwell, Trillium 等）的官方更新與技術簡介。
+- 針對內容稀疏的檔案 (`ASIC與TPU架構分析.md`, `QAT.md`, `MoE.md` 等) 進行詳細解說與專有名詞擴充。
 
 ### 3. 研究員 (Researcher) 提出方案與見解
 - 統整了 CXL, Blackwell, Trillium, Chiplet 等前沿技術，總結了軟硬體協同開發與分散式叢集部署的實務策略。
@@ -81,6 +82,7 @@
 
 ### 5. 教育員 (Educator) 轉譯
 - 撰寫並排版了 `AI加速器最佳實務與部署指引.md`，附加於現有 Wiki 中。
+- 撰寫了包含詳細專有名詞解說的補充內容並加入現有稀疏檔案。
 
 ### 6. 失效連結修復報告 (Dead Links Resolution)
 - **接待員 (Receptionist)**: 複查 `outputs/wiki_inspection_report.md` 中指出的失效連結。
