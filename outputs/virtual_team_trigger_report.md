@@ -87,3 +87,34 @@
 ### 6. 失效連結修復報告 (Dead Links Resolution)
 - **接待員 (Receptionist)**: 複查 `outputs/wiki_inspection_report.md` 中指出的失效連結。
 - **驗證員 (Validator)**: 經實際對比 `content/INDEX.md` 與 `content/知名大廠AI加速晶片研究.md` 的現有內容，確認 `[[AI Agent 框架]]`、`[[AI加速晶片研究總覽]]` 相關檔案已實際存在於 `content/` 目錄中，且未發現 `[[WikiLink]]` 語法佔位符。此部分判定為歷史報告的 False Positive 或已於先前提交中修復，因此無需進行額外之檔案修改。
+
+
+# 虛擬團隊觸發報告 (2026-10-09)
+
+## 背景與目標
+根據最新的 Wiki 巡檢報告，我們發現了幾項需要改進的議題，包含過時架構以及內容過於稀疏的文章。依照 `.jules/instructions.md`，我們觸發虛擬團隊進行處理。
+
+## 任務分派
+
+### 1. 接待員 (Receptionist) & 知識架構師 (Architect)
+- **Goal**: 將過時的硬體架構標示為歷史脈絡，並引入最新架構；豐富稀疏內容的文章，確保它們與 `INDEX.md` 知識地圖的連結，並提供初學者友善的解釋。
+- **Scope**: 更新 9 篇包含過時架構的檔案，以及 5 篇內容過少的文件。
+
+### 2. 研究員 (Researcher) & 教育員 (Educator)
+- **Task 1: 過時架構更新**
+  - 將提及的 `Volta` 標示為早期架構，並加入對 `Hopper/Blackwell` 的引用。
+  - 將提及的 `TPU v1` 或 `TPU v2` 標示為早期架構，並加入對 `Trillium/TPU v6` 的引用。
+  - *涉及檔案*: `TPU與專用AI晶片.md`, `Systolic Array.md`, `GPU 架構與演進.md`, `TPU深度解析.md`, `GPU架構與AI計算.md`, `NVLink.md`, `LPDDR.md`, `TPU架構深度解析.md`, `GPU架構與演進.md`。
+
+- **Task 2: 豐富稀疏內容 (Sparse Content)**
+  - 為以下 5 篇檔案補充詳細背景知識、專有名詞解釋，並確保初學者能理解。
+  - `FPGA在AI硬體的角色.md`
+  - `GPU在AI加速的應用.md`
+  - `屋頂模型_Roofline_Model原理與應用.md`
+  - `AI記憶體瓶頸與解決方案.md`
+  - `FPGA在AI加速的應用.md`
+
+### 3. 驗證員 (Validator)
+- 驗證所有修改後的檔案是否仍符合 Markdown 格式。
+- 確保新增的 `[[WikiLink]]` 指向真實存在的檔案，沒有破壞現有的圖結構。
+- 執行 `npx quartz build` 確認無編譯錯誤。

@@ -51,3 +51,32 @@
 - [x] 虛擬團隊觸發報告已生成。
 - [x] 已確認無孤兒節點未連結至知識地圖。
 - [x] 針對內容稀疏的檔案已完成詳細解說與專有名詞補充。
+
+# Wiki 巡檢報告 (2026-10-09 16:16:14)
+
+## 1. 失效連結 (Dead Links)
+未發現失效連結。
+
+## 2. 過時版本與架構 (Outdated Architectures)
+- [x] `TPU與專用AI晶片.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `Systolic Array.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `GPU 架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `TPU深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `GPU架構與AI計算.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `NVLink.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `LPDDR.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `TPU架構深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+- [x] `GPU架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+
+## 3. 內容過少 / 術語缺乏解釋 (Sparse Content)
+- [x] `FPGA在AI硬體的角色.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+- [x] `GPU在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+- [x] `屋頂模型_Roofline_Model原理與應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+- [x] `AI記憶體瓶頸與解決方案.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+- [x] `FPGA在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+
+## 4. 官方文件或論文更新 (Official Doc/Paper Updates)
+未發現顯著更新。
+
+## 5. 新最佳實務 (New Best Practices)
+未發現新最佳實務。

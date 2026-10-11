@@ -8,7 +8,7 @@ tags:
 
 # 摘要
 
-圖形處理器（GPU）最初專為加速電腦圖形渲染而設計，但其高度平行運算的特性使其成為深度學習與人工智慧（AI）領域的核心硬體。GPU 架構歷經多次演進，從早期的固定管線發展到可程式化的統一著色器架構（如 NVIDIA 的 Tesla、Fermi、Kepler、Pascal、早期的 Volta 以及後續的 Ampere、Hopper 及 Blackwell 等）。現代 GPU 針對 AI 任務優化，引入了 Tensor Core 等專用硬體單元以加速矩陣運算，並大幅提升記憶體頻寬。本文章探討 GPU 應用於 AI 運算時的三種架構與佈署觀點，並分析其優缺點及風險。
+圖形處理器（GPU）最初專為加速電腦圖形渲染而設計，但其高度平行運算的特性使其成為深度學習與人工智慧（AI）領域的核心硬體。GPU 架構歷經多次演進，從早期的固定管線發展到可程式化的統一著色器架構（如 NVIDIA 的 Tesla、Fermi、Kepler、Pascal、早期 Volta (現已演進為 Hopper/Blackwell) 以及後續的 Ampere、Hopper 及 Blackwell 等）。現代 GPU 針對 AI 任務優化，引入了 Tensor Core 等專用硬體單元以加速矩陣運算，並大幅提升記憶體頻寬。本文章探討 GPU 應用於 AI 運算時的三種架構與佈署觀點，並分析其優缺點及風險。
 
 ## 方案一：單機多卡 (Single-Node Multi-GPU) 部署架構
 
@@ -79,4 +79,4 @@ tags:
 - **資料安全與合規性**：將敏感的訓練資料（如醫療影像、金融數據）上傳至公有雲可能面臨資安風險與法規限制。
 
 ### 次世代 GPU 架構
-有別於早期的 Volta 架構，最新的 NVIDIA Blackwell 架構專注於萬億參數模型的擴展性，並透過 NVLink 互連技術突破了單一節點的極限。
+有別於早期 Volta (現已演進為 Hopper/Blackwell) 架構，最新的 NVIDIA Blackwell 架構專注於萬億參數模型的擴展性，並透過 NVLink 互連技術突破了單一節點的極限。
