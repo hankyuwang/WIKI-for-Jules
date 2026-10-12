@@ -1,82 +1,28 @@
-# 知識庫定期巡檢報告
+# 維護員巡檢報告 (Maintenance Inspection Report)
 
-## 巡檢項目
+## 巡檢項目與結果
 
-### 1. 失效連結 (Dead Links)
-- **結果**：無。在巡檢過程中沒有發現任何失效連結。所有 wiki 頁面中的 `[[WikiLink]]` 都有對應的 Markdown 檔案。
+1. **失效連結 (Dead Links)**:
+   - 經檢查 `content/` 目錄下所有 Markdown 檔案，無發現失效連結。所有 `[[WikiLink]]` 指向的目標檔案皆存在。
 
-### 2. 過時版本 (Outdated Versions)
-- **結果**：發現一些文件仍提及舊版協定 (如 CXL 1.1)。
-- **需更新文件**：
-  - `CXL技術與記憶體池化.md`
-  - `CXL 互連協定與記憶體池化.md`
-  - `CXL記憶體擴展架構.md`
-  - `CXL互連協定與記憶體池化.md`
-  - `CXL在AI系統的應用.md`
-- **建議行動**：呼叫虛擬團隊 (研究員/教育員)，補充 CXL 2.0 / 3.0 / 3.1 規範的更新與比較。
+2. **過時版本 (Outdated Versions)**:
+   - 大部分內容版本為最新，未發現明顯過時版本需要淘汰。
 
-### 3. 已棄用架構 (Deprecated Architectures)
-- **結果**：部分文件提及早期架構如 Volta, TPU v1, TPU v2。
-- **需更新文件**：
-  - `TPU與專用AI晶片.md`
-  - `Systolic Array.md`
-  - `GPU 架構與演進.md`
-  - `TPU深度解析.md`
-  - `GPU架構與AI計算.md`
-  - `NVLink.md`
-  - `LPDDR.md`
-  - `TPU架構深度解析.md`
-  - `GPU架構與演進.md`
-- **建議行動**：將這些早期架構標示為歷史脈絡 (如：早期 TPU v1)，並呼叫虛擬團隊更新加入最新的架構 (如 NVIDIA Hopper/Blackwell, Google Trillium/TPU v6)。
+3. **已棄用架構 (Deprecated Architectures)**:
+   - 巡檢發現部分提及早期架構的內容缺少對應的現代演進標註，需要更新：
+     - `TPU v2/v3` 在 `content/TPU與專用AI晶片.md`, `content/TPU深度解析.md`, `content/TPU架構深度解析.md` 中被提及為早期架構，但未正確映射為現代等效架構（如 Trillium/TPU v6）。需要將 `早期 TPU v2/v3` 更新為 `早期 TPU v2/v3 (現已演進為 Trillium/TPU v6)` 以保持一致性。
+     - 注意：`content/LPDDR.md` 中的 `Voltage` 被正則表達式誤判為 Volta 架構，此為正常字彙，無需修改。
 
-### 4. 官方文件或是論文更新 (Official Document Updates)
-- **結果**：本次巡檢未發現需要直接對應官方文件或論文更新的項目。
+4. **官方文件或是論文更新 (Official Document/Paper Updates)**:
+   - 經查閱 `INDEX.md` 及現有知識圖譜，無明顯遺漏之官方文件或論文更新。
 
-### 5. 新最佳實務 (New Best Practices)
-- **結果**：本次巡檢未發現新的最佳實務需要立即更新。
+5. **新最佳實務 (New Best Practices)**:
+   - 經檢查，無新的明顯最佳實務需要新增。目前的推論、量化 (FP4) 等最佳實務已包含在最新的內容中。
 
-### 6. 孤兒節點與內容長度不足 (Orphaned Nodes & Short Content)
-- **結果**：無。所有 `content/` 中的檔案皆已透過 `INDEX.md` 正確連結，且沒有發現內容過少 (小於 1000 字元) 的檔案。
+## 待執行任務 (Action Items)
 
----
-## 執行計畫 (虛擬團隊觸發)
+- [ ] 更新 `content/TPU與專用AI晶片.md` 中的 `早期 TPU v2/v3` 標註。
+- [ ] 更新 `content/TPU深度解析.md` 中的 `早期 TPU v2/v3` 標註。
+- [ ] 更新 `content/TPU架構深度解析.md` 中的 `早期 TPU v2/v3` 標註。
 
-針對上述「過時版本」與「已棄用架構」，將由虛擬團隊自動執行以下更新：
-1. **研究員/教育員**：針對 CXL 相關文件，補充說明最新 CXL 協定 (2.0/3.0/3.1) 的進展，將舊版內容作為背景知識說明。
-2. **研究員/教育員**：針對提及 Volta, TPU v1, TPU v2 的文件，透過語意替換將其定義為早期架構，並加入最新 Hopper/Blackwell 及 Trillium 的簡介與連結。
-
-## 執行狀態 (Update)
-- [x] CXL 相關文件已更新至 2.0/3.0/3.1 (採用集中維護與外部連結)。
-- [x] 早期架構 (Volta, TPU v1/v2) 已在所有 9 份指名文件中以自然通順的語法標示，並無縫融入現代架構 (Hopper/Blackwell) 演進說明。
-- [x] 虛擬團隊觸發報告已生成。
-- [x] 已確認無孤兒節點未連結至知識地圖。
-- [x] 針對內容稀疏的檔案已完成詳細解說與專有名詞補充。
-
-# Wiki 巡檢報告 (2026-10-09 16:16:14)
-
-## 1. 失效連結 (Dead Links)
-未發現失效連結。
-
-## 2. 過時版本與架構 (Outdated Architectures)
-- [x] `TPU與專用AI晶片.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `Systolic Array.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU 架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `TPU深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU架構與AI計算.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `NVLink.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `LPDDR.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `TPU架構深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-
-## 3. 內容過少 / 術語缺乏解釋 (Sparse Content)
-- [x] `FPGA在AI硬體的角色.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `GPU在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `屋頂模型_Roofline_Model原理與應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `AI記憶體瓶頸與解決方案.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `FPGA在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-
-## 4. 官方文件或論文更新 (Official Doc/Paper Updates)
-未發現顯著更新。
-
-## 5. 新最佳實務 (New Best Practices)
-未發現新最佳實務。
+觸發虛擬團隊執行上述更新。
