@@ -1,102 +1,41 @@
-# 知識庫定期巡檢報告
-
-## 巡檢項目
-
-### 1. 失效連結 (Dead Links)
-- **結果**：無。在巡檢過程中沒有發現任何失效連結。所有 wiki 頁面中的 `[[WikiLink]]` 都有對應的 Markdown 檔案。
-
-### 2. 過時版本 (Outdated Versions)
-- **結果**：發現一些文件仍提及舊版協定 (如 CXL 1.1)。
-- **需更新文件**：
-  - `CXL技術與記憶體池化.md`
-  - `CXL 互連協定與記憶體池化.md`
-  - `CXL記憶體擴展架構.md`
-  - `CXL互連協定與記憶體池化.md`
-  - `CXL在AI系統的應用.md`
-- **建議行動**：呼叫虛擬團隊 (研究員/教育員)，補充 CXL 2.0 / 3.0 / 3.1 規範的更新與比較。
-
-### 3. 已棄用架構 (Deprecated Architectures)
-- **結果**：部分文件提及早期架構如 Volta, TPU v1, TPU v2。
-- **需更新文件**：
-  - `TPU與專用AI晶片.md`
-  - `Systolic Array.md`
-  - `GPU 架構與演進.md`
-  - `TPU深度解析.md`
-  - `GPU架構與AI計算.md`
-  - `NVLink.md`
-  - `LPDDR.md`
-  - `TPU架構深度解析.md`
-  - `GPU架構與演進.md`
-- **建議行動**：將這些早期架構標示為歷史脈絡 (如：早期 TPU v1)，並呼叫虛擬團隊更新加入最新的架構 (如 NVIDIA Hopper/Blackwell, Google Trillium/TPU v6)。
-
-### 4. 官方文件或是論文更新 (Official Document Updates)
-- **結果**：本次巡檢未發現需要直接對應官方文件或論文更新的項目。
-
-### 5. 新最佳實務 (New Best Practices)
-- **結果**：本次巡檢未發現新的最佳實務需要立即更新。
-
-### 6. 孤兒節點與內容長度不足 (Orphaned Nodes & Short Content)
-- **結果**：無。所有 `content/` 中的檔案皆已透過 `INDEX.md` 正確連結，且沒有發現內容過少 (小於 1000 字元) 的檔案。
-
----
-## 執行計畫 (虛擬團隊觸發)
-
-針對上述「過時版本」與「已棄用架構」，將由虛擬團隊自動執行以下更新：
-1. **研究員/教育員**：針對 CXL 相關文件，補充說明最新 CXL 協定 (2.0/3.0/3.1) 的進展，將舊版內容作為背景知識說明。
-2. **研究員/教育員**：針對提及 Volta, TPU v1, TPU v2 的文件，透過語意替換將其定義為早期架構，並加入最新 Hopper/Blackwell 及 Trillium 的簡介與連結。
-
-## 執行狀態 (Update)
-- [x] CXL 相關文件已更新至 2.0/3.0/3.1 (採用集中維護與外部連結)。
-- [x] 早期架構 (Volta, TPU v1/v2) 已在所有 9 份指名文件中以自然通順的語法標示，並無縫融入現代架構 (Hopper/Blackwell) 演進說明。
-- [x] 虛擬團隊觸發報告已生成。
-- [x] 已確認無孤兒節點未連結至知識地圖。
-- [x] 針對內容稀疏的檔案已完成詳細解說與專有名詞補充。
-
-# Wiki 巡檢報告 (2026-10-09 16:16:14)
+# Wiki 定期巡檢報告
 
 ## 1. 失效連結 (Dead Links)
-未發現失效連結。
+經過巡檢，知識庫中未發現失效連結。
 
-## 2. 過時版本與架構 (Outdated Architectures)
-- [x] `TPU與專用AI晶片.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `Systolic Array.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU 架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `TPU深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU架構與AI計算.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `NVLink.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `LPDDR.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `TPU架構深度解析.md` 包含過時架構描述 (Volta/TPU v1/v2)。
-- [x] `GPU架構與演進.md` 包含過時架構描述 (Volta/TPU v1/v2)。
+## 2. 過時版本 (Outdated Versions)
+未發現明顯過時的軟體或框架版本標記，但需要持續追蹤新版架構與技術的演進。
 
-## 3. 內容過少 / 術語缺乏解釋 (Sparse Content)
-- [x] `FPGA在AI硬體的角色.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `GPU在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `屋頂模型_Roofline_Model原理與應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `AI記憶體瓶頸與解決方案.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
-- [x] `FPGA在AI加速的應用.md` 內容稀疏，需要觸發虛擬團隊補充說明並確保與地圖連結。
+## 3. 已棄用架構 (Deprecated Architectures)
+發現以下文件中提及早期硬體架構 (如 Volta, TPU v1, TPU v2)，雖然具有歷史意義，但可補充現代架構 (Hopper/Blackwell, Trillium/TPU v6) 作為對照：
+- `content/Systolic Array.md`: TPU v1
+- `content/GPU 架構與演進.md`: Volta
+- `content/GPU架構與AI計算.md`: Volta
+- `content/NVLink.md`: Volta
+- `content/TPU與專用AI晶片.md`: TPU v1, TPU v2
+- `content/GPU架構與演進.md`: Volta
+- `content/TPU深度解析.md`: TPU v1, TPU v2
+- `content/TPU架構深度解析.md`: TPU v1, TPU v2
 
-## 4. 官方文件或論文更新 (Official Doc/Paper Updates)
-未發現顯著更新。
+由於歷史脈絡的保留，將在文中補述為「早期」架構，而非完全刪除。
+
+## 4. 官方文件或是論文更新 (Official Document/Paper Updates)
+未發現需要立即更新的官方文件或論文內容。
 
 ## 5. 新最佳實務 (New Best Practices)
-未發現新最佳實務。
+針對稀疏內容 (字數較少的文件)，需要補充詳細、對初學者友善的解說、類比及技術分解，以符合知識庫由淺入深的漸進式學習要求。以下檔案需要擴充內容：
+- `content/自研AI晶片策略與前沿挑戰.md`
+- `content/AI加速晶片軟體堆疊與SDK設計.md`
+- `content/商用AI加速晶片分析.md`
+- `content/AI模型分類與硬體協同設計.md`
+- `content/AI加速晶片全景探索.md`
+- `content/主流AI加速晶片架構分析.md`
+
+## 虛擬團隊執行計畫
+- [ ] **研究員/驗證員**: 檢查並於上述提及的「已棄用架構」文件中加上「早期」前綴，並補充對應現代架構 (Hopper/Blackwell, Trillium/TPU v6) 的對照。
+- [ ] **教育員**: 針對稀疏文件補充初學者友善的詳細解說。
 
 
-# Wiki 巡檢報告 (2026-10-12 16:09:13)
-
-## 1. 失效連結 (Dead Links)
-未發現失效連結。
-
-## 2. 孤立頁面 (Unlinked Files)
-未發現孤立頁面。
-
-## 3. 內容過少/需補充頁面 (Sparse Content)
-- [x] `LLM推理最佳實務.md` 內容過少，需要虛擬團隊補充。
-- [x] `PTQ.md` 內容過少，需要虛擬團隊補充。
-- [x] `TPU技術解析.md` 內容過少，需要虛擬團隊補充。
-
-## 4. 已棄用架構 (Deprecated Architectures)
-未發現已棄用架構。
-
-## 5. 官方文件/論文更新與新最佳實務
-本次巡檢未發現需要更新的官方文件或新最佳實務。
+## 執行狀態更新 (Execution Status Update)
+- [x] **研究員/驗證員**: 檢查並於上述提及的「已棄用架構」文件中加上「早期」前綴，並補充對應現代架構 (Hopper/Blackwell, Trillium/TPU v6) 的對照。
+- [x] **教育員**: 針對稀疏文件補充初學者友善的詳細解說。
