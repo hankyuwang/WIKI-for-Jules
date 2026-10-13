@@ -1,155 +1,41 @@
-# 知識庫巡檢報告與虛擬團隊觸發 (Maintainer Inspection Report)
+# 知識庫巡檢與虛擬團隊觸發報告
 
-## 維護員巡檢結果
-根據 `content/` 目錄內的 Markdown 文件掃描，發現以下失效連結 (Broken Links)：
-- `[[深度學習運算原理]]`：被 `NPU架構探索.md`、`模型量化技術.md` 與 `AI加速晶片全景探索.md` 引用，但對應的文件尚未建立。
+## 巡檢結果
+根據定期巡檢，發現以下問題：
+1. **未連結節點 (Orphan Nodes)**: 0 (所有檔案皆已透過 INDEX.md 延伸連結可達)。
+2. **失效連結 (Dead Links)**: 0。
+3. **過時架構 (Deprecated Architectures)**: `GPU架構與演進`, `TPU架構深度解析`, `TPU深度解析`, `GPU架構與AI計算`, `TPU與專用AI晶片`, `GPU 架構與演進`, `Systolic Array`, `NVLink` 含有 Volta 或 TPU v1/v2 等早期架構。
+4. **內容過少需要擴充 (Sparse Content)**: 有多份文件內容字數過少，缺乏專有名詞解說或讓初學者難以理解。
 
-根據 `.jules/instructions.md` 指南，由於需要建立新的知識節點與頁面，現將需求移交給虛擬團隊進行處理。
+## 虛擬團隊任務分派
 
----
+**[接待員 (Receptionist)]**
+- **Goal**: 擴充內容過少的 Wiki 頁面，提供初學者友善的詳細解釋、脈絡延伸，並修復過時架構的描述。
+- **Scope**:
+  - 擴充極度簡略的檔案 (如 `GPU運算架構`, `AI最佳實務與部署指引`, `TVM`, `高頻寬記憶體_HBM`, `CUDA` 等)。
+  - 更新已棄用的硬體架構描述 (Volta -> Hopper/Blackwell, TPU v1/v2 -> Trillium/TPU v6)，並在歷史脈絡中以「早期」修飾。
+- **Learning Level**: Beginner to Intermediate.
 
-## 虛擬團隊協作流程
+**[知識架構師 (Architect)]**
+- 確保所有擴充內容都符合 Document Level Hierarchy (必須有 `level` 和 `tags` frontmatter)。
+- 若有新增名詞，應自動加上 `[[WikiLinks]]` 以加強知識地圖的雙向連結。
 
-### 1. 接待員 (Receptionist) 審查需求
-- **Goal**: 創建 `深度學習運算原理.md` 文件，補足現有知識庫的缺失環節。
-- **Scope**: 解釋深度學習背後的核心運算邏輯（例如矩陣乘法 GEMM、反向傳播原理），並分析其與硬體加速（如 NPU 脈動陣列）的關聯。
-- **Non-goal**: 不涉及特定框架（如 PyTorch）的程式碼教學。
-- **Assumptions**: 讀者已有基礎計算機結構的背景知識。
-- **Expected Output**: 一份遵循規範的 Markdown Wiki 頁面，包含摘要、三種不同視角的方案/見解分析。
-- **Learning Level**: Intermediate
+**[研究員 (Researcher)]**
+- 針對 `GPU運算架構`, `TVM`, `高頻寬記憶體_HBM`, `CUDA` 等極度簡略的條目，研究並整理更詳盡的背景知識與運作原理。
+- 提供相關的效能影響分析與最佳實務建議。
 
-### 2. 知識架構師 (Knowledge Architect) 規劃結構
-- **Metadata**:
-  - `title`: 深度學習運算原理
-  - `level`: intermediate
-  - `tags`: [deep-learning, compute, AI-acceleration]
-- **Folder**: `content/深度學習運算原理.md`
-- **雙向連結策略**: 需確保內容能正確連結到現有的 `[[NPU架構探索]]` 與 `[[模型量化技術]]`。
+**[驗證員 (Validator)]**
+- 確認擴充內容中的硬體規格(如 HBM 頻寬、CUDA 運算能力)沒有幻覺，符合現今標準。
+- 確保過時架構的替換與標記是正確的，不損害歷史脈絡。
 
-### 3. 研究員 (Researcher) 提出方案與見解
-深度學習運算存在記憶體牆與算力瓶頸，為解決這類問題，有三種主要的硬體與軟體優化視角：
-1. **純軟體與算法層面的優化 (Algorithm & Software Level)**
-   - *優點*：無需修改硬體，可在現有設備（CPU/GPU）上快速部署（如算子融合、剪枝）。
-   - *缺點*：受限於底層物理頻寬，優化存在上限。
-   - *成本*：主要為工程師的開發與調校時間。
-   - *維護性*：隨模型結構演進，底層 Kernel 可能需要反覆重寫，維護成本高。
-   - *風險*：過度優化（如極端剪枝）可能導致模型精度雪崩。
-2. **通用 GPU 加速 (General GPU Acceleration)**
-   - *優點*：生態系極其完善（CUDA），高度平行化架構對於矩陣運算極其友好。
-   - *缺點*：功耗巨大，散熱成本高，對於邊緣裝置不適用。
-   - *成本*：硬體採購成本極高。
-   - *維護性*：生態圈豐富，維護容易。
-   - *風險*：受限於 HBM 容量，對於記憶體密集型任務（如 LLM 推理）容易出現算力閒置。
-3. **專用 ASIC/NPU 加速 (ASIC/NPU Hardware Optimization)**
-   - *優點*：透過脈動陣列 (Systolic Array) 達到極致的 PPA (Power, Performance, Area)，能效比極高。
-   - *缺點*：硬體固化，若演算法出現顛覆性改變（如從 Transformer 轉向 Mamba），可能無法完美支援。
-   - *成本*：前期 Tape-out 研發成本極度高昂。
-   - *維護性*：編譯器開發難度極大。
-   - *風險*：晶片研發週期長，可能面臨上市即過時的風險。
+**[教育員 (Educator)]**
+- 將研究員提供的資訊轉換為易懂的譬喻和漸進式學習路徑 (例如為 `CUDA` 補充：將 GPU 想像成有成千上萬工人的工廠，CUDA 就是指揮他們的語言)。
+- 確保補充的內容越詳盡越好，並保留易讀性。
 
-### 4. 驗證員 (Validator) 審查
-- 研究員提出的三種視角與事實相符，無模糊推測。
-- 關於 NPU 脈動陣列與 GPU 功耗的描述與市場現狀相符。
-- 建議在生成最終文件時，確實不包含 Prerequisites 章節以符合特定指令規範。
-
-### 5. 教育員 (Educator) 轉譯
-- 最終內容將整理為易讀的 Markdown 格式，包含清晰的段落與對比，並加上必要的 YAML frontmatter 準備發布至 `content/` 目錄。
-- *註：目前僅在此階段進行模擬規劃，實際文件的建立需由下一階段的任務執行。*
-
-
----
-## 第二次虛擬團隊協作流程：解決 wiki_inspection_report.md 事項
-
-### 1. 接待員 (Receptionist) 審查需求
-- **Goal**: 修正 `outputs/wiki_inspection_report.md` 提出的過時風險、架構更新與新增最佳實務指引，並解決已知的失效連結。
-- **Scope**: 新增最佳實務文件、於各過時風險檔案補充應對方案。
-- **Expected Output**: 新的 Markdown Wiki 頁面與現有頁面的段落擴充。
-- **Learning Level**: Intermediate
-
-### 2. 知識架構師 (Knowledge Architect) 規劃結構
-- 決議新增 `[[AI加速器最佳實務與部署指引]]` 文章，並於 `content/INDEX.md` 建立連結。
-- 針對 `AI晶片方案評估與發展趨勢.md` 與 `ASIC加速晶片設計.md`，新增對應過時風險的應對策略段落。
-- 針對 `AI加速器架構總覽.md`，新增最新架構（Blackwell, Trillium 等）的官方更新與技術簡介。
-- 針對內容稀疏的檔案 (`ASIC與TPU架構分析.md`, `QAT.md`, `MoE.md` 等) 進行詳細解說與專有名詞擴充。
-
-### 3. 研究員 (Researcher) 提出方案與見解
-- 統整了 CXL, Blackwell, Trillium, Chiplet 等前沿技術，總結了軟硬體協同開發與分散式叢集部署的實務策略。
-- 為 ASIC 提出了可程式化單元與 Chiplet 封裝以降低過時風險的方案。
-
-### 4. 驗證員 (Validator) 審查
-- 確認新增之文章皆符合 Markdown 格式，並包含合法的 `[[WikiLink]]` 指向既有基礎概念。
-- 確認所有補充資料基於最新硬體事實 (如 Trillium 為 TPU v6, Blackwell 支援 FP4 等)，無幻覺產生。
-
-### 5. 教育員 (Educator) 轉譯
-- 撰寫並排版了 `AI加速器最佳實務與部署指引.md`，附加於現有 Wiki 中。
-- 撰寫了包含詳細專有名詞解說的補充內容並加入現有稀疏檔案。
-
-### 6. 失效連結修復報告 (Dead Links Resolution)
-- **接待員 (Receptionist)**: 複查 `outputs/wiki_inspection_report.md` 中指出的失效連結。
-- **驗證員 (Validator)**: 經實際對比 `content/INDEX.md` 與 `content/知名大廠AI加速晶片研究.md` 的現有內容，確認 `[[AI Agent 框架]]`、`[[AI加速晶片研究總覽]]` 相關檔案已實際存在於 `content/` 目錄中，且未發現 `[[WikiLink]]` 語法佔位符。此部分判定為歷史報告的 False Positive 或已於先前提交中修復，因此無需進行額外之檔案修改。
-
-
-# 虛擬團隊觸發報告 (2026-10-09)
-
-## 背景與目標
-根據最新的 Wiki 巡檢報告，我們發現了幾項需要改進的議題，包含過時架構以及內容過於稀疏的文章。依照 `.jules/instructions.md`，我們觸發虛擬團隊進行處理。
-
-## 任務分派
-
-### 1. 接待員 (Receptionist) & 知識架構師 (Architect)
-- **Goal**: 將過時的硬體架構標示為歷史脈絡，並引入最新架構；豐富稀疏內容的文章，確保它們與 `INDEX.md` 知識地圖的連結，並提供初學者友善的解釋。
-- **Scope**: 更新 9 篇包含過時架構的檔案，以及 5 篇內容過少的文件。
-
-### 2. 研究員 (Researcher) & 教育員 (Educator)
-- **Task 1: 過時架構更新**
-  - 將提及的 `Volta` 標示為早期架構，並加入對 `Hopper/Blackwell` 的引用。
-  - 將提及的 `TPU v1` 或 `TPU v2` 標示為早期架構，並加入對 `Trillium/TPU v6` 的引用。
-  - *涉及檔案*: `TPU與專用AI晶片.md`, `Systolic Array.md`, `GPU 架構與演進.md`, `TPU深度解析.md`, `GPU架構與AI計算.md`, `NVLink.md`, `LPDDR.md`, `TPU架構深度解析.md`, `GPU架構與演進.md`。
-
-- **Task 2: 豐富稀疏內容 (Sparse Content)**
-  - 為以下 5 篇檔案補充詳細背景知識、專有名詞解釋，並確保初學者能理解。
-  - `FPGA在AI硬體的角色.md`
-  - `GPU在AI加速的應用.md`
-  - `屋頂模型_Roofline_Model原理與應用.md`
-  - `AI記憶體瓶頸與解決方案.md`
-  - `FPGA在AI加速的應用.md`
-
-### 3. 驗證員 (Validator)
-- 驗證所有修改後的檔案是否仍符合 Markdown 格式。
-- 確保新增的 `[[WikiLink]]` 指向真實存在的檔案，沒有破壞現有的圖結構。
-- 執行 `npx quartz build` 確認無編譯錯誤。
-
-
-# 虛擬團隊觸發報告 (Virtual Team Trigger Report)
-
-由於在本次巡檢中，Wiki 在以下 5 個類別中表現良好：
-1. 失效連結 (Dead links) - 無。
-2. 過時版本 (Outdated versions) - 無。
-3. 已棄用架構 (Deprecated architectures) - Volta, TPU v1, TPU v2 皆已正確標註為早期架構。
-4. 官方文件或是論文更新 (Official document updates) - 無重大更新遺漏。
-5. 新最佳實務 (New best practices) - 皆符合現有趨勢。
-
-因此，無需指派任務給接待員 (Receptionist)、知識架構師 (Architect)、研究員 (Researcher)、驗證員 (Validator) 及教育員 (Educator)。本次維護任務已完成。
-
-# 虛擬團隊觸發報告 (2026-10-12 16:15:30)
-
-## 任務背景
-維護員 (Jules) 已完成定期巡檢。目前知識庫結構健康，無失效連結或孤兒節點。但在檢視內容長度與涵蓋深度時，發現部分核心概念文件內容較為稀疏，需要更詳細的初學者引導與實例說明。
-
-## 團隊角色分派與執行計畫
-- **接待員 (Receptionist)**: 確認需求為「深入淺出地補充稀疏內容，建立初學者友善的學習路徑」。
-- **知識架構師 (Architect)**: 確保補充內容維持在原文件的「虛擬團隊補充說明」區塊，保持結構一致，不破壞原有技術論述。
-- **研究員 (Researcher)**: 梳理 LLM 推理、PTQ 與 TPU 的技術痛點、實際應用場景與底層邏輯。
-- **驗證員 (Validator)**: 確保比喻與技術細節 (如 Quantization, Systolic Array) 的對應正確無誤。
-- **教育員 (Educator)**: 將全面整理好的研究成果轉換為白話文比喻與圖解概念，附加至目標文件。
-
-## 執行項目清單
-1. `content/LLM推理最佳實務.md`
-   - [x] 教育員補充：以生活化的「圖書館借書」與「壓縮餅乾」比喻，解釋 KV Cache 與量化技術的必要性。
-2. `content/PTQ.md`
-   - [x] 教育員補充：以「衣服縮水」的比喻來解釋量化過程中的離群值 (Outliers) 挑戰與 SmoothQuant 解決方案。
-3. `content/TPU技術解析.md`
-   - [x] 教育員補充：以「流水線工廠」比喻脈動陣列 (Systolic Array) 的運作方式，幫助初學者跨越硬體架構的理解門檻。
-
-## 執行狀態
-- 所有任務已由虛擬團隊自動化執行完畢，知識庫已更新。
+## 執行計畫 (To be executed)
+- [x] 擴充 `content/GPU運算架構.md`，增加背景知識與易讀的解說。
+- [x] 擴充 `content/AI最佳實務與部署指引.md`，增加背景知識與易讀的解說。
+- [x] 擴充 `content/TVM.md`，增加背景知識與易讀的解說。
+- [x] 擴充 `content/高頻寬記憶體_HBM.md`，增加背景知識與易讀的解說。
+- [x] 擴充 `content/CUDA.md`，增加背景知識與易讀的解說。
+- [x] 更新過時架構描述 (`GPU架構與演進` 等檔案)。
