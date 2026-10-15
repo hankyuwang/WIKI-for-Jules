@@ -19,7 +19,7 @@ tags:
 
 Compute Express Link (CXL) 是一種基於 PCIe 實體層的高速互連標準，旨在解決現代資料中心與 AI 伺服器中，CPU、GPU 與記憶體之間傳輸瓶頸與資源孤島的問題。傳統架構下，記憶體被死板地綁定在特定的處理器上，導致經常出現某些處理器記憶體不足，而其他處理器記憶體閒置的窘境。CXL 透過支援快取一致性（Cache Coherency）的協議，允許不同的運算節點共享一個龐大的「記憶體池」（Memory Pool）。本文將從三種不同的架構演進視角，探討 CXL 技術如何重塑未來的 AI 硬體基礎設施。
 
-## 視角一：記憶體擴展 (Memory Expansion - CXL 1.1/2.0)
+## 視角一：記憶體擴展 (Memory Expansion - 早期 CXL 1.1/2.0)
 
 此視角著眼於 CXL 最基礎且最快落地的應用場景：為單一主機（CPU）提供超越傳統 DIMM 插槽限制的記憶體容量與頻寬擴展。透過 CXL 附屬裝置（如 CXL Memory Expander），伺服器可以掛載更多的 DRAM，甚至混搭不同類型的記憶體（如 DDR4 與 DDR5，或 DRAM 與 NVMe）。
 
