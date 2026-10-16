@@ -100,3 +100,20 @@
 
 ## 5. 官方文件/論文更新與新最佳實務
 本次巡檢未發現需要更新的官方文件或新最佳實務。
+
+
+# Wiki 巡檢報告 (2026-10-16 19:29:25)
+## 1. 失效連結 (Dead Links)
+- [x] 發現失效連結 `[[Tensor Core]]` 在 `GPU運算架構.md` 中。已建立新文件 `content/Tensor Core.md` 修復。
+
+## 2. 過時版本與架構 (Outdated Architectures)
+- [x] 發現 `TPU架構深度解析.md` 中包含過時架構描述 `TPU v2/v3`，已加上「早期」修飾以保持歷史脈絡正確。
+
+## 3. 內容過少 / 術語缺乏解釋 (Sparse Content)
+本次巡檢未發現需要立刻補充說明的稀疏頁面。
+
+## 4. 官方文件或論文更新 (Official Doc/Paper Updates)
+未發現顯著更新。
+
+## 5. 新最佳實務 (New Best Practices)
+未發現新最佳實務。
