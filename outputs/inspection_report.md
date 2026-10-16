@@ -100,3 +100,21 @@
 
 ## 5. 官方文件/論文更新與新最佳實務
 本次巡檢未發現需要更新的官方文件或新最佳實務。
+
+
+# Wiki 巡檢報告 (Latest)
+
+## 1. 發現的無效連結 (Dead Links)
+- `GPU運算架構.md` 包含無效連結：`[[Tensor Core]]`。需補充 `Tensor Core.md` 並加入到 `INDEX.md`。
+
+## 2. 發現的過時版本 (Outdated Versions)
+- 巡檢過程未發現有過時版本的內容需要大規模翻新。無須更新。
+
+## 3. 發現的已棄用架構 (Deprecated Architectures)
+- 巡檢過程發現 `Volta` 與 `TPU v1/v2` 等早期架構，但它們已經被正確地標示為早期架構 (例如: `早期 Volta (現已演進至 Hopper/Blackwell)`)，歷史脈絡完整，無須更新。
+
+## 4. 官方文件或是論文更新 (Official Documentation / Paper Updates)
+- 巡檢過程未發現有明顯與官方文件或論文矛盾的部分。無須更新。
+
+## 5. 新最佳實務 (New Best Practices)
+- 巡檢過程未發現有新最佳實務。無須更新。
