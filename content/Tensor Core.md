@@ -32,10 +32,15 @@ Tensor Core 的核心在於 **混合精度運算 (Mixed Precision)**：
 
 ## 世代演進
 Tensor Core 隨著 NVIDIA GPU 架構的演進不斷進化：
-- **Volta 架構**：首次引入 Tensor Core，支援 FP16 運算。
+- **早期 Volta 架構**：首次引入 Tensor Core，支援 FP16 運算。
 - **Turing 架構**：加入 INT8 和 INT4 支援，加強推理能力。
 - **Ampere 架構**：引入 TF32 (TensorFloat-32) 與 BF16 (Bfloat16)，以及稀疏性 (Sparsity) 支援。
 - **Hopper 架構**：進一步引入 FP8 支援，並搭載 Transformer Engine，針對大型語言模型 (LLM) 進行優化。
 
 ## 總結
 Tensor Core 是現代 GPU 能在 AI 領域取得統治地位的關鍵因素之一。它針對深度學習的核心需求——矩陣運算——進行了極致的優化，開啟了 AI 算力的新紀元。
+
+
+## 💡 初學者白話文與生活比喻
+**什麼是 Tensor Core？**
+想像你在廚房做菜，傳統的 CPU 就像是一個刀工很細的廚師，一次只能切一塊肉。GPU 裡面的 CUDA Core 就像是一群廚師，可以同時切很多塊肉。而 **Tensor Core** 則像是一台「萬能切菜機」，它不管你丟進去多少肉，它能「一次性」把所有的肉切成特定大小。在 AI 運算中，這個「一次性」的動作就是**矩陣乘法 (Matrix Multiplication)**。AI 模型的訓練與推論有 90% 以上都是在做矩陣乘法，因此 Tensor Core 這種專為此設計的硬體單元，能將運算速度提升數十倍以上。早期從 Volta 架構開始引入，現在最新的 Hopper/Blackwell 架構中的 Tensor Core 甚至支援各種極低精度 (如 FP8/INT4) 運算。

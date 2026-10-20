@@ -30,7 +30,7 @@ HBM 沒辦法像傳統記憶體一樣直接插在主機板上。它必須和 GPU
 ## HBM 世代演進與頻寬數據
 HBM 經歷了數代演進，為 AI 模型帶來了指數級別的記憶體頻寬增長：
 - **HBM1**：最初代，提供約 128 GB/s 頻寬。
-- **HBM2 / HBM2e**：應用於早期 Volta (現已演進至 Hopper/Blackwell) 架構與 Ampere 架構，單顆頻寬提升至 256~460 GB/s。
+- **HBM2 / HBM2e**：應用於早期 Volta 架構與 Ampere 架構，單顆頻寬提升至 256~460 GB/s。
 - **HBM3**：支援 Hopper 架構，單顆頻寬躍升至約 819 GB/s。
 - **HBM3e**：當前主流高階晶片（如 H200, Blackwell, Trillium/TPU v6）所使用，單顆頻寬突破 1.2 TB/s，大幅舒緩巨型模型的記憶體牆瓶頸。
 
