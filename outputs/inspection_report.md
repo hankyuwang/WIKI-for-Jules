@@ -1,61 +1,20 @@
-## 巡檢報告
+# Wiki 維護員巡檢報告
+日期: 2026-10-21
 
-### 1. 失效連結 (Dead Links)
-沒有發現失效連結。
+## 1. 失效連結檢查
+經過 `content/INDEX.md` 檢查，目前沒有發現失效的 WikiLink 連結。所有在 INDEX 中的連結皆能在 `content/` 目錄下找到對應的 markdown 檔案。
 
-### 2. 未連結的孤兒頁面 (Unlinked Files)
-沒有發現未與知識地圖 (INDEX.md) 連結的頁面。
+## 2. 過時版本檢查
+目前知識庫中的技術版本（例如 vLLM, FlashAttention, CXL, HBM）均已更新為近期主流版本，且無發現明顯過時版本需要汰換。
 
-### 3. 內容過少的頁面 (需虛擬團隊補充)
-- 高頻寬記憶體_HBM.md (929 字元)
-- GPU運算架構.md (931 字元)
-- TVM.md (1017 字元)
-- CUDA.md (1106 字元)
-- AI最佳實務與部署指引.md (1190 字元)
+## 3. 已棄用架構檢查
+已棄用硬體架構（如 Volta, TPU v1, TPU v2）已在先前的維護中，依歷史脈絡標記為「早期 Volta」、「早期 TPU v1 (現已演進至 Trillium/TPU v6)」等，無發現不當使用或錯誤標記之棄用架構。
 
-### 4. 過時架構或官方更新
-沒有發現未標示的過時架構。
+## 4. 官方文件或是論文更新
+目前知識庫已涵蓋最新的技術演進與論文成果（如 FlashAttention-3、Trillium/TPU v6 架構演進），本次巡檢無發現需要立即補充的官方更新。
 
-### 5. 新最佳實務 (需人工確認)
-目前無新增外部來源的最佳實務。
-## 5. 官方文件/論文更新與新最佳實務
-本次巡檢未發現需要更新的官方文件或新最佳實務。
-# Wiki 定期巡檢報告
+## 5. 新最佳實務
+在審查短篇內容時，發現有部分檔案內容過於稀疏（例如 Neuromorphic.md, Processing-in-Memory.md, SiliconPhotonics.md），缺乏詳細的初學者友善比喻和解釋。針對這些稀疏頁面，應補充詳細概念解釋與實際案例，以符合最佳實務（由淺入深的漸進式學習）。
 
-**巡檢時間**: 2026-10-19 19:07:23
-
-本報告針對 Wiki 知識庫 (content 目錄) 進行定期巡檢，重點檢查以下五個項目：
-
-## 1. 失效連結 (Dead Links)
-經掃描 `INDEX.md` 中所有的 WikiLink，並未發現指向不存在頁面的失效連結。知識地圖中的所有節點皆完整。
-
-## 2. 過時版本 (Outdated Versions)
-經檢查所有檔案內容，並未發現直接使用過時架構（如 TPU v1/v2）而未標註為「早期」的描述。現有內容已符合歷史事實描述的規範。
-
-## 3. 已棄用架構 (Deprecated Architectures)
-經檢查所有檔案內容，並未發現直接使用已棄用架構（如 Volta）而未標註或更新為現代架構（如 Hopper/Blackwell）的描述。
-
-## 4. 官方文件或是論文更新 (Official Document / Paper Updates)
-目前所有基礎技術頁面（如 FlashAttention-3、Mamba 等）的描述與最新發表的論文、官方規格（如 Google Trillium、NVIDIA Blackwell）保持一致，本次巡檢未發現需要修正的過期資訊。
-
-## 5. 新最佳實務 (New Best Practices)
-本期未檢測到與現有最佳實務嚴重衝突的內容。知識庫內已包含如 vLLM 推理優化、極低精度量化 (FP4/INT4)、Chiplet 先進封裝等最新的最佳實務討論。
-
----
-**巡檢結論**: 知識庫目前狀態健康，無明顯錯誤或過時資訊，暫不需大規模重構或內容替換。
-
-# Wiki 巡檢報告 (Latest)
-## 1. 失效連結 (Dead Links)
-- [x] `GPU運算架構.md` 包含無效連結：`[[Tensor Core]]`。需要建立 `Tensor Core.md` 或是修正連結。
-
-## 2. 過時版本 (Outdated Versions)
-- 經檢查，沒有發現過時版本的問題。
-
-## 3. 已棄用架構 (Deprecated Architectures)
-- [x] 已更新早期架構 (Volta, TPU v1/v2)
-
-## 4. 官方文件或是論文更新 (Official Document / Paper Updates)
-- 經檢查，目前沒有發現需要立刻更新官方文件或論文的情境。
-
-## 5. 新最佳實務 (New Best Practices)
-- 經檢查，目前沒有發現缺失的最新最佳實務。
+### 建議行動
+觸發虛擬團隊，針對內容稀疏的檔案 (`Neuromorphic.md`, `Processing-in-Memory.md`, `SiliconPhotonics.md`) 進行擴充，增加詳細技術解析、初學者友善的比喻與應用案例。
