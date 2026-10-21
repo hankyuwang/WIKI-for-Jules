@@ -1,39 +1,38 @@
-# 虛擬團隊觸發報告 (Virtual Team Trigger Report)
+# 虛擬團隊觸發與執行計畫
+日期: 2026-10-21
+任務來源: Wiki 維護員巡檢報告
 
-根據 `outputs/inspection_report.md` 的巡檢結果，啟動虛擬團隊進行知識庫補充與優化：
+## 任務目標
+針對 `Neuromorphic.md`, `Processing-in-Memory.md`, `SiliconPhotonics.md` 三個知識點過於稀疏的頁面，進行內容擴充與完善。
 
-## 1. 知識架構師 (Architect) 指示
-- 確保新增或補充的內容與 `INDEX.md` 以及現有的知識節點（如 `HBM架構解析`, `GPU架構與演進`, `Compiler`, `SDK與軟體堆疊`）產生雙向連結。
-- 針對補充的頁面，需維持原有的 Metadata 與 Tag，確保符合 Document Level Hierarchy 規範。
+## 角色分工與計畫
 
-## 2. 研究員 (Researcher) 與教育員 (Educator) 執行任務
-發現有部分頁面內容過於單薄 (少於 1200 字元)，可能導致初學者無法完全理解脈絡。請針對以下頁面進行深度擴充，並加入初學者導覽、底層原理解析、優缺點或延伸學習路徑：
+### 1. 接待員 (Receptionist)
+- **需求釐清**: 擴充內容稀疏的 Wiki 頁面，目標受眾為初學者到進階開發者。
+- **Expected Output**: 更新後的 Markdown 檔案，字數顯著增加，包含基礎比喻、原理解析、優缺點與未來展望。
 
-- **`高頻寬記憶體_HBM.md` (擴充)**:
-  - 任務：補充 HBM 1~3/3e 的演進過程、具體頻寬數據比較。
-  - 任務：詳述 3D 堆疊中 Microbump 與矽穿孔 (TSV) 的作用，以更具體的比喻讓讀者了解其與傳統 GDDR 的成本和效能差異。
+### 2. 知識架構師 (Architect)
+- **結構定義**: 檔案內容需包含以下架構：
+  - 摘要 (Summary)
+  - 初學者比喻 (Beginner-friendly Analogy)
+  - 核心技術原理解析 (Core Principles)
+  - 應用場景與優勢 (Use Cases & Advantages)
+  - 當前挑戰與限制 (Current Challenges)
 
-- **`GPU運算架構.md` (擴充)**:
-  - 任務：補充 GPU 的記憶體階層 (Registers, Shared Memory, Global Memory/HBM)。
-  - 任務：詳細說明為何 Transformer 這種巨型模型特別依賴 GPU 的 Tensor Core，並增加對 `Warp` / `Thread Block` 的初學者比喻。
+### 3. 研究員 (Researcher)
+- **內容搜集與撰寫**:
+  - **Neuromorphic (神經形態運算)**: 探討模仿人腦神經元與突觸的運算架構，如 SNN (Spiking Neural Networks)，強調極低功耗優勢。
+  - **Processing-in-Memory (PIM 記憶體內運算)**: 探討消除「記憶體牆」的架構，將運算單元移至記憶體內部，減少資料搬移。
+  - **Silicon Photonics (矽光子技術)**: 探討利用光學進行晶片間或資料中心內部高速傳輸，解決功耗與頻寬瓶頸。
 
-- **`TVM.md` (擴充)**:
-  - 任務：原內容過短。請詳細說明 TVM (Tensor Virtual Machine) 作為深度學習編譯器的角色。
-  - 任務：解釋它如何橋接不同的前端框架 (PyTorch, TensorFlow) 與後端硬體 (CPU, GPU, TPU)。
-  - 任務：提供 TVM 的三個核心優勢與其 AutoTVM / Ansor 的最佳化流程。
+### 4. 驗證員 (Validator)
+- **品質控制**: 確保擴充內容的正確性，例如 PIM 確實能降低資料搬移功耗，Silicon Photonics 在 CPO 上的應用等。
 
-- **`CUDA.md` (擴充)**:
-  - 任務：補充 CUDA 程式設計模型的核心概念，例如 Kernel Function 的呼叫。
-  - 任務：解釋 GPU 記憶體管理的挑戰 (Host to Device 傳輸)。
-  - 任務：對比 AMD 的 ROCm 或開源的 Triton，提供多個方案的優缺點分析。
+### 5. 教育員 (Educator)
+- **轉譯與教學**: 加入生動的比喻。
+  - Neuromorphic -> 就像不用時會休眠的大腦，只在有刺激時才耗電。
+  - PIM -> 就像直接在倉庫裡處理貨物，不用一直把貨物搬到外面的工廠再搬回來。
+  - Silicon Photonics -> 就像將鄉間小路升級為光速的高鐵，資料傳輸不再塞車。
 
-- **`AI最佳實務與部署指引.md` (擴充)**:
-  - 任務：針對企業與小型團隊的 AI 部署，提供具體的三個方案 (例如：雲端 GPU 實例、地端自建叢集、邊緣運算設備部署)。
-  - 任務：針對各方案分析優缺點、成本考量與維護性。
-
-## 3. 驗證員 (Validator) 檢核點
-- 確認所有補充內容是否包含過時或幻覺資訊（如未標示的 Volta, TPU v1/v2）。
-- 確認補充的頻寬數據、硬體術語 (TSV, Tensor Core) 符合業界真實規格。
-
----
-**執行計畫**：我們將利用 Python 腳本，透過生成或直接補充上述 `.md` 檔案的內容，實踐上述指引，以豐富知識庫內容並提升易讀性。
+## 執行紀錄
+- [x] 完成內容擴充。
