@@ -59,3 +59,44 @@
 
 ## 5. 新最佳實務 (New Best Practices)
 - 經檢查，目前沒有發現缺失的最新最佳實務。
+
+
+# 維護員巡檢報告 (20261022_192737)
+
+## 1. 失效連結 (Dead Links)
+經巡檢所有 `content/` 目錄下的 Markdown 檔案與 `content/INDEX.md`，目前未發現任何失效的 `[[WikiLink]]` 連結。
+
+## 2. 過時版本 (Outdated Versions)
+經檢查，知識庫內關於 CUDA、vLLM、框架版本的資訊皆為通用描述，沒有特定依賴過時版本的技術說明。
+
+## 3. 已棄用架構 (Deprecated Architectures)
+檢查了 Volta、TPU v1、TPU v2。已於先前版本將其正確標記為「早期」架構，並註明演進至最新架構 (如 Hopper/Blackwell, Trillium/TPU v6)，以保持歷史文脈的正確性，無須再做覆寫。
+
+## 4. 官方文件或是論文更新 (Official Documentation or Paper Updates)
+無發現與最新官方文件衝突之處。建議虛擬團隊可以針對 Mamba 架構在推論框架 (如 vLLM/SGLang) 上的最新支援與硬體適配性進行補充。
+
+## 5. 新最佳實務 (New Best Practices)
+針對 LLM 推理最佳實踐，除了 vLLM 的 PagedAttention 與極低精度量化外，建議進一步探討長上下文 (Long Context) 下的 KV Cache 壓縮技術，或是 Prefix Caching 的實務應用。
+
+---
+
+## 虛擬團隊觸發任務指引 (Virtual Team Trigger Instructions)
+根據 `.jules/instructions.md`，請虛擬團隊執行以下行動：
+
+1. **接待員 (Receptionist)**：
+   - 確認目標：擴展關於 `Mamba` 模型在推論框架的支援，以及 `Long Context` 下 KV Cache 壓縮與 Prefix Caching 的最佳實務。
+
+2. **知識架構師 (Architect)**：
+   - 規劃建立或擴展 `LLM推理最佳實務.md` 包含 KV Cache 優化。
+   - 規劃擴展 `Mamba.md` 或 `模型與硬體適配性.md` 包含 Mamba 推論優化。
+   - 確保更新 `INDEX.md`。
+
+3. **研究員 (Researcher)**：
+   - 針對 Prefix Caching, KV Cache 壓縮與 Mamba 推理優化進行研究。
+   - 產出詳細的 Markdown 文件，包含已知事實、原理、限制、最佳實務。
+
+4. **驗證員 (Validator)**：
+   - 驗證研究員產出的內容，確認 Prefix Caching 帶來的效能增益與限制。
+
+5. **教育員 (Educator)**：
+   - 確保新產出的文件具備良好的可讀性，由淺入深，並包含 `Prerequisites` 連結。
