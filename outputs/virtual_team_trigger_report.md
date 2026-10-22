@@ -37,3 +37,43 @@
 
 ---
 **執行計畫**：我們將利用 Python 腳本，透過生成或直接補充上述 `.md` 檔案的內容，實踐上述指引，以豐富知識庫內容並提升易讀性。
+
+
+# 虛擬團隊執行計畫 (Virtual Team Trigger Report) - 20261022_192737
+
+根據最新巡檢報告，本次將針對 **「Long Context 下的 KV Cache 優化與 Prefix Caching」** 以及 **「Mamba 模型推理優化」** 進行內容擴充。
+
+## 1. 接待員 (Receptionist) 確認需求
+- **Goal**: 擴充知識庫中關於 Long Context 推理的瓶頸解決方案 (KV Cache 壓縮, Prefix Caching)，以及 Mamba 等新型非 Transformer 架構在推論上的軟硬體適配性。
+- **Scope**: 更新或新增對應的 markdown 檔案，並與現有的 `LLM推理最佳實務` 及 `Mamba` 概念結合。
+- **Non-goal**: 不深究底層 CUDA Kernel 的具體 C++ 實作，著重於架構與系統層級的策略。
+- **Expected Output**:
+  1. 擴充 `content/LLM推理最佳實務.md`，新增 Prefix Caching 與 KV Cache 壓縮技術。
+  2. 擴充 `content/Mamba.md` 或相關文件，加入 Mamba 推論的硬體挑戰與解決方案。
+
+## 2. 知識架構師 (Architect) 規劃結構
+- 修改 `content/LLM推理最佳實務.md`: 新增專門探討 Prefix Caching 與長上下文優化的章節。確保包含 `[[KV Cache]]`, `[[Long Context]]` 等關聯。
+- 修改 `content/Mamba.md`: 新增推論部署實務段落，討論其相對於 Transformer 在硬體上的優劣。
+- 更新 `content/INDEX.md` 確認所有相關主題皆已連結。
+
+## 3. 研究員 (Researcher) 產出內容
+### 主題 1: Prefix Caching 與 KV Cache 壓縮
+- **已知事實**: 在多輪對話或大量系統提示 (System Prompt) 的場景中，Prefix Caching 可將共同的 Prompt 預先計算並儲存在 GPU 記憶體，大幅減少 Prefill 階段的延遲 (TTFT)。
+- **最佳實務**:
+  - 方案 A: 啟用 vLLM Automatic Prefix Caching (優點: 顯著降低重複 Prompt 延遲; 缺點: 會佔用部分 GPU VRAM，排擠其他請求的 KV Cache 空間)。
+  - 方案 B: KV Cache 壓縮 (例如 4-bit KV Cache 量化)。(優點: 倍數增加可容納的 Context 長度; 缺點: 可能影響生成品質)。
+
+### 主題 2: Mamba 模型推理優化
+- **已知事實**: Mamba 具備線性時間複雜度，理論上無須龐大的 KV Cache，解決了 Transformer 在 Long Context 下的記憶體瓶頸。但其硬體利用率在現有專為矩陣乘法優化的 GPU 上較難達到最佳。
+- **最佳實務**:
+  - 針對 Mamba 進行特定算子融合 (Operator Fusion)，例如將 SSM 的 Scan 運算融合，以減少記憶體 I/O 帶寬的壓力。
+
+## 4. 驗證員 (Validator) 審查
+- 確認 Prefix Caching 能有效降低 TTFT，且 vLLM 支援此功能。
+- 確認 Mamba 相比 Transformer 的記憶體優勢與 I/O bound 特性描述準確。
+- Confidence level: High (基於近期推論框架更新與論文發表)。
+
+## 5. 教育員 (Educator) 格式化與連結
+- 將內容轉化為清晰易讀的 Markdown。
+- 在 `LLM推理最佳實務.md` 加入 `Prefix Caching` 的生活化比喻 (例如：餐廳先準備好的常見湯底)。
+- 確保標籤包含 `level: advanced` 或 `level: expert`。

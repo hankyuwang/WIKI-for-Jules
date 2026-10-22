@@ -55,3 +55,17 @@ tags:
 >
 > **什麼是極低精度量化？**
 > 想像把厚重的百科全書（高精度浮點數）壓縮成簡化版的口袋書（INT4 或 FP4）。雖然有些非常冷門的細節可能會遺失，但對於絕大多數的日常對答，這本口袋書已經非常夠用，而且攜帶極為方便（大幅降低記憶體頻寬需求）。這就是 [[Quantization]] 在推論階段的魔力。
+
+
+## Long Context 下的進階優化
+
+當面臨 [[Long Context]] 場景時，[[KV Cache]] 的大小會呈線性成長，甚至超過模型權重本身。
+
+### 1. Prefix Caching
+在多輪對話或具有大量系統提示 (System Prompt) 的應用情境中，**Prefix Caching** 是極佳的最佳實務。
+- **生活化比喻**：想像一家火鍋店，有很多客人點了相同的「麻辣湯底」(System Prompt)，只是加的「料」(User Prompt) 不同。與其為每個客人重新熬煮湯底，不如先熬一大鍋備用。
+- **實務應用**：vLLM 支援 Automatic Prefix Caching。透過將相同的 Prefix 對應的 KV Cache 預先計算並駐留在 GPU 記憶體中，可大幅減少首字延遲 (TTFT, Time To First Token)。
+- **權衡**：優點是顯著降低重複 Prompt 的運算成本；缺點是會佔用部分 VRAM，可能排擠其他請求的空間。
+
+### 2. KV Cache 壓縮
+針對超長文本，除了 PagedAttention，還可以應用 KV Cache 量化 (如 8-bit 或 4-bit 量化) 甚至稀疏化技術 (如 H2O, StreamingLLM)，以捨棄不重要的 Token，倍數增加可容納的上下文長度。

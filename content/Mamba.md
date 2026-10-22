@@ -63,3 +63,14 @@ Mamba 架構的核心在於透過硬體感知的平行掃描 (Hardware-aware Par
 - 成本：低，純軟體開發。
 - 維護性：高，演算法更新時只需修改軟體 Kernel。
 - 風險：在某些非 GPU 架構上可能難以直接移植，降低跨平台相容性。
+
+## 推理優化與硬體挑戰
+
+Mamba 解決了 Transformer 的核心痛點，但在現代硬體 (如 GPU) 上的部署仍面臨獨特挑戰：
+
+### 1. 記憶體 I/O 瓶頸 (Memory-Bound)
+現有的 GPU (如 NVIDIA Hopper/Blackwell) 高度為矩陣乘法 (Matrix Multiplication) 最佳化。Mamba 的運算模式 (尤其是 SSM 中的 Scan 操作) 依賴大量的循序狀態更新，這使得它在 GPU 上更容易受限於記憶體頻寬 (Memory-Bound) 而非算力 (Compute-Bound)。
+
+### 2. 推理最佳實務：算子融合 (Operator Fusion)
+- **實作策略**：為了最大化 Mamba 在 GPU 上的效能，實務上高度依賴客製化的 CUDA Kernel。透過**算子融合 (Operator Fusion)**，將連續的 Scan 運算合併，避免中間狀態頻繁寫回全域記憶體 (Global Memory)，從而降低記憶體存取開銷。
+- **框架支援**：隨著生態系成熟，推論框架 (如 vLLM, SGLang) 亦逐步加強對 Mamba 及其變體 (如 Jamba) 的原生支援，未來在硬體利用率上將有顯著提升。
