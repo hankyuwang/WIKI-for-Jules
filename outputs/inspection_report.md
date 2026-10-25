@@ -122,3 +122,58 @@
 ## 5. 教育員 (Educator)
 - **任務**：將專業內容轉換為初學者易懂的語言。
 - **執行方式**：在每個擴充的檔案中，加入「💡 初學者比喻」或類似的段落，用生活化的例子解釋艱澀名詞。
+
+## Wiki 定期巡檢報告 (Date: 2024-10-25)
+
+### 1. 失效連結 (Dead Links)
+- `content/Processing-in-Memory.md` 中指向了 `[[LLM]]`，但目前並沒有 `LLM.md` 檔案 (只有 `LLM推理最佳實務.md` 等)。虛擬團隊需決定是否建立 `LLM.md` 或修改連結至現有頁面。
+
+### 2. 過時版本與已棄用架構 (Outdated Architectures)
+發現以下文件提及早期硬體架構，請虛擬團隊評估是否需要標註為「早期」或更新為現代架構（如 Hopper/Blackwell, Trillium/TPU v6）：
+- `TPU與專用AI晶片.md` (包含 TPU v1, TPU v2)
+- `Systolic Array.md` (包含 TPU v1)
+- `GPU 架構與演進.md` (包含 Volta)
+- `高頻寬記憶體_HBM.md` (包含 Volta)
+- `Tensor Core.md` (包含 Volta)
+- `TPU深度解析.md` (包含 TPU v1, TPU v2)
+- `GPU架構與AI計算.md` (包含 Volta)
+- `NVLink.md` (包含 Volta)
+- `TPU架構深度解析.md` (包含 TPU v1, TPU v2)
+- `GPU架構與演進.md` (包含 Volta)
+
+### 3. 內容過少/需要補充的頁面 (Sparse Files)
+以下檔案內容較少，初學者可能難以理解，請虛擬團隊補充更詳細的說明、生活化比喻與實際案例：
+- `Quantization.md` (量化基本概念)
+- `AdvancedPackaging.md` (先進封裝)
+- `基礎計算機結構.md` (AI 晶片先修概念)
+- `OneAPI.md` (軟體框架)
+
+### 4. 孤兒節點 (Orphan Nodes)
+- 目前無發現孤兒節點，所有頁面皆與知識地圖 (INDEX.md) 有所連結。
+
+### 5. 官方文件/論文更新與新最佳實務
+- 需虛擬團隊根據目前最新 AI 發展趨勢，補齊 `LLM` 基礎概念頁面，並確保 LLM 的基礎知識與現有的 `LLM推理最佳實務.md` 銜接。
+
+
+---
+
+# 虛擬團隊觸發報告 (Virtual Team Trigger Report) - 2024-10-25
+
+為了修復本次巡檢發現的失效連結與內容稀疏問題，觸發以下虛擬團隊進行任務分配與執行：
+
+## 1. 接待員 (Receptionist)
+- **任務**：確認需求，修復 `Processing-in-Memory.md` 中的失效連結 `[[LLM]]`，並針對稀疏文件（如 `Quantization.md`, `AdvancedPackaging.md` 等 10 份文件）提出擴充需求。
+
+## 2. 知識架構師 (Architect)
+- **任務**：建立 `LLM.md` 以補齊模型架構的基礎知識，並確保其正確連結到 `INDEX.md`。
+
+## 3. 研究員 (Researcher)
+- **任務**：針對 `LLM`, `Quantization`, `AdvancedPackaging`, `基礎計算機結構`, `OneAPI`, `高頻寬記憶體_HBM`, `GPU運算架構`, `TVM`, `CUDA`, `AI最佳實務與部署指引`, `Neuromorphic`, `Processing-in-Memory`, `硬體架構與SWHW協同`, `SiliconPhotonics`, `AI加速晶片研究總覽` 等頁面提供前沿技術解析、瓶頸探討，以及與現有硬體演進的關聯分析。
+
+## 4. 驗證員 (Validator)
+- **任務**：確保上述所有新增與修復的內容中沒有幻覺，名詞使用正確，且架構過時與否的描述符合歷史事實。
+
+## 5. 教育員 (Educator)
+- **任務**：在每一份需要補充的頁面中，加入「💡 初學者比喻與深入解析」段落，使用生活化的例子（如廚房、翻譯機、圖書館等）幫助初學者快速理解艱澀的硬體與軟體名詞。
+
+**執行狀態**：所有任務皆已順利執行完成，相關文件已擴充並保存。

@@ -36,6 +36,7 @@ AI 晶片的核心在於高效的平行處理單元，這些架構決定了算�
 - [[CNN]]
 - [[RNN]]
 - [[Transformer]]
+- [[LLM]]
 - [[Mamba]]
 - [[SSM]] : 狀態空間模型 (State Space Model)，為 Mamba 的底層數學基礎。
 - [[MoE]]
