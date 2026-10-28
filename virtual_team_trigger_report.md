@@ -179,3 +179,26 @@
 ## 5. 教育員 (Educator)
 - **任務**：將專業內容轉換為初學者易懂的語言。
 - **執行方式**：在每個擴充的檔案中，加入「💡 初學者比喻」或類似的段落，用生活化的例子解釋艱澀名詞。
+
+---
+
+# 虛擬團隊任務分派報告 (Virtual Team Trigger Report) - 定期巡檢修復
+
+## 角色指派與任務
+
+### 1. 驗證員 (Validator)
+- **任務**: 驗證修復巡檢報告所發現的失效連結 `[[LLM]]` 是否合理替換為 `[[Transformer]]`。
+- **結論**: `[[LLM]]` 連結失效，其原意指涉的應為大語言模型背後的核心架構，將其修復為 `[[Transformer]]` 符合知識庫既有詞彙與內容脈絡。
+
+### 2. 知識架構師 (Architect)
+- **任務**: 確認修正不破壞原有的知識網絡與索引。
+- **結論**: 替換為 `[[Transformer]]` 能正確鏈接到 `content/Transformer.md`，維持知識網絡連貫，並確保 `content/Processing-in-Memory.md` 內容具備正確的雙向連結。
+
+### 3. 研究員 (Researcher)
+- **任務**: 執行檔案修改。
+- **行動**:
+  - 在 `content/Processing-in-Memory.md` 中將 `[[LLM]]` 改為 `[[Transformer]]`。
+
+### 4. 教育員 (Educator)
+- **任務**: 確保修改後可透過 Quartz 構建成功。
+- **行動**: 在完成修改後進行 Quartz build 及測試。
