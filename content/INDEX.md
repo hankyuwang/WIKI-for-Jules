@@ -33,6 +33,7 @@ AI 晶片的核心在於高效的平行處理單元，這些架構決定了算�
 
 ### 3. 主流 AI 模型架構
 從傳統的 CNN 到主宰大語言時代的 Transformer 架構。
+- [[LLM]] : 大型語言模型，奠基於 Transformer 架構的人工智慧突破。
 - [[CNN]]
 - [[RNN]]
 - [[Transformer]]
