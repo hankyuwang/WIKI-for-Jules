@@ -32,7 +32,7 @@ Tensor Core 的核心在於 **混合精度運算 (Mixed Precision)**：
 
 ## 世代演進
 Tensor Core 隨著 NVIDIA GPU 架構的演進不斷進化：
-- **早期 Volta 架構**：首次引入 Tensor Core，支援 FP16 運算。
+- **早期 Volta 架構 (現已演進至 Hopper/Blackwell)**：首次引入 Tensor Core，支援 FP16 運算。
 - **Turing 架構**：加入 INT8 和 INT4 支援，加強推理能力。
 - **Ampere 架構**：引入 TF32 (TensorFloat-32) 與 BF16 (Bfloat16)，以及稀疏性 (Sparsity) 支援。
 - **Hopper 架構**：進一步引入 FP8 支援，並搭載 Transformer Engine，針對大型語言模型 (LLM) 進行優化。
