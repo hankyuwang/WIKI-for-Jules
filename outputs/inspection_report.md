@@ -122,3 +122,50 @@
 ## 5. 教育員 (Educator)
 - **任務**：將專業內容轉換為初學者易懂的語言。
 - **執行方式**：在每個擴充的檔案中，加入「💡 初學者比喻」或類似的段落，用生活化的例子解釋艱澀名詞。
+
+# Wiki 巡檢與更新報告
+
+## 1. 失效連結 (Dead Links)
+經掃描 `INDEX.md`，並未發現失效的連結。
+
+## 2. 過時版本 (Outdated Versions)
+經掃描所有內容，未發現使用過時版本的情形，內容符合現行狀態。
+
+## 3. 已棄用架構 (Deprecated Architectures)
+經掃描內容，未發現需要更新的已棄用架構 (如未標註早期的 Volta 或 TPU v1/v2)。
+
+## 4. 官方文件或是論文更新 (Official Document / Paper Updates)
+目前所有基礎技術頁面的描述與最新發表保持一致，本次巡檢未發現需要更新的過期資訊。
+
+## 5. 新最佳實務 (New Best Practices)
+本期未檢測到與現有最佳實務嚴重衝突的內容，無新的外部來源需要同步。
+
+---
+## 孤立節點延伸 (Orphan Nodes)
+經檢查，發現 `Tensor Core.md` 並未連結到 `INDEX.md` 的知識地圖中。我們需要將其延伸並加入 `INDEX.md` 中，讓初學者能透過知識地圖探索到這個關鍵技術。
+
+## 內容稀疏頁面優化
+經分析字元數，發現 `Quantization.md` 內容較少。針對此頁面，虛擬團隊需進行內容補充，提供背景知識、詳細原理、以及初學者比喻。
+
+---
+# 虛擬團隊觸發報告 (Virtual Team Trigger Report)
+
+針對以上發現，觸發虛擬團隊執行更新任務：
+
+## 接待員
+確認任務範圍：
+1. 將孤兒頁面 `Tensor Core` 加入 `INDEX.md`，放置於「2. 核心硬體運算單元」段落。
+2. 針對字數過少的 `Quantization.md` 進行內容擴充。
+
+## 知識架構師
+- 確保 `Tensor Core.md` 透過 `[[Tensor Core]]` 整合至 `INDEX.md`。
+- 確保 `Quantization.md` 在補充內容時維持既有的 metadata 與 tag 結構，並加入相關 `[[WikiLink]]`。
+
+## 研究員
+- **Quantization (量化)**：深入探討量化的數學原理，解釋從 FP32 到 FP16、INT8 甚至 INT4/FP4 的技術演進。解釋 PTQ (Training-Aware Quantization) 與 QAT (Quantization-Aware Training) 的差異。分析量化對記憶體頻寬和硬體效能 (如 TOPS) 的影響，以及對模型準確度的潛在損失。
+
+## 驗證員
+- 確保對 `Quantization` 的描述正確，特別是精度損失與硬體加速之間的權衡，並確保無幻覺。
+
+## 教育員
+- 在 `Quantization.md` 中加入「💡 初學者比喻」，將量化比喻為將高解析度圖片壓縮成低解析度圖片以節省空間的過程，使其易於初學者理解。
