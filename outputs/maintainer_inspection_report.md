@@ -1,29 +1,34 @@
-# 維護員巡檢報告
+# 維護員巡檢報告 (Maintainer Inspection Report)
 
-## 巡檢項目與結果
+## 1. 知識地圖延伸與孤兒節點 (Knowledge Map & Orphans)
+- **發現**：`Tensor Core.md` 是一個孤兒節點，並未在 `INDEX.md` 中被引用。
+- **行動**：需要在 `INDEX.md` 的「核心硬體運算單元」段落中加入 `[[Tensor Core]]` 的連結，以延伸知識地圖。
 
-### 1. 失效連結 (Broken Links)
-- 檢查結果：使用 `check_links2.py` 工具或 `npx quartz build` 檢查，無發現明顯的失效連結錯誤（Build 成功）。
+## 2. 內容過少與專有名詞解說 (Sparse Content & Jargon)
+- **發現**：`Quantization.md`, `基礎計算機結構.md` 內容稍少 (皆小於 1400 字元)。
+- **行動**：觸發虛擬團隊 (教育員與研究員) 對這些頁面進行補充說明，特別是加入初學者比喻，使其更易懂。
 
-### 2. 過時版本 (Outdated Versions)
-- 發現問題：文件中有提及 `TPU v8 (規格尚未公開)`，但對於 `TPU v6` 存在名稱混淆。官方已正式將 TPU v6 命名為 `Trillium`。多處文件如 `知名大廠AI加速晶片研究.md`, `主要商用AI加速晶片架構分析.md` 等，仍使用 `v6 Trillium` 或 `TPU v6` 的稱呼，且有少數地方指稱尚未公開。
-- 建議行動：統一全站將 `TPU v6` 或 `v6 Trillium` 正名為 `Trillium`。
+## 3. 失效連結 (Dead Links)
+- **發現**：在 `Processing-in-Memory.md` 中存在失效連結 `[[LLM]]` (目前沒有 `LLM.md`)。
+- **行動**：將該連結修改為 `[[Transformer]]` 或移除死結，或是新增 `LLM.md` (目前先將死結轉為純文字或連至 Transformer)。
 
-### 3. 已棄用架構 (Deprecated Architectures)
-- 檢查結果：目前在主流 AI 晶片探討中（如 TPU v4/v5/Trillium, H100/B200），尚未發現有需要標記為已完全棄用的主流架構。
+## 4. 過時版本與已棄用架構 (Deprecated Architectures)
+- **發現**：在 `GPU 架構與演進.md`, `高頻寬記憶體_HBM.md`, `Systolic Array.md`, `Tensor Core.md`, `TPU深度解析.md` 等檔案中，有提及 `Volta` 和 `TPU v1` / `TPU v2` 等早期架構。
+- **行動**：在歷史上下文中將這些架構標示為「早期」，並將重點轉移或對應至現代的 Hopper/Blackwell 或 Trillium/TPU v6。
 
-### 4. 官方文件或是論文更新 (Official Docs or Papers Updates)
-- 發現問題：HBM4 與 PCIe 6.0/7.0 最新標準與技術已經陸續有進展，如 `HBM技術與AI硬體瓶頸.md` 和 `HBM 高頻寬記憶體技術.md` 等提到 HBM4 時，可加入最新發展。
-
-### 5. 新最佳實務 (New Best Practices)
-- 檢查結果：針對記憶體牆與互連架構 (如 CXL, NVLink)，現有內容具備基礎。
-
-## 建議虛擬團隊執行事項 (Trigger Virtual Team)
-1. **觸發研究員與驗證員**：
-   - 全面搜索並替換所有與 `TPU v6` 相關的描述，正名為 `Trillium`（如 `TPU v5p / v6 Trillium` 統一改為 `TPU v5p / Trillium`）。確保規格資料與名稱一致。
-   - 審查 `HBM.md` 及相關檔案，確保 HBM4 和 PCIe 6.0/7.0 的前瞻性描述精準。
-2. **觸發教育員**：
-   - 更新上述修正後的檔案到網頁展示。
+## 5. 官方文件/論文更新與新最佳實務
+- **發現**：本次巡檢未發現明確需要更新官方文件之處，但上述量化與 TPU 的更新即為現代最佳實務的一環。
 
 ---
-報告產生時間：2024-05
+
+# 虛擬團隊觸發計畫 (Virtual Team Trigger Plan)
+
+## 知識架構師 (Architect)
+- 負責將 `Tensor Core.md` 整合進 `INDEX.md` 結構中。
+
+## 驗證員 (Validator) & 研究員 (Researcher)
+- 修正 `Processing-in-Memory.md` 中的死結 `[[LLM]]`。
+- 全面盤點並安全地替換/更新歷史架構描述，將 Volta 與 TPU v1/v2 加上「早期」前綴，確保歷史描述正確。
+
+## 教育員 (Educator)
+- 針對 `Quantization.md` 與 `基礎計算機結構.md` 添加「💡 初學者比喻」與更詳盡的背景知識說明，轉換為讀者易讀的形式。

@@ -30,6 +30,7 @@ tags:
 AI 晶片的核心在於高效的平行處理單元，這些架構決定了算力上限。
 - [[SIMD]] : 單指令多資料流 (Single Instruction, Multiple Data)，一種利用單一指令同時處理多個資料點的平行運算技術。
 - [[Systolic Array]] : 脈動陣列，TPU 的核心硬體架構，透過資料在運算單元間的規則流動，極大化矩陣運算效率與降低記憶體存取。
+- [[Tensor Core]] : NVIDIA GPU 中專為深度學習設計的專用硬體運算單元，加速矩陣乘法與累加運算。
 
 ### 3. 主流 AI 模型架構
 從傳統的 CNN 到主宰大語言時代的 Transformer 架構。
